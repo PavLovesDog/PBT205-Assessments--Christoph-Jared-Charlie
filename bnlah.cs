@@ -1,3 +1,0 @@
-void Start(){
-    print("hello");
-}
