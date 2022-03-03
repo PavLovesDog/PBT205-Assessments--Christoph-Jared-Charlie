@@ -1,0 +1,15 @@
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 01\Clone\bin\Debug\net6.0\Clone.exe
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 01\Clone\bin\Debug\net6.0\Clone.deps.json
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 01\Clone\bin\Debug\net6.0\Clone.runtimeconfig.json
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 01\Clone\bin\Debug\net6.0\Clone.dll
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 01\Clone\bin\Debug\net6.0\Clone.pdb
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 01\Clone\obj\Debug\net6.0\Clone.csproj.AssemblyReference.cache
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 01\Clone\obj\Debug\net6.0\Clone.GeneratedMSBuildEditorConfig.editorconfig
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 01\Clone\obj\Debug\net6.0\Clone.AssemblyInfoInputs.cache
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 01\Clone\obj\Debug\net6.0\Clone.AssemblyInfo.cs
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 01\Clone\obj\Debug\net6.0\Clone.csproj.CoreCompileInputs.cache
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 01\Clone\obj\Debug\net6.0\Clone.dll
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 01\Clone\obj\Debug\net6.0\refint\Clone.dll
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 01\Clone\obj\Debug\net6.0\Clone.pdb
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 01\Clone\obj\Debug\net6.0\Clone.genruntimeconfig.cache
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 01\Clone\obj\Debug\net6.0\ref\Clone.dll
