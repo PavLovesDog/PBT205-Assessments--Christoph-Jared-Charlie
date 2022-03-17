@@ -1,32 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "A:\\_UNI\\2022_Tri_01\\PBT202\\Assessment\\Assessment 01\\Clone\\Clone.csproj": {}
+    "A:\\_UNI\\2022_Tri_01\\PBT202\\Assessment\\Assessment 01\\WinFormsApp1\\WinFormsApp1.csproj": {}
   },
   "projects": {
-    "A:\\_UNI\\2022_Tri_01\\PBT202\\Assessment\\Assessment 01\\Clone\\Clone.csproj": {
+    "A:\\_UNI\\2022_Tri_01\\PBT202\\Assessment\\Assessment 01\\WinFormsApp1\\WinFormsApp1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "A:\\_UNI\\2022_Tri_01\\PBT202\\Assessment\\Assessment 01\\Clone\\Clone.csproj",
-        "projectName": "Clone",
-        "projectPath": "A:\\_UNI\\2022_Tri_01\\PBT202\\Assessment\\Assessment 01\\Clone\\Clone.csproj",
+        "projectUniqueName": "A:\\_UNI\\2022_Tri_01\\PBT202\\Assessment\\Assessment 01\\WinFormsApp1\\WinFormsApp1.csproj",
+        "projectName": "WinFormsApp1",
+        "projectPath": "A:\\_UNI\\2022_Tri_01\\PBT202\\Assessment\\Assessment 01\\WinFormsApp1\\WinFormsApp1.csproj",
         "packagesPath": "C:\\Users\\Christoph\\.nuget\\packages\\",
-        "outputPath": "A:\\_UNI\\2022_Tri_01\\PBT202\\Assessment\\Assessment 01\\Clone\\obj\\",
+        "outputPath": "A:\\_UNI\\2022_Tri_01\\PBT202\\Assessment\\Assessment 01\\WinFormsApp1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "A:\\Users\\Christoph\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0"
+          "netcoreapp3.1"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -37,8 +37,8 @@
         }
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",
@@ -49,9 +49,18 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.1.22, 3.1.22]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WindowsForms": {
+              "privateAssets": "none"
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"

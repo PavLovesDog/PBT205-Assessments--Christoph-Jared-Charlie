@@ -1,0 +1,17 @@
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 01\WinFormsApp1\bin\Debug\netcoreapp3.1\WinFormsApp1.exe
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 01\WinFormsApp1\bin\Debug\netcoreapp3.1\WinFormsApp1.deps.json
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 01\WinFormsApp1\bin\Debug\netcoreapp3.1\WinFormsApp1.runtimeconfig.json
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 01\WinFormsApp1\bin\Debug\netcoreapp3.1\WinFormsApp1.runtimeconfig.dev.json
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 01\WinFormsApp1\bin\Debug\netcoreapp3.1\WinFormsApp1.dll
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 01\WinFormsApp1\bin\Debug\netcoreapp3.1\WinFormsApp1.pdb
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 01\WinFormsApp1\obj\Debug\netcoreapp3.1\WinFormsApp1.csproj.AssemblyReference.cache
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 01\WinFormsApp1\obj\Debug\netcoreapp3.1\WinFormsApp1.Form1.resources
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 01\WinFormsApp1\obj\Debug\netcoreapp3.1\WinFormsApp1.csproj.GenerateResource.cache
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 01\WinFormsApp1\obj\Debug\netcoreapp3.1\WinFormsApp1.GeneratedMSBuildEditorConfig.editorconfig
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 01\WinFormsApp1\obj\Debug\netcoreapp3.1\WinFormsApp1.AssemblyInfoInputs.cache
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 01\WinFormsApp1\obj\Debug\netcoreapp3.1\WinFormsApp1.AssemblyInfo.cs
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 01\WinFormsApp1\obj\Debug\netcoreapp3.1\WinFormsApp1.csproj.CoreCompileInputs.cache
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 01\WinFormsApp1\obj\Debug\netcoreapp3.1\WinFormsApp1.dll
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 01\WinFormsApp1\obj\Debug\netcoreapp3.1\WinFormsApp1.pdb
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 01\WinFormsApp1\obj\Debug\netcoreapp3.1\WinFormsApp1.genruntimeconfig.cache
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 01\WinFormsApp1\obj\Debug\netcoreapp3.1\WinFormsApp1.Form2.resources

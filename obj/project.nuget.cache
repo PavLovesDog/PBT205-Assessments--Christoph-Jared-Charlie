@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "kTVVQCfYGQqMaZFXdx34sZd54TJ/ZHDg4Kqzdi+GBniy4VkNeH0xFbNsWtMLDdvkineMefZxZvPGwIgo+gAMdg==",
+  "dgSpecHash": "9nndU7y0DvRRPr+Mx1M3bPjfmHOpvVXULuiqoBIhUhp4YMKinhPv2kxqihI3YxkgQnQc6zRCuhJ8kqcaL+b+iA==",
   "success": true,
-  "projectFilePath": "A:\\_UNI\\2022_Tri_01\\PBT202\\Assessment\\Assessment 01\\Clone\\Clone.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "A:\\_UNI\\2022_Tri_01\\PBT202\\Assessment\\Assessment 01\\WinFormsApp1\\WinFormsApp1.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Christoph\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.22\\microsoft.netcore.app.host.win-x64.3.1.22.nupkg.sha512"
+  ],
   "logs": []
 }
