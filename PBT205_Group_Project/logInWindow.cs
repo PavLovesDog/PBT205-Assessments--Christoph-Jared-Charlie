@@ -19,24 +19,27 @@ namespace PBT205_Group_Project
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
+            // TEST CRAP, can remove
             lblRetort.Text = "NO!";
 
-            //bool windowCreated = 
-           
             // Open second window
             appSelectWindow f2 = new appSelectWindow();
             f2.Show();
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        // this function is for when user click on the text next to username text..... why??
+        private void UserLabel_Click(object sender, System.EventArgs e)
         {
-
+            lblUserReply.Text = "Enter Your Username";
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        // TITLE TEXT
+        private void LblTitleText_Click(object sender, EventArgs e)
         {
-
+            // MORE TEST CRAP, can remove
+            lblRetort.Text = "You click good.";
         }
+
     }
 }

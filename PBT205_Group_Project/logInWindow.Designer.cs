@@ -32,10 +32,11 @@ namespace PBT205_Group_Project
             this.btnLogIn = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.userLabel = new System.Windows.Forms.Label();
+            this.passwordLabel = new System.Windows.Forms.Label();
             this.lblRetort = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblTitleText = new System.Windows.Forms.Label();
+            this.lblUserReply = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnLogIn
@@ -62,24 +63,24 @@ namespace PBT205_Group_Project
             this.textBox2.Size = new System.Drawing.Size(278, 26);
             this.textBox2.TabIndex = 2;
             // 
-            // label1
+            // userLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(219, 288);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 19);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "User:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.userLabel.AutoSize = true;
+            this.userLabel.Location = new System.Drawing.Point(188, 288);
+            this.userLabel.Name = "userLabel";
+            this.userLabel.Size = new System.Drawing.Size(78, 19);
+            this.userLabel.TabIndex = 3;
+            this.userLabel.Text = "Username:";
+            this.userLabel.Click += new System.EventHandler(this.UserLabel_Click);
             // 
-            // label2
+            // passwordLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(188, 345);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 19);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Password:";
+            this.passwordLabel.AutoSize = true;
+            this.passwordLabel.Location = new System.Drawing.Point(188, 345);
+            this.passwordLabel.Name = "passwordLabel";
+            this.passwordLabel.Size = new System.Drawing.Size(73, 19);
+            this.passwordLabel.TabIndex = 4;
+            this.passwordLabel.Text = "Password:";
             // 
             // lblRetort
             // 
@@ -89,26 +90,35 @@ namespace PBT205_Group_Project
             this.lblRetort.Size = new System.Drawing.Size(0, 19);
             this.lblRetort.TabIndex = 5;
             // 
-            // label3
+            // lblTitleText
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Comic Sans MS", 19.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(263, 131);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(255, 48);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Project A.N.I";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.lblTitleText.AutoSize = true;
+            this.lblTitleText.Font = new System.Drawing.Font("Comic Sans MS", 25.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitleText.Location = new System.Drawing.Point(266, 118);
+            this.lblTitleText.Name = "lblTitleText";
+            this.lblTitleText.Size = new System.Drawing.Size(324, 61);
+            this.lblTitleText.TabIndex = 6;
+            this.lblTitleText.Text = "Project A.N.I";
+            this.lblTitleText.Click += new System.EventHandler(this.LblTitleText_Click);
+            //
+            // lblUserReply
+            // 
+            this.lblUserReply.AutoSize = true;
+            this.lblUserReply.Location = new System.Drawing.Point(345, 263);
+            this.lblUserReply.Name = "lblUserReply";
+            this.lblUserReply.Size = new System.Drawing.Size(0, 19);
+            this.lblUserReply.TabIndex = 7;
             // 
             // logInWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 539);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblUserReply);
+            this.Controls.Add(this.lblTitleText);
             this.Controls.Add(this.lblRetort);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.passwordLabel);
+            this.Controls.Add(this.userLabel);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnLogIn);
@@ -125,10 +135,11 @@ namespace PBT205_Group_Project
         private System.Windows.Forms.Button btnLogIn;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label userLabel;
+        private System.Windows.Forms.Label passwordLabel;
         private System.Windows.Forms.Label lblRetort;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblTitleText;
+        private System.Windows.Forms.Label lblUserReply;
     }
 }
 
