@@ -35,6 +35,9 @@ namespace PBT205_Group_Project
         private void ContactButton_Click(object sender, System.EventArgs e)
         {
             // Go to Contact Tracing App
+            contactTracingWindow contactTracingWindow = new contactTracingWindow();
+            contactTracingWindow.Show();
+            this.Close();
         }
 
         private void closeButton_Click(object sender, EventArgs e)

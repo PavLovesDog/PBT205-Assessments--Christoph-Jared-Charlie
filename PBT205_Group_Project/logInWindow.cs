@@ -17,6 +17,7 @@ namespace PBT205_Group_Project
             InitializeComponent();
         }
 
+        // LOG-IN BUTTON
         private void btnLogIn_Click(object sender, EventArgs e)
         {
             // TEST CRAP, can remove
@@ -28,10 +29,21 @@ namespace PBT205_Group_Project
 
         }
 
-        // this function is for when user click on the text next to username text..... why??
+        // EXIT BUTTON
+        private void ExitButton_Click(object sender, System.EventArgs e)
+        {
+            this.Close();
+        }
+
+
+        // these functions are for when user click on the user 0r password text.... probs not needed. 
         private void UserLabel_Click(object sender, System.EventArgs e)
         {
-            lblUserReply.Text = "Enter Your Username";
+            //lblUserReply.Text = "Enter Your Username";
+        }
+        private void passwordLabel_Click(object sender, EventArgs e)
+        {
+
         }
 
         // TITLE TEXT
@@ -39,6 +51,12 @@ namespace PBT205_Group_Project
         {
             // MORE TEST CRAP, can remove
             lblRetort.Text = "You click good.";
+        }
+
+        // controls table setup.. but what to put here? colour?
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
     }
