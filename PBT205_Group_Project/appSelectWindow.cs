@@ -25,6 +25,9 @@ namespace PBT205_Group_Project
         private void TradingButton_Click(object sender, System.EventArgs e)
         {
             // Go to Trading App
+            tradingWindow tWindow = new tradingWindow();
+            tWindow.Show();
+            this.Close();
         }
 
         private void MessagingButton_Click(object sender, System.EventArgs e)
