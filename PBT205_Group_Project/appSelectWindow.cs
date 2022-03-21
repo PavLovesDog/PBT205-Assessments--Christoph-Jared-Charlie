@@ -33,6 +33,9 @@ namespace PBT205_Group_Project
         private void MessagingButton_Click(object sender, System.EventArgs e)
         {
             // Go to Messaging App
+            messagingWindow msgWndw = new messagingWindow();
+            msgWndw.Show();
+            this.Close();
         }
 
         private void ContactButton_Click(object sender, System.EventArgs e)

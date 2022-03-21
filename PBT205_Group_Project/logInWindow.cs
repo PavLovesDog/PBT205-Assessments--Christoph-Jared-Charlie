@@ -12,6 +12,7 @@ namespace PBT205_Group_Project
 {
     public partial class logInWindow : Form
     {
+        public static string username = "";
         public logInWindow()
         {
             InitializeComponent();
@@ -22,6 +23,8 @@ namespace PBT205_Group_Project
         {
             // TEST CRAP, can remove
             lblRetort.Text = "NO!";
+
+            username = textBox1.Text;
 
             // Open second window
             appSelectWindow f2 = new appSelectWindow();

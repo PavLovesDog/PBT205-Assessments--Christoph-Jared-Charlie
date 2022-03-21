@@ -64,6 +64,12 @@
     <Compile Include="appSelectWindow.Designer.cs">
       <DependentUpon>appSelectWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="messagingWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="messagingWindow.Designer.cs">
+      <DependentUpon>messagingWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="tradeConfirmWindow.cs">
@@ -86,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="appSelectWindow.resx">
       <DependentUpon>appSelectWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="messagingWindow.resx">
+      <DependentUpon>messagingWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

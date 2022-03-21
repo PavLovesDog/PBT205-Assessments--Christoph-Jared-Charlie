@@ -60,17 +60,17 @@ namespace PBT205_Group_Project
             // textBox1
             // 
             this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.textBox1.Location = new System.Drawing.Point(87, 3);
+            this.textBox1.Location = new System.Drawing.Point(69, 3);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(279, 26);
+            this.textBox1.Size = new System.Drawing.Size(279, 22);
             this.textBox1.TabIndex = 1;
             // 
             // textBox2
             // 
             this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.textBox2.Location = new System.Drawing.Point(86, 3);
+            this.textBox2.Location = new System.Drawing.Point(69, 3);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(278, 26);
+            this.textBox2.Size = new System.Drawing.Size(278, 22);
             this.textBox2.TabIndex = 2;
             // 
             // userLabel
@@ -79,7 +79,7 @@ namespace PBT205_Group_Project
             this.userLabel.AutoSize = true;
             this.userLabel.Location = new System.Drawing.Point(3, 6);
             this.userLabel.Name = "userLabel";
-            this.userLabel.Size = new System.Drawing.Size(78, 19);
+            this.userLabel.Size = new System.Drawing.Size(60, 15);
             this.userLabel.TabIndex = 3;
             this.userLabel.Text = "Username:";
             this.userLabel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -91,7 +91,7 @@ namespace PBT205_Group_Project
             this.passwordLabel.AutoSize = true;
             this.passwordLabel.Location = new System.Drawing.Point(3, 6);
             this.passwordLabel.Name = "passwordLabel";
-            this.passwordLabel.Size = new System.Drawing.Size(77, 19);
+            this.passwordLabel.Size = new System.Drawing.Size(60, 15);
             this.passwordLabel.TabIndex = 4;
             this.passwordLabel.Text = " Password:";
             this.passwordLabel.Click += new System.EventHandler(this.passwordLabel_Click);
@@ -101,7 +101,7 @@ namespace PBT205_Group_Project
             this.lblRetort.AutoSize = true;
             this.lblRetort.Location = new System.Drawing.Point(368, 453);
             this.lblRetort.Name = "lblRetort";
-            this.lblRetort.Size = new System.Drawing.Size(0, 19);
+            this.lblRetort.Size = new System.Drawing.Size(0, 15);
             this.lblRetort.TabIndex = 5;
             // 
             // lblTitleText
@@ -109,9 +109,9 @@ namespace PBT205_Group_Project
             this.lblTitleText.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblTitleText.AutoSize = true;
             this.lblTitleText.Font = new System.Drawing.Font("Comic Sans MS", 25.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitleText.Location = new System.Drawing.Point(235, 95);
+            this.lblTitleText.Location = new System.Drawing.Point(266, 106);
             this.lblTitleText.Name = "lblTitleText";
-            this.lblTitleText.Size = new System.Drawing.Size(324, 61);
+            this.lblTitleText.Size = new System.Drawing.Size(262, 50);
             this.lblTitleText.TabIndex = 6;
             this.lblTitleText.Text = "Project A.N.I";
             this.lblTitleText.Click += new System.EventHandler(this.LblTitleText_Click);
@@ -182,7 +182,7 @@ namespace PBT205_Group_Project
             // 
             // logInWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 539);
             this.Controls.Add(this.tableLayoutPanel1);
