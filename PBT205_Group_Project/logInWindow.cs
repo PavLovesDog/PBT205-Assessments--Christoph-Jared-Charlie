@@ -62,5 +62,9 @@ namespace PBT205_Group_Project
 
         }
 
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
