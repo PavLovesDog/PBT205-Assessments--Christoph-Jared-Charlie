@@ -256,6 +256,7 @@ namespace PBT205_Group_Project
             this.infoBox.Name = "infoBox";
             this.infoBox.Size = new System.Drawing.Size(848, 121);
             this.infoBox.TabIndex = 2;
+            this.infoBox.TextChanged += new System.EventHandler(this.infoBox_TextChanged);
             // 
             // flowLayoutPanel3
             // 
@@ -522,6 +523,7 @@ namespace PBT205_Group_Project
             this.label104.TabIndex = 99;
             this.label104.Text = "m";
             this.label104.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label104.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label103
             // 
@@ -536,6 +538,7 @@ namespace PBT205_Group_Project
             this.label103.TabIndex = 98;
             this.label103.Text = "m";
             this.label103.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label103.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label102
             // 
@@ -550,6 +553,7 @@ namespace PBT205_Group_Project
             this.label102.TabIndex = 97;
             this.label102.Text = "m";
             this.label102.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label102.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label101
             // 
@@ -564,6 +568,7 @@ namespace PBT205_Group_Project
             this.label101.TabIndex = 96;
             this.label101.Text = "m";
             this.label101.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label101.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label100
             // 
@@ -578,6 +583,7 @@ namespace PBT205_Group_Project
             this.label100.TabIndex = 95;
             this.label100.Text = "m";
             this.label100.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label100.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label99
             // 
@@ -592,6 +598,7 @@ namespace PBT205_Group_Project
             this.label99.TabIndex = 94;
             this.label99.Text = "m";
             this.label99.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label99.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label98
             // 
@@ -606,6 +613,7 @@ namespace PBT205_Group_Project
             this.label98.TabIndex = 93;
             this.label98.Text = "m";
             this.label98.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label98.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label97
             // 
@@ -620,6 +628,7 @@ namespace PBT205_Group_Project
             this.label97.TabIndex = 92;
             this.label97.Text = "m";
             this.label97.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label97.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label96
             // 
@@ -634,6 +643,7 @@ namespace PBT205_Group_Project
             this.label96.TabIndex = 91;
             this.label96.Text = "m";
             this.label96.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label96.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label95
             // 
@@ -648,6 +658,7 @@ namespace PBT205_Group_Project
             this.label95.TabIndex = 90;
             this.label95.Text = "m";
             this.label95.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label95.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label94
             // 
@@ -662,6 +673,7 @@ namespace PBT205_Group_Project
             this.label94.TabIndex = 89;
             this.label94.Text = "m";
             this.label94.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label94.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label93
             // 
@@ -676,6 +688,7 @@ namespace PBT205_Group_Project
             this.label93.TabIndex = 88;
             this.label93.Text = "m";
             this.label93.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label93.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label92
             // 
@@ -690,6 +703,7 @@ namespace PBT205_Group_Project
             this.label92.TabIndex = 87;
             this.label92.Text = "m";
             this.label92.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label92.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label91
             // 
@@ -704,6 +718,7 @@ namespace PBT205_Group_Project
             this.label91.TabIndex = 86;
             this.label91.Text = "m";
             this.label91.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label91.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label90
             // 
@@ -718,6 +733,7 @@ namespace PBT205_Group_Project
             this.label90.TabIndex = 85;
             this.label90.Text = "m";
             this.label90.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label90.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label89
             // 
@@ -732,6 +748,7 @@ namespace PBT205_Group_Project
             this.label89.TabIndex = 84;
             this.label89.Text = "m";
             this.label89.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label89.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label88
             // 
@@ -746,6 +763,7 @@ namespace PBT205_Group_Project
             this.label88.TabIndex = 83;
             this.label88.Text = "m";
             this.label88.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label88.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label87
             // 
@@ -760,6 +778,7 @@ namespace PBT205_Group_Project
             this.label87.TabIndex = 82;
             this.label87.Text = "m";
             this.label87.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label87.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label86
             // 
@@ -774,6 +793,7 @@ namespace PBT205_Group_Project
             this.label86.TabIndex = 81;
             this.label86.Text = "m";
             this.label86.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label86.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label85
             // 
@@ -788,6 +808,7 @@ namespace PBT205_Group_Project
             this.label85.TabIndex = 80;
             this.label85.Text = "m";
             this.label85.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label85.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label84
             // 
@@ -802,6 +823,7 @@ namespace PBT205_Group_Project
             this.label84.TabIndex = 79;
             this.label84.Text = "m";
             this.label84.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label84.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label83
             // 
@@ -816,6 +838,7 @@ namespace PBT205_Group_Project
             this.label83.TabIndex = 78;
             this.label83.Text = "m";
             this.label83.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label83.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label82
             // 
@@ -830,6 +853,7 @@ namespace PBT205_Group_Project
             this.label82.TabIndex = 77;
             this.label82.Text = "m";
             this.label82.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label82.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label81
             // 
@@ -844,6 +868,7 @@ namespace PBT205_Group_Project
             this.label81.TabIndex = 76;
             this.label81.Text = "m";
             this.label81.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label81.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label80
             // 
@@ -858,6 +883,7 @@ namespace PBT205_Group_Project
             this.label80.TabIndex = 75;
             this.label80.Text = "m";
             this.label80.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label80.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label79
             // 
@@ -872,6 +898,7 @@ namespace PBT205_Group_Project
             this.label79.TabIndex = 74;
             this.label79.Text = "m";
             this.label79.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label79.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label78
             // 
@@ -886,6 +913,7 @@ namespace PBT205_Group_Project
             this.label78.TabIndex = 73;
             this.label78.Text = "m";
             this.label78.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label78.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label77
             // 
@@ -900,6 +928,7 @@ namespace PBT205_Group_Project
             this.label77.TabIndex = 72;
             this.label77.Text = "m";
             this.label77.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label77.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label76
             // 
@@ -914,6 +943,7 @@ namespace PBT205_Group_Project
             this.label76.TabIndex = 71;
             this.label76.Text = "m";
             this.label76.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label76.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label75
             // 
@@ -928,6 +958,7 @@ namespace PBT205_Group_Project
             this.label75.TabIndex = 70;
             this.label75.Text = "m";
             this.label75.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label75.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label74
             // 
@@ -942,6 +973,7 @@ namespace PBT205_Group_Project
             this.label74.TabIndex = 69;
             this.label74.Text = "m";
             this.label74.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label74.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label73
             // 
@@ -956,6 +988,7 @@ namespace PBT205_Group_Project
             this.label73.TabIndex = 68;
             this.label73.Text = "m";
             this.label73.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label73.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label72
             // 
@@ -970,6 +1003,7 @@ namespace PBT205_Group_Project
             this.label72.TabIndex = 67;
             this.label72.Text = "m";
             this.label72.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label72.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label71
             // 
@@ -984,6 +1018,7 @@ namespace PBT205_Group_Project
             this.label71.TabIndex = 66;
             this.label71.Text = "m";
             this.label71.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label71.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label70
             // 
@@ -998,6 +1033,7 @@ namespace PBT205_Group_Project
             this.label70.TabIndex = 65;
             this.label70.Text = "m";
             this.label70.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label70.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label69
             // 
@@ -1012,6 +1048,7 @@ namespace PBT205_Group_Project
             this.label69.TabIndex = 64;
             this.label69.Text = "m";
             this.label69.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label69.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label68
             // 
@@ -1026,6 +1063,7 @@ namespace PBT205_Group_Project
             this.label68.TabIndex = 63;
             this.label68.Text = "m";
             this.label68.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label68.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label67
             // 
@@ -1040,6 +1078,7 @@ namespace PBT205_Group_Project
             this.label67.TabIndex = 62;
             this.label67.Text = "m";
             this.label67.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label67.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label66
             // 
@@ -1054,6 +1093,7 @@ namespace PBT205_Group_Project
             this.label66.TabIndex = 61;
             this.label66.Text = "m";
             this.label66.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label66.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label65
             // 
@@ -1068,6 +1108,7 @@ namespace PBT205_Group_Project
             this.label65.TabIndex = 60;
             this.label65.Text = "m";
             this.label65.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label65.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label64
             // 
@@ -1082,6 +1123,7 @@ namespace PBT205_Group_Project
             this.label64.TabIndex = 59;
             this.label64.Text = "m";
             this.label64.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label64.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label63
             // 
@@ -1096,6 +1138,7 @@ namespace PBT205_Group_Project
             this.label63.TabIndex = 58;
             this.label63.Text = "m";
             this.label63.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label63.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label62
             // 
@@ -1110,6 +1153,7 @@ namespace PBT205_Group_Project
             this.label62.TabIndex = 57;
             this.label62.Text = "m";
             this.label62.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label62.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label61
             // 
@@ -1124,6 +1168,7 @@ namespace PBT205_Group_Project
             this.label61.TabIndex = 56;
             this.label61.Text = "m";
             this.label61.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label61.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label60
             // 
@@ -1138,6 +1183,7 @@ namespace PBT205_Group_Project
             this.label60.TabIndex = 55;
             this.label60.Text = "m";
             this.label60.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label60.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label59
             // 
@@ -1152,6 +1198,7 @@ namespace PBT205_Group_Project
             this.label59.TabIndex = 54;
             this.label59.Text = "m";
             this.label59.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label59.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label58
             // 
@@ -1166,6 +1213,7 @@ namespace PBT205_Group_Project
             this.label58.TabIndex = 53;
             this.label58.Text = "m";
             this.label58.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label58.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label57
             // 
@@ -1180,6 +1228,7 @@ namespace PBT205_Group_Project
             this.label57.TabIndex = 52;
             this.label57.Text = "m";
             this.label57.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label57.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label56
             // 
@@ -1194,6 +1243,7 @@ namespace PBT205_Group_Project
             this.label56.TabIndex = 51;
             this.label56.Text = "m";
             this.label56.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label56.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label55
             // 
@@ -1208,6 +1258,7 @@ namespace PBT205_Group_Project
             this.label55.TabIndex = 50;
             this.label55.Text = "m";
             this.label55.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label55.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label54
             // 
@@ -1222,6 +1273,7 @@ namespace PBT205_Group_Project
             this.label54.TabIndex = 49;
             this.label54.Text = "m";
             this.label54.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label54.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label53
             // 
@@ -1236,6 +1288,7 @@ namespace PBT205_Group_Project
             this.label53.TabIndex = 48;
             this.label53.Text = "m";
             this.label53.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label53.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label52
             // 
@@ -1250,6 +1303,7 @@ namespace PBT205_Group_Project
             this.label52.TabIndex = 47;
             this.label52.Text = "m";
             this.label52.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label52.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label51
             // 
@@ -1264,6 +1318,7 @@ namespace PBT205_Group_Project
             this.label51.TabIndex = 46;
             this.label51.Text = "m";
             this.label51.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label51.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label50
             // 
@@ -1278,6 +1333,7 @@ namespace PBT205_Group_Project
             this.label50.TabIndex = 45;
             this.label50.Text = "m";
             this.label50.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label50.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label49
             // 
@@ -1292,6 +1348,7 @@ namespace PBT205_Group_Project
             this.label49.TabIndex = 44;
             this.label49.Text = "m";
             this.label49.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label49.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label48
             // 
@@ -1306,6 +1363,7 @@ namespace PBT205_Group_Project
             this.label48.TabIndex = 43;
             this.label48.Text = "m";
             this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label48.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label47
             // 
@@ -1320,6 +1378,7 @@ namespace PBT205_Group_Project
             this.label47.TabIndex = 42;
             this.label47.Text = "m";
             this.label47.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label47.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label46
             // 
@@ -1334,6 +1393,7 @@ namespace PBT205_Group_Project
             this.label46.TabIndex = 41;
             this.label46.Text = "m";
             this.label46.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label46.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label45
             // 
@@ -1348,6 +1408,7 @@ namespace PBT205_Group_Project
             this.label45.TabIndex = 40;
             this.label45.Text = "m";
             this.label45.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label45.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label44
             // 
@@ -1362,6 +1423,7 @@ namespace PBT205_Group_Project
             this.label44.TabIndex = 39;
             this.label44.Text = "m";
             this.label44.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label44.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label43
             // 
@@ -1376,6 +1438,7 @@ namespace PBT205_Group_Project
             this.label43.TabIndex = 38;
             this.label43.Text = "m";
             this.label43.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label43.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label42
             // 
@@ -1390,6 +1453,7 @@ namespace PBT205_Group_Project
             this.label42.TabIndex = 37;
             this.label42.Text = "m";
             this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label42.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label41
             // 
@@ -1404,6 +1468,7 @@ namespace PBT205_Group_Project
             this.label41.TabIndex = 36;
             this.label41.Text = "m";
             this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label41.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label40
             // 
@@ -1418,6 +1483,7 @@ namespace PBT205_Group_Project
             this.label40.TabIndex = 35;
             this.label40.Text = "m";
             this.label40.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label40.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label39
             // 
@@ -1432,6 +1498,7 @@ namespace PBT205_Group_Project
             this.label39.TabIndex = 34;
             this.label39.Text = "m";
             this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label39.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label38
             // 
@@ -1446,6 +1513,7 @@ namespace PBT205_Group_Project
             this.label38.TabIndex = 33;
             this.label38.Text = "m";
             this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label38.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label37
             // 
@@ -1460,6 +1528,7 @@ namespace PBT205_Group_Project
             this.label37.TabIndex = 32;
             this.label37.Text = "m";
             this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label37.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label36
             // 
@@ -1474,6 +1543,7 @@ namespace PBT205_Group_Project
             this.label36.TabIndex = 31;
             this.label36.Text = "m";
             this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label36.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label35
             // 
@@ -1488,6 +1558,7 @@ namespace PBT205_Group_Project
             this.label35.TabIndex = 30;
             this.label35.Text = "m";
             this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label35.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label34
             // 
@@ -1502,6 +1573,7 @@ namespace PBT205_Group_Project
             this.label34.TabIndex = 29;
             this.label34.Text = "m";
             this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label34.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label33
             // 
@@ -1516,6 +1588,7 @@ namespace PBT205_Group_Project
             this.label33.TabIndex = 28;
             this.label33.Text = "m";
             this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label33.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label32
             // 
@@ -1530,6 +1603,7 @@ namespace PBT205_Group_Project
             this.label32.TabIndex = 27;
             this.label32.Text = "m";
             this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label32.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label31
             // 
@@ -1544,6 +1618,7 @@ namespace PBT205_Group_Project
             this.label31.TabIndex = 26;
             this.label31.Text = "m";
             this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label31.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label30
             // 
@@ -1558,6 +1633,7 @@ namespace PBT205_Group_Project
             this.label30.TabIndex = 25;
             this.label30.Text = "m";
             this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label30.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label29
             // 
@@ -1572,6 +1648,7 @@ namespace PBT205_Group_Project
             this.label29.TabIndex = 24;
             this.label29.Text = "m";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label29.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label28
             // 
@@ -1586,6 +1663,7 @@ namespace PBT205_Group_Project
             this.label28.TabIndex = 23;
             this.label28.Text = "m";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label28.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label27
             // 
@@ -1600,6 +1678,7 @@ namespace PBT205_Group_Project
             this.label27.TabIndex = 22;
             this.label27.Text = "m";
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label27.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label26
             // 
@@ -1614,6 +1693,7 @@ namespace PBT205_Group_Project
             this.label26.TabIndex = 21;
             this.label26.Text = "m";
             this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label26.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label25
             // 
@@ -1628,6 +1708,7 @@ namespace PBT205_Group_Project
             this.label25.TabIndex = 20;
             this.label25.Text = "m";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label25.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label24
             // 
@@ -1642,6 +1723,7 @@ namespace PBT205_Group_Project
             this.label24.TabIndex = 19;
             this.label24.Text = "m";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label24.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label23
             // 
@@ -1656,6 +1738,7 @@ namespace PBT205_Group_Project
             this.label23.TabIndex = 18;
             this.label23.Text = "m";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label23.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label22
             // 
@@ -1670,6 +1753,7 @@ namespace PBT205_Group_Project
             this.label22.TabIndex = 17;
             this.label22.Text = "m";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label22.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label21
             // 
@@ -1684,6 +1768,7 @@ namespace PBT205_Group_Project
             this.label21.TabIndex = 16;
             this.label21.Text = "m";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label21.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label20
             // 
@@ -1698,6 +1783,7 @@ namespace PBT205_Group_Project
             this.label20.TabIndex = 15;
             this.label20.Text = "m";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label20.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label19
             // 
@@ -1712,6 +1798,7 @@ namespace PBT205_Group_Project
             this.label19.TabIndex = 14;
             this.label19.Text = "m";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label19.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label18
             // 
@@ -1726,6 +1813,7 @@ namespace PBT205_Group_Project
             this.label18.TabIndex = 13;
             this.label18.Text = "m";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label18.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label17
             // 
@@ -1740,6 +1828,7 @@ namespace PBT205_Group_Project
             this.label17.TabIndex = 12;
             this.label17.Text = "m";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label17.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label16
             // 
@@ -1754,6 +1843,7 @@ namespace PBT205_Group_Project
             this.label16.TabIndex = 11;
             this.label16.Text = "m";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label16.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label15
             // 
@@ -1768,6 +1858,7 @@ namespace PBT205_Group_Project
             this.label15.TabIndex = 10;
             this.label15.Text = "m";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label15.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label14
             // 
@@ -1782,6 +1873,7 @@ namespace PBT205_Group_Project
             this.label14.TabIndex = 9;
             this.label14.Text = "m";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label14.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label13
             // 
@@ -1796,6 +1888,7 @@ namespace PBT205_Group_Project
             this.label13.TabIndex = 8;
             this.label13.Text = "m";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label13.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label12
             // 
@@ -1810,6 +1903,7 @@ namespace PBT205_Group_Project
             this.label12.TabIndex = 7;
             this.label12.Text = "m";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label12.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label11
             // 
@@ -1824,6 +1918,7 @@ namespace PBT205_Group_Project
             this.label11.TabIndex = 6;
             this.label11.Text = "m";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label11.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label10
             // 
@@ -1838,6 +1933,7 @@ namespace PBT205_Group_Project
             this.label10.TabIndex = 5;
             this.label10.Text = "m";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label10.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label9
             // 
@@ -1852,6 +1948,7 @@ namespace PBT205_Group_Project
             this.label9.TabIndex = 4;
             this.label9.Text = "m";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label9.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label8
             // 
@@ -1866,6 +1963,7 @@ namespace PBT205_Group_Project
             this.label8.TabIndex = 3;
             this.label8.Text = "m";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label8.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label7
             // 
@@ -1880,6 +1978,7 @@ namespace PBT205_Group_Project
             this.label7.TabIndex = 2;
             this.label7.Text = "m";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label7.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label6
             // 
@@ -1894,6 +1993,7 @@ namespace PBT205_Group_Project
             this.label6.TabIndex = 1;
             this.label6.Text = "m";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label6.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // label5
             // 
@@ -1907,11 +2007,11 @@ namespace PBT205_Group_Project
             this.label5.TabIndex = 0;
             this.label5.Text = "m";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label5.Click += new System.EventHandler(this.gridSpace_Click);
             // 
             // updateTimer
             // 
             this.updateTimer.Interval = 2000;
-            //this.updateTimer.Tick += new System.EventHandler(this.timer1_Tick);
             this.updateTimer.Tick += new System.EventHandler(this.UpdateTimer_Tick);
             // 
             // addPersonTimer
