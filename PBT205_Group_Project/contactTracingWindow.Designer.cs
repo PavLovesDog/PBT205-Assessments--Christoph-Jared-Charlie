@@ -282,8 +282,12 @@ namespace PBT205_Group_Project
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "All Contacts",
+            "Player Contacts"});
             this.comboBox1.Location = new System.Drawing.Point(293, 0);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(220, 0, 0, 3);
+            this.comboBox1.MaxDropDownItems = 2;
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(230, 24);
             this.comboBox1.TabIndex = 5;
@@ -307,9 +311,9 @@ namespace PBT205_Group_Project
             this.label1.Location = new System.Drawing.Point(303, 446);
             this.label1.Margin = new System.Windows.Forms.Padding(295, 18, 3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(231, 18);
+            this.label1.Size = new System.Drawing.Size(204, 18);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Search Unique Identifier (ID No.)";
+            this.label1.Text = "         Search Target (QUERY)";
             // 
             // flowLayoutPanel4
             // 
@@ -349,19 +353,19 @@ namespace PBT205_Group_Project
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(301, 0);
-            this.label3.Margin = new System.Windows.Forms.Padding(50, 0, 3, 0);
+            this.label3.Location = new System.Drawing.Point(291, 0);
+            this.label3.Margin = new System.Windows.Forms.Padding(40, 0, 3, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(241, 57);
             this.label3.TabIndex = 2;
-            this.label3.Text = "         WASD to MOVE\r\n    Num. persons on board:\r\nUnique ID\'s: 000 - Total Perso" +
-    "ns";
+            this.label3.Text = "        CLICK to MOVE\r\n    Total Persons on board:\r\nUnique ID\'s: 000 - Total Pers" +
+    "ons";
             // 
             // pictureBox3
             // 
             this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Location = new System.Drawing.Point(625, 3);
+            this.pictureBox3.Location = new System.Drawing.Point(615, 3);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(80, 3, 3, 3);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(63, 74);
@@ -372,7 +376,8 @@ namespace PBT205_Group_Project
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(694, 0);
+            this.label4.Location = new System.Drawing.Point(691, 0);
+            this.label4.Margin = new System.Windows.Forms.Padding(10, 0, 3, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(115, 57);
             this.label4.TabIndex = 3;

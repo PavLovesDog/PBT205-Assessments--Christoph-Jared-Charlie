@@ -123,7 +123,9 @@ namespace PBT205_Group_Project
                 }
             }
 
+            //Start Timers to control movement & person additions
             updateTimer.Start();
+            addPersonTimer.Start();
         }
 
         // Function which updates positions of current players
@@ -168,10 +170,18 @@ namespace PBT205_Group_Project
                     if(personOnBoard)
                     iconLabel.ForeColor = Color.Red;
                 }
-
-
             }
         }
+
+        void UpdateTexts()
+        {
+            // Middle Text
+            label3.Text = "        CLICK to MOVE \n   Total Persons on board: "
+                            + (currentPersons.Count + playerPosition.Count).ToString() +
+                            "\nUnique ID's: 000 - Total Persons ";
+            
+        }
+
 
         public contactTracingWindow()
         {
@@ -245,6 +255,7 @@ namespace PBT205_Group_Project
         // Search text given
         private void searchButton_Click(object sender, EventArgs e)
         {
+            // trigger change in info box
             infoBox_TextChanged(sender, e);
         }
 
@@ -254,20 +265,46 @@ namespace PBT205_Group_Project
             string infoMessage = "";
             string addedMessage = "";
 
-            if(playerContacts.Count > 0)
+            if (comboBox1.Text == "Player Contacts")
             {
-                for (int i = 0; i < playerContacts.Count; i++)
+                if (playerContacts.Count > 0)
                 {
-                    addedMessage = "Player contacted at location " + Convert.ToString(playerContacts[i]) + "  \n";
-                    infoMessage += addedMessage + System.Environment.NewLine;
-                }
+                    for (int i = 0; i < playerContacts.Count; i++)
+                    {
+                        addedMessage = "POSITION - Player contacted at location " + Convert.ToString(playerContacts[i]) + "  \n";
+                        infoMessage += addedMessage + System.Environment.NewLine;
+                    }
 
-                infoBox.Text = infoMessage;
+                    infoBox.Text = infoMessage;
+                }
+                else
+                {
+                    infoBox.Text = "QUERY RESPONSE - You Searched, but found only emptiness... ";
+                }
+            }
+            else if (comboBox1.Text == "All Contacts")
+            {
+                if (personsContacts.Count > 0)
+                {
+                    //infoBox.Text = "QUERY RESPONSE - ";
+                    for (int i = 0; i < personsContacts.Count; i++)
+                    {
+                        addedMessage = "POSITION - Persons contacted at location " + Convert.ToString(personsContacts[i]) + "  \n";
+                        infoMessage += addedMessage + System.Environment.NewLine;
+                    }
+
+                    infoBox.Text = infoMessage;
+                }
+                else
+                {
+                    infoBox.Text = "QUERY RESPONSE - No one has contacted, yet...";
+                }
             }
             else
             {
-                infoBox.Text = "You Searched, but found only emptiness... ";
+                infoBox.Text = "QUERY RESPONSE - No Contacts found, please specify Search Target";
             }
+
 
         }
 
@@ -293,22 +330,77 @@ namespace PBT205_Group_Project
 
                 // create random number based on move list
                 int randomNumber = random.Next(0, 7);
-                int movement = move[randomNumber];
+                int movement = move[randomNumber]; // chose a movement direction, based on number
+
+                //Check if against wall
+                if (index == 0  || index == 10 || index == 20 || index == 30 || index == 40 || index == 50 || 
+                    index == 60 || index == 70 || index == 80 || index == 90 || // Left wall
+                    index == 9  || index == 19 || index == 29 || index == 39 || index == 49 || index == 59 ||
+                    index == 69 || index == 79 || index == 89 || index == 99) // Right wall
+                {
+                    // check if index is top or bottom row (0 or 90/ 9 or 99)
+                    switch (index)
+                    {
+                        case 0: // TOP LEFT
+                            movement = 11; // move diag down right
+                            break;
+
+                        case 90: // BOTTOM LEFT
+                            movement = -9; // move diag up right
+                            break;
+
+                        case 9: // TOP RIGHT
+                            movement = 9; // move diag down left
+                            break;
+
+                        case 99: // BOTTOM RIGHT
+                            movement = -11; // move diag up left  
+                            break;
+
+                        default:
+                            movement = 10; // moves them down the board
+                            break;
+                    }
+                }
+
                 int tempIndex = index; // store old index
                 tempIndex += movement; // create new index
 
-                // if its within bounds
-                if (tempIndex < 100 && tempIndex > -1)
+                // if its within bounds & NOT already in list
+                if (tempIndex < 100 && tempIndex > -1 && !currentPersons.Contains(tempIndex))
                 {
                     newPersons.Add(tempIndex); // add to new list
                 }
-                else // create new perp?
+                else // its out of bounds and or its already in the list
                 {
+                    if(currentPersons.Contains(tempIndex)) // If list already contains item
+                    {
+                        //TODO document contact?
+                        personsContacts.Add(tempIndex);
 
+                        // adjust index by one, dependent on where it is on board
+                        if (tempIndex + 1 >  99)
+                        {
+                            if (!newPersons.Contains(index - 1))
+                            newPersons.Add(index-1);
+                        }
+                        else
+                        {
+                            if (!newPersons.Contains(index + 1))
+                                newPersons.Add(index+1);
+                        }
+                    }
+                    else
+                    {
+                        newPersons.Add(index); // add same index
+                    }
                 }
             }
 
             updateTimer.Start(); // reset timer for next run
+
+            //TODO document conact by comparing newPersons and currentPersons lists?
+
 
             //Make persons list equal to newPersons list 
             currentPersons.Clear();
@@ -317,15 +409,10 @@ namespace PBT205_Group_Project
 
             // UPDate new positions
             UpdatePersons();
-
-
-            //TODO here, update postions of TabIndexs by random selection
-            // add number to tabIndex to access new box
-            // forecolor = backcolor of previous label
-            // new label = color.red
+            UpdateTexts();
         }
 
-        //TODO this doesn't work
+         // Timer to add people to the board
         private void addPersonTimer_Tick(object sender, EventArgs e)
         {
             addPersonTimer.Stop();
