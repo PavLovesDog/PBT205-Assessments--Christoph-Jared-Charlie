@@ -14,16 +14,13 @@ namespace PBT205_Group_Project
 {
     public partial class logInWindow : Form
     {
-<<<<<<< Updated upstream
-        public static string username = "";
-=======
         ClientSocket currentClient = new ClientSocket();
         public static string username = "";
         string password;
->>>>>>> Stashed changes
         public logInWindow()
         {
             InitializeComponent();
+            currentClient.state = State.LoginWindow;
         }
 
         // LOG-IN BUTTON
@@ -45,8 +42,6 @@ namespace PBT205_Group_Project
             //if password doesn't match then let the user know
             //if password matches then login and connect with socket
             //carry over the socket information to use in the any of the apps
-
-            username = textBox1.Text;
 
             // Open second window
 

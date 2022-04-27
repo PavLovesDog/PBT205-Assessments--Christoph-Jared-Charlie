@@ -31,11 +31,7 @@ namespace PBT205_Group_Project
         private void MessagingButton_Click(object sender, System.EventArgs e)
         {
             // Go to Messaging App
-<<<<<<< Updated upstream
-            messagingWindow msgWndw = new messagingWindow();
-=======
             messagingWindow msgWndw = new messagingWindow(server);
->>>>>>> Stashed changes
             msgWndw.Show();
             this.Close();
         }

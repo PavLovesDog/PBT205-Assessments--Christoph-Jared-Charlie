@@ -1,11 +1,23 @@
 using System;
 using System.Net.Sockets;
 using System.Text;
-
-public class ClientSocket
+namespace PBT205_Group_Project
 {
-    public string username;
-    public string password;
-    public Socket socket;
-    public string location;
+
+    public enum State
+    {
+        LoginWindow,
+        AppSelect,
+        Trading,
+        Messaging,
+        ContactTracing
+    }
+    public class ClientSocket
+    {
+        public string username;
+        public string password;
+        public Socket socket;
+        public string location;
+        public State state;
+    }
 }
