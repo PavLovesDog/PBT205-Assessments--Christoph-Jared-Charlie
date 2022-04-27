@@ -40,3 +40,6 @@ A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 03\PBT205-Assessments--Christop
 A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 03\PBT205-Assessments--Christoph-Jared-Charlie\PBT205_Group_Project\bin\Debug\PBT205_Group_Project.exe.config
 A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 03\PBT205-Assessments--Christoph-Jared-Charlie\PBT205_Group_Project\bin\Debug\PBT205_Group_Project.exe
 A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 03\PBT205-Assessments--Christoph-Jared-Charlie\PBT205_Group_Project\bin\Debug\PBT205_Group_Project.pdb
+C:\Users\charl\Desktop\Git\PBT205-Assessments--Christoph-Jared-Charlie\PBT205_Group_Project\obj\Debug\PBT205_Group_Project.messagingWindow.resources
+C:\Users\charl\Desktop\Git\PBT205-Assessments--Christoph-Jared-Charlie\PBT205_Group_Project\obj\Debug\PBT205_Group_Project.tradeConfirmWindow.resources
+C:\Users\charl\Desktop\Git\PBT205-Assessments--Christoph-Jared-Charlie\PBT205_Group_Project\obj\Debug\PBT205_Group_Project.tradingWindow.resources

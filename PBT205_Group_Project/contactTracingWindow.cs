@@ -36,6 +36,8 @@ namespace PBT205_Group_Project
             // 11 moves diag down/right
         };
 
+        //TODO set up a "player" script to hold positional data, infected status, movement data
+
         List<int> currentPersons = new List<int>(); // lists to track persons positions
         List<int> newPersons = new List<int>();  // list to update persons positions
 
@@ -111,6 +113,9 @@ namespace PBT205_Group_Project
         // Function which updates positions of current players
         void UpdatePersons()
         {
+            //tableLayoutPanel2.GetCellPosition;
+
+
             foreach (Control control in tableLayoutPanel2.Controls)
             {
                 Label iconLabel = control as Label; // converts the control variable to a label named iconLabel.
@@ -343,6 +348,7 @@ namespace PBT205_Group_Project
 
             UpdateTexts();
         }
+
 
         //================================================================== UPDATE TIMER
         private void UpdateTimer_Tick(object sender, System.EventArgs e)
