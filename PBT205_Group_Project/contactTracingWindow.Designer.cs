@@ -2021,7 +2021,7 @@ namespace PBT205_Group_Project
             // 
             // addPersonTimer
             // 
-            this.addPersonTimer.Interval = 10000;
+            this.addPersonTimer.Interval = 30000;
             this.addPersonTimer.Tick += new System.EventHandler(this.addPersonTimer_Tick);
             // 
             // contactTracingWindow
