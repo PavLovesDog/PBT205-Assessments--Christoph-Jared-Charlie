@@ -20,6 +20,7 @@ namespace PBT205_Group_Project
         public logInWindow()
         {
             InitializeComponent();
+            currentClient.state = State.LoginWindow;
         }
 
         // LOG-IN BUTTON
