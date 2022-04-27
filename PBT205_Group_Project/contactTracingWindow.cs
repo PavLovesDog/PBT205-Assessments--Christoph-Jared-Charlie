@@ -116,6 +116,29 @@ namespace PBT205_Group_Project
             //tableLayoutPanel2.GetCellPosition;
 
 
+            //POSITIONAL STUFF
+            //// get the position of the icon in that tableLayout
+            //tableLayoutPanel2.GetCellPosition(iconLabel);
+            //
+            ////Creating a cell position
+            //TableLayoutPanelCellPosition b = new TableLayoutPanelCellPosition();
+            //b.Column = 5;
+            //b.Row = 2;
+            //b.Column--;
+
+            // KEY INPUTS
+            // in the Events, double click KeyDown, that will create method I can use to manipulate position
+            /*
+             private void contactTracingWindow_KeyPress(object sender, KeyPressEventArgs e)
+             {
+                if (e.KeyChar == (char)Keys.W)
+                {
+                    //Move player up on board
+                }
+             }
+            */
+
+
             foreach (Control control in tableLayoutPanel2.Controls)
             {
                 Label iconLabel = control as Label; // converts the control variable to a label named iconLabel.
