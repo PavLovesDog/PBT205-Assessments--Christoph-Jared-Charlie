@@ -12,15 +12,17 @@ namespace PBT205_Group_Project
 {
     public partial class contactTracingWindow : Form
     {
-        public contactTracingWindow()
+        ClientSocket server;
+        public contactTracingWindow(ClientSocket s)
         {
+            server = s;
             InitializeComponent();
         }
 
         // Quit and return to App Select screen
         private void quitButton_Click(object sender, EventArgs e)
         {
-            appSelectWindow selectWindow = new appSelectWindow();
+            appSelectWindow selectWindow = new appSelectWindow(server);
             selectWindow.Show();
             this.Close();
         }
@@ -38,6 +40,11 @@ namespace PBT205_Group_Project
         }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
         {
 
         }

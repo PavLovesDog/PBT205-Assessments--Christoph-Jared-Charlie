@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClientSocket.cs" />
     <Compile Include="contactTracingWindow.cs">
       <SubType>Form</SubType>
     </Compile>

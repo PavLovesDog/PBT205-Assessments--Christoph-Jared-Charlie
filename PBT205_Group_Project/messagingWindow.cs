@@ -12,8 +12,10 @@ namespace PBT205_Group_Project
 {
     public partial class messagingWindow : Form
     {
-        public messagingWindow()
+        ClientSocket client;
+        public messagingWindow(ClientSocket cs)
         {
+            client = cs;
             InitializeComponent();
         }
 
