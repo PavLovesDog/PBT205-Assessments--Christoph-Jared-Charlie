@@ -12,6 +12,14 @@ namespace PBT205_Group_Project
 {
     public partial class contactTracingWindow : Form
     {
+        ClientSocket server;
+        public contactTracingWindow(ClientSocket s)
+        {
+            server = s;
+            InitializeComponent();
+        }
+
+        // crete random seed
         Random random = new Random();
 
         List<int> move = new List<int>()
@@ -237,7 +245,8 @@ namespace PBT205_Group_Project
         // Quit and return to App Select screen
         private void quitButton_Click(object sender, EventArgs e)
         {
-            appSelectWindow selectWindow = new appSelectWindow();
+            //TODO Server connection for return to window?
+            appSelectWindow selectWindow = new appSelectWindow(server);
             selectWindow.Show();
             this.Close();
         }

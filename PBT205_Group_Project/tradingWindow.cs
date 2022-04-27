@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net.Sockets;
 
 namespace PBT205_Group_Project
 {
@@ -15,11 +16,13 @@ namespace PBT205_Group_Project
         public static string selectedTopic = "";
         public static string price = "";
         public static string selectedBuyOrSell = "";
-        public tradingWindow()
+        ClientSocket client;
+        public tradingWindow(ClientSocket cs)
         {
             InitializeComponent();
             lstTopics.SelectedIndex = 0;
             buySellCombo.SelectedIndex = 0;
+            client = cs;
             //Message box currently shows which topic is active
             messageBox.Text = lstTopics.GetItemText(lstTopics.SelectedItem);
         }
@@ -43,7 +46,7 @@ namespace PBT205_Group_Project
 
         private void quitBtn_Click(object sender, EventArgs e)
         {
-            appSelectWindow selectWindow = new appSelectWindow();
+            appSelectWindow selectWindow = new appSelectWindow(client);
             selectWindow.Show();
             this.Close();
         }

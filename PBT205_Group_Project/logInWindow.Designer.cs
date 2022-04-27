@@ -30,8 +30,8 @@ namespace PBT205_Group_Project
         private void InitializeComponent()
         {
             this.btnLogIn = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.usernameText = new System.Windows.Forms.TextBox();
+            this.passwordText = new System.Windows.Forms.TextBox();
             this.userLabel = new System.Windows.Forms.Label();
             this.passwordLabel = new System.Windows.Forms.Label();
             this.lblRetort = new System.Windows.Forms.Label();
@@ -57,16 +57,25 @@ namespace PBT205_Group_Project
             this.btnLogIn.UseVisualStyleBackColor = true;
             this.btnLogIn.Click += new System.EventHandler(this.btnLogIn_Click);
             // 
-            // textBox1
+            // usernameText
             // 
+<<<<<<< Updated upstream
             this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.textBox1.Location = new System.Drawing.Point(69, 3);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(279, 22);
             this.textBox1.TabIndex = 1;
+=======
+            this.usernameText.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.usernameText.Location = new System.Drawing.Point(69, 3);
+            this.usernameText.Name = "usernameText";
+            this.usernameText.Size = new System.Drawing.Size(279, 22);
+            this.usernameText.TabIndex = 1;
+>>>>>>> Stashed changes
             // 
-            // textBox2
+            // passwordText
             // 
+<<<<<<< Updated upstream
             this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.textBox2.Location = new System.Drawing.Point(69, 3);
             this.textBox2.Name = "textBox2";
@@ -74,6 +83,15 @@ namespace PBT205_Group_Project
             this.textBox2.Size = new System.Drawing.Size(278, 22);
             this.textBox2.TabIndex = 2;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+=======
+            this.passwordText.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.passwordText.Location = new System.Drawing.Point(69, 3);
+            this.passwordText.Name = "passwordText";
+            this.passwordText.PasswordChar = '*';
+            this.passwordText.Size = new System.Drawing.Size(278, 22);
+            this.passwordText.TabIndex = 2;
+            this.passwordText.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+>>>>>>> Stashed changes
             // 
             // userLabel
             // 
@@ -155,7 +173,7 @@ namespace PBT205_Group_Project
             // 
             this.flowLayoutPanel3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.flowLayoutPanel3.Controls.Add(this.passwordLabel);
-            this.flowLayoutPanel3.Controls.Add(this.textBox2);
+            this.flowLayoutPanel3.Controls.Add(this.passwordText);
             this.flowLayoutPanel3.Location = new System.Drawing.Point(186, 263);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(423, 46);
@@ -165,7 +183,7 @@ namespace PBT205_Group_Project
             // 
             this.flowLayoutPanel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.flowLayoutPanel2.Controls.Add(this.userLabel);
-            this.flowLayoutPanel2.Controls.Add(this.textBox1);
+            this.flowLayoutPanel2.Controls.Add(this.usernameText);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(186, 218);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(423, 39);
@@ -207,8 +225,8 @@ namespace PBT205_Group_Project
         #endregion
 
         private System.Windows.Forms.Button btnLogIn;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox usernameText;
+        private System.Windows.Forms.TextBox passwordText;
         private System.Windows.Forms.Label userLabel;
         private System.Windows.Forms.Label passwordLabel;
         private System.Windows.Forms.Label lblRetort;
