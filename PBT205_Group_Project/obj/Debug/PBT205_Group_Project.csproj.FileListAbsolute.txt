@@ -40,3 +40,18 @@ A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 03\PBT205-Assessments--Christop
 A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 03\PBT205-Assessments--Christoph-Jared-Charlie\PBT205_Group_Project\bin\Debug\PBT205_Group_Project.exe.config
 A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 03\PBT205-Assessments--Christoph-Jared-Charlie\PBT205_Group_Project\bin\Debug\PBT205_Group_Project.exe
 A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 03\PBT205-Assessments--Christoph-Jared-Charlie\PBT205_Group_Project\bin\Debug\PBT205_Group_Project.pdb
+C:\Users\jared\OneDrive\Documents\GitHub\PBT205-Assessments--Christoph-Jared-Charlie\PBT205_Group_Project\bin\Debug\PBT205_Group_Project.exe.config
+C:\Users\jared\OneDrive\Documents\GitHub\PBT205-Assessments--Christoph-Jared-Charlie\PBT205_Group_Project\bin\Debug\PBT205_Group_Project.exe
+C:\Users\jared\OneDrive\Documents\GitHub\PBT205-Assessments--Christoph-Jared-Charlie\PBT205_Group_Project\bin\Debug\PBT205_Group_Project.pdb
+C:\Users\jared\OneDrive\Documents\GitHub\PBT205-Assessments--Christoph-Jared-Charlie\PBT205_Group_Project\obj\Debug\PBT205_Group_Project.csproj.AssemblyReference.cache
+C:\Users\jared\OneDrive\Documents\GitHub\PBT205-Assessments--Christoph-Jared-Charlie\PBT205_Group_Project\obj\Debug\PBT205_Group_Project.contactTracingWindow.resources
+C:\Users\jared\OneDrive\Documents\GitHub\PBT205-Assessments--Christoph-Jared-Charlie\PBT205_Group_Project\obj\Debug\PBT205_Group_Project.logInWindow.resources
+C:\Users\jared\OneDrive\Documents\GitHub\PBT205-Assessments--Christoph-Jared-Charlie\PBT205_Group_Project\obj\Debug\PBT205_Group_Project.appSelectWindow.resources
+C:\Users\jared\OneDrive\Documents\GitHub\PBT205-Assessments--Christoph-Jared-Charlie\PBT205_Group_Project\obj\Debug\PBT205_Group_Project.messagingWindow.resources
+C:\Users\jared\OneDrive\Documents\GitHub\PBT205-Assessments--Christoph-Jared-Charlie\PBT205_Group_Project\obj\Debug\PBT205_Group_Project.Properties.Resources.resources
+C:\Users\jared\OneDrive\Documents\GitHub\PBT205-Assessments--Christoph-Jared-Charlie\PBT205_Group_Project\obj\Debug\PBT205_Group_Project.tradeConfirmWindow.resources
+C:\Users\jared\OneDrive\Documents\GitHub\PBT205-Assessments--Christoph-Jared-Charlie\PBT205_Group_Project\obj\Debug\PBT205_Group_Project.tradingWindow.resources
+C:\Users\jared\OneDrive\Documents\GitHub\PBT205-Assessments--Christoph-Jared-Charlie\PBT205_Group_Project\obj\Debug\PBT205_Group_Project.csproj.GenerateResource.cache
+C:\Users\jared\OneDrive\Documents\GitHub\PBT205-Assessments--Christoph-Jared-Charlie\PBT205_Group_Project\obj\Debug\PBT205_Group_Project.csproj.CoreCompileInputs.cache
+C:\Users\jared\OneDrive\Documents\GitHub\PBT205-Assessments--Christoph-Jared-Charlie\PBT205_Group_Project\obj\Debug\PBT205_Group_Project.exe
+C:\Users\jared\OneDrive\Documents\GitHub\PBT205-Assessments--Christoph-Jared-Charlie\PBT205_Group_Project\obj\Debug\PBT205_Group_Project.pdb
