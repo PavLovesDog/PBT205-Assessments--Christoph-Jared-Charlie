@@ -24,7 +24,7 @@ namespace PBT205_Group_Project
 
         List<int> move = new List<int>()
         {
-            0, -1, 1, -9, 9, -10, 10, -11, 11
+            -1, 1, -9, 9, -10, 10, -11, 11
             
             // -1 moves to the left
             // 1 moves to the right
@@ -144,56 +144,54 @@ namespace PBT205_Group_Project
                 Label iconLabel = control as Label; // converts the control variable to a label named iconLabel.
 
                 // check if index is in our current players list
-                bool containsIndex = currentPersons.Contains(iconLabel.TabIndex);
-                bool isInfected = Infected.Contains(iconLabel.TabIndex);
+                int cell = iconLabel.TabIndex;
 
-                if (containsIndex) // if tabIndex is matches any numbers in persons
-                {
-                    iconLabel.ForeColor = Color.Red; // set person
-                }
-                else if(playerPosition.Contains(iconLabel.TabIndex)) // ensure player doesn't get painted over
+                // positional bools
+                bool playerOnBoard = currentPersons.Contains(playerPosition[0]);
+                bool playerOccupiesSpace = iconLabel.TabIndex == playerPosition[0];
+                bool personOnBoard = currentPersons.Contains(cell);
+
+                bool isDuplicate = duplicates.Contains(cell);
+                bool isInfected = Infected.Contains(cell);
+
+                // ensure player doesn't get painted over
+                if (playerPosition.Contains(cell)) 
                 {
                     iconLabel.ForeColor = Color.Blue;
                 }
-                else if (containsIndex && isInfected)
-                {
-                    iconLabel.ForeColor = Color.Yellow;
-                }
                 else
                 {
-                    iconLabel.ForeColor = iconLabel.BackColor; // Hides Icon from player
+                    iconLabel.ForeColor = iconLabel.BackColor;
                 }
 
                 // ============================================================= Handle Contact with Player & other Persons
-                bool playerOnBoard = currentPersons.Contains(playerPosition[0]);
-                bool playerOccupiesSpace = iconLabel.TabIndex == playerPosition[0];
-                bool personOnBoard = currentPersons.Contains(iconLabel.TabIndex);
-
-                bool isDuplicate = duplicates.Contains(iconLabel.TabIndex);
 
                 if (playerOnBoard && playerOccupiesSpace)
                 {
                     iconLabel.Text = "mm"; // Display 2 people in same square
-                    playerContacts.Add(iconLabel.TabIndex); // log contact
+                    playerContacts.Add(cell); // log contact
                     iconLabel.ForeColor = Color.Green; // display contact through colour change
                 }
                 else if (isDuplicate) // check if position is already occupied
                 {
                     iconLabel.Text = "mm";
                     iconLabel.ForeColor = Color.Green;
-                    duplicates.Clear(); // clear list for next run
+                    duplicates.Remove(cell);
                 }
                 else
                 {
                     iconLabel.Text = "m"; // revert to single person, if no one else occupies space
 
-                    if (personOnBoard)
+                    if (personOnBoard && isInfected)
+                    {
+                        iconLabel.ForeColor = Color.Yellow;
+                    } 
+                    else if(personOnBoard)
+                    {
                         iconLabel.ForeColor = Color.Red;
+                    }
                 }
             }
-
-            //TODO could create a new list, which holds data of all things that have touched, then when first update is donne,
-            //TODO another happens here which changes their colour to green?
         }
 
         void UpdateTexts()
@@ -290,6 +288,7 @@ namespace PBT205_Group_Project
         {
             hitSearchButton = true;
             playerMoves.Clear(); // clear list for fresh movements after search
+
             // trigger change in info box
             infoBox_TextChanged(sender, e);
         }
@@ -378,13 +377,12 @@ namespace PBT205_Group_Project
         {
             updateTimer.Stop();
 
-            //Update new list
             // for every item in the position list
             foreach (int index in currentPersons)
             {
 
                 // create random number based on move list
-                int randomNumber = random.Next(0, 8);
+                int randomNumber = random.Next(0, 7);
                 int movement = move[randomNumber]; // chose a movement direction, based on number
 
                 #region Handle Boundry
@@ -509,29 +507,30 @@ namespace PBT205_Group_Project
 
                 int tempIndex = index; // store old index
 
-                //TODO INFECTED LIST
-                if (duplicates.Contains(tempIndex)) // if the current index is In the duplicate list
+                // If the index is any of the following lists, Mark them as INFECTED
+                if (duplicates.Contains(tempIndex) || playerContacts.Contains(tempIndex) || personsContacts.Contains(tempIndex)
+                     || Infected.Contains(tempIndex))
                 {
-                    tempIndex += movement;
-                    Infected.Add(tempIndex); // add next position to infected list
+                    if(Infected.Contains(tempIndex)) Infected.Remove(tempIndex); // remove old position of infected
+                    tempIndex += movement; // update index
+                    if (tempIndex < 100 && tempIndex > -1) // if its within bounds
+                        Infected.Add(tempIndex); // add next position to infected list
                 }
                 else
                 {
-                    tempIndex += movement; // create new index
+                    tempIndex += movement; // otherwise, just create new index
                 }
 
-                // if its within bounds // & NOT already in list
-                if (tempIndex < 100 && tempIndex > -1 /*&& !currentPersons.Contains(tempIndex)*/)
+                // if index is within bounds 
+                if (tempIndex < 100 && tempIndex > -1)
                 {
-                    newPersons.Add(tempIndex); // add to new list
-
-                    if (currentPersons.Contains(tempIndex)) // If list already contains item
+                    if (newPersons.Contains(tempIndex)) // if updated positions ALREADY contain this position
                     {
-                        personsContacts.Add(tempIndex); // add to contact tracing list
+                        personsContacts.Add(tempIndex); // add to contact tracing list for Text
                         duplicates.Add(tempIndex); // add to duplicate list for display
-
-                        Infected.Add(tempIndex); // add to infected list!
                     }
+
+                    newPersons.Add(tempIndex); // add to new list for position update
                 }
             }
 
@@ -542,7 +541,7 @@ namespace PBT205_Group_Project
             currentPersons = new List<int>(newPersons);
             newPersons.Clear(); // reset for next take
 
-            // UPDate new positions
+            // Update new positions
             UpdatePersons();
             UpdateTexts();
         }
