@@ -283,8 +283,9 @@ namespace PBT205_Group_Project
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "All Contacts",
-            "Player Contacts"});
+            "Infected Contacts",
+            "Player Contacts",
+            "Person Contacts"});
             this.comboBox1.Location = new System.Drawing.Point(293, 0);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(220, 0, 0, 3);
             this.comboBox1.MaxDropDownItems = 2;

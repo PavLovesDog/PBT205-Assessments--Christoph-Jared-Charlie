@@ -52,6 +52,7 @@ namespace PBT205_Group_Project
         //Strings for message box
         string queryResponseMessage = "";
         string positionMessage = "";
+        string infectedMessage = "";
         bool hitSearchButton = false;
 
         // labels to hold data of where player moves, through clicks
@@ -79,8 +80,8 @@ namespace PBT205_Group_Project
             currentPersons.Clear(); // clear list for new players
 
             //Assign Player 
-            Control Player = tableLayoutPanel2;//??
-            Label label = Player as Label;     //??
+            Control Player = tableLayoutPanel2;
+            Label label = Player as Label;     
             label = label60; // middle location
             playerPosition.Add(label.TabIndex);
             label.ForeColor = Color.Blue;
@@ -199,7 +200,7 @@ namespace PBT205_Group_Project
             // Middle Text
             label3.Text = "        CLICK to MOVE \n   Total Persons on board: "
                             + (currentPersons.Count + playerPosition.Count).ToString() +
-                            "\nUnique ID's: 000 - Total Persons ";
+                            "\n       Total Infected:  " + Infected.Count.ToString();
             
         }
 
@@ -215,24 +216,52 @@ namespace PBT205_Group_Project
         {
             Label clickedSpace = sender as Label;
 
+            //========================================Limit player movement
+            int move1 = playerPosition[0] - 1; // -1 moves to the left
+            int move2 = playerPosition[0] + 1; // 1 moves to the right
+            int move3 = playerPosition[0] - 9; // -9 moves diag up/right
+            int move4 = playerPosition[0] + 9; // 9 moves diag down/left
+            int move5 = playerPosition[0] - 10; // -10 moves up
+            int move6 = playerPosition[0] + 10; // 10 moves down
+            int move7 = playerPosition[0] - 11; // -11 moves diag up/left
+            int move8 = playerPosition[0] + 11; // 11 moves diag down/right
+
+            bool isWithinMoveSpace = clickedSpace.TabIndex == move1 || clickedSpace.TabIndex == move2 || 
+                                     clickedSpace.TabIndex == move3 || clickedSpace.TabIndex == move4 || 
+                                     clickedSpace.TabIndex == move5 || clickedSpace.TabIndex == move6 ||
+                                     clickedSpace.TabIndex == move7 || clickedSpace.TabIndex == move8;
+
             // ===============================================================Player Movement
             if (clickedSpace != null)
             {
-                //TODO Change this so player can occupy same space as persons
+
+                // Limit movement to only spaces around player
+                if(!isWithinMoveSpace)
+                {
+                    return;
+                }
+
                 // if space already occupied
                 if (clickedSpace.ForeColor == Color.Red)
-                    return;
+                {
+                    //log contact
+                    playerContacts.Add(clickedSpace.TabIndex);
+
+                    playerPosition.RemoveAt(0);
+                    clickedSpace.Text = "mm";
+                    clickedSpace.ForeColor = Color.Green;
+                    playerPosition.Add(clickedSpace.TabIndex);
+                    playerMoves.Add(clickedSpace.TabIndex);
+                }
 
                 //First click, Plays once!
                 if(firstClick == null)
                 {
-
                     playerPosition.RemoveAt(0); // remove Initial placement
                     firstClick = clickedSpace;
                     firstClick.ForeColor = Color.Blue;
                     playerPosition.Add(firstClick.TabIndex);
                     playerMoves.Add(firstClick.TabIndex);
-                    return;
                 }
                 //Second click
                 else if(secondClick == null)
@@ -250,13 +279,15 @@ namespace PBT205_Group_Project
                     // Plays for EVERY subsequent click
                     playerPosition.RemoveAt(0); // 0 index always removes first item added
                     secondClick = clickedSpace;
-                    secondClick.ForeColor = Color.Blue;
+                    if(!playerContacts.Contains(clickedSpace.TabIndex)) // don't paint over if player is currently contacting
+                            secondClick.ForeColor = Color.Blue;
                     playerPosition.Add(secondClick.TabIndex);
                     playerMoves.Add(secondClick.TabIndex);
                 }
 
+
                 // reset previous tile color
-                if (firstClick != null)
+                if (firstClick != null && secondClick != null)
                 {
                     firstClick.ForeColor = firstClick.BackColor; // revert old color
                     firstClick = secondClick; // update previous position to current
@@ -298,10 +329,10 @@ namespace PBT205_Group_Project
         {
             queryResponseMessage = ""; // reset message ?
             positionMessage = "";
+            infectedMessage = "";
             string addedMessage = ""; // clear addition
 
-            
-            //TODO MAKE A CALL FOR CLICKED POSITION
+            //============================================================== SEARCH PLAYER CONTACTS
             if (comboBox1.Text == "Player Contacts" && hitSearchButton)
             {
                 if (playerContacts.Count > 0)
@@ -321,7 +352,8 @@ namespace PBT205_Group_Project
 
                 hitSearchButton = false; // reset for next run
             }
-            else if (comboBox1.Text == "All Contacts" && hitSearchButton)
+            //============================================================== PERSON CONTACTS
+            else if (comboBox1.Text == "Person Contacts" && hitSearchButton)
             {
                 if (personsContacts.Count > 0)
                 {
@@ -341,11 +373,33 @@ namespace PBT205_Group_Project
 
                 hitSearchButton = false; // reset for next run
             }
+            //============================================================== INFECTED CONTACTS
+            else if (comboBox1.Text == "Infected Contacts" && hitSearchButton)
+            {
+                if (Infected.Count > 0)
+                {
+                    for (int i = 0; i < Infected.Count; i++)
+                    {
+                        addedMessage = "QUERY RESPONSE - Infected person at cell " + Convert.ToString(Infected[i]) + "  \n";
+                        infectedMessage += addedMessage + System.Environment.NewLine;
+                    }
+
+                    infoBox.Text = infectedMessage;
+                }
+                else
+                {
+                    infoBox.Text = "QUERY RESPONSE - You Searched, but found only emptiness... ";
+                }
+
+                hitSearchButton = false; // reset for next run
+            }
+            //============================================================== NO SELECTION
             else if (hitSearchButton)
             {
                 infoBox.Text = "QUERY RESPONSE - No Contacts found, please specify Search Target";
             }
-            else //TODO This is where position will be updated!
+            //============================================================== DEFAULT MOVEMENT
+            else
             {
                 for (int i = 0; i < playerMoves.Count; i++)
                 {
