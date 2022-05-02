@@ -96,7 +96,7 @@ namespace PBT205_Group_Project
                     int randomNumber = random.Next(99); // create a random int within range of list size
                     if (iconLabel.TabIndex < randomNumber + 3 && iconLabel.TabIndex > randomNumber - 3)
                     {
-                        iconLabel.ForeColor = Color.Red; // set player
+                        iconLabel.ForeColor = Color.OrangeRed; // set player
                         currentPersons.Add(iconLabel.TabIndex); // add label to list of players
                     }
                     else
@@ -158,7 +158,7 @@ namespace PBT205_Group_Project
                 // ensure player doesn't get painted over
                 if (playerPosition.Contains(cell)) 
                 {
-                    iconLabel.ForeColor = Color.Blue;
+                    iconLabel.ForeColor = Color.DodgerBlue;
                 }
                 else
                 {
@@ -171,12 +171,12 @@ namespace PBT205_Group_Project
                 {
                     iconLabel.Text = "mm"; // Display 2 people in same square
                     playerContacts.Add(cell); // log contact
-                    iconLabel.ForeColor = Color.Green; // display contact through colour change
+                    iconLabel.ForeColor = Color.ForestGreen; // display contact through colour change
                 }
                 else if (isDuplicate) // check if position is already occupied
                 {
                     iconLabel.Text = "mm";
-                    iconLabel.ForeColor = Color.Green;
+                    iconLabel.ForeColor = Color.ForestGreen;
                     duplicates.Remove(cell);
                 }
                 else
@@ -185,11 +185,11 @@ namespace PBT205_Group_Project
 
                     if (personOnBoard && isInfected)
                     {
-                        iconLabel.ForeColor = Color.Yellow;
+                        iconLabel.ForeColor = Color.Goldenrod;
                     } 
                     else if(personOnBoard)
                     {
-                        iconLabel.ForeColor = Color.Red;
+                        iconLabel.ForeColor = Color.OrangeRed;
                     }
                 }
             }
@@ -198,9 +198,9 @@ namespace PBT205_Group_Project
         void UpdateTexts()
         {
             // Middle Text
-            label3.Text = "        CLICK to MOVE \n   Total Persons on board: "
+            label3.Text = "    'CLICK' to MOVE \nTotal Persons On Board: "
                             + (currentPersons.Count + playerPosition.Count).ToString() +
-                            "\n       Total Infected:  " + Infected.Count.ToString();
+                            "\n     Total Infected:  " + Infected.Count.ToString();
             
         }
 
@@ -216,7 +216,7 @@ namespace PBT205_Group_Project
         {
             Label clickedSpace = sender as Label;
 
-            //========================================Limit player movement
+            //==========================================================Limit player movement
             int move1 = playerPosition[0] - 1; // -1 moves to the left
             int move2 = playerPosition[0] + 1; // 1 moves to the right
             int move3 = playerPosition[0] - 9; // -9 moves diag up/right
@@ -242,14 +242,14 @@ namespace PBT205_Group_Project
                 }
 
                 // if space already occupied
-                if (clickedSpace.ForeColor == Color.Red)
+                if (clickedSpace.ForeColor == Color.OrangeRed || clickedSpace.ForeColor == Color.Goldenrod)
                 {
                     //log contact
                     playerContacts.Add(clickedSpace.TabIndex);
 
                     playerPosition.RemoveAt(0);
                     clickedSpace.Text = "mm";
-                    clickedSpace.ForeColor = Color.Green;
+                    clickedSpace.ForeColor = Color.ForestGreen;
                     playerPosition.Add(clickedSpace.TabIndex);
                     playerMoves.Add(clickedSpace.TabIndex);
                 }
@@ -259,9 +259,10 @@ namespace PBT205_Group_Project
                 {
                     playerPosition.RemoveAt(0); // remove Initial placement
                     firstClick = clickedSpace;
-                    firstClick.ForeColor = Color.Blue;
+                    firstClick.ForeColor = Color.DodgerBlue;
                     playerPosition.Add(firstClick.TabIndex);
                     playerMoves.Add(firstClick.TabIndex);
+                    UpdatePersons(); // call update to remove first instance of player
                 }
                 //Second click
                 else if(secondClick == null)
@@ -269,18 +270,16 @@ namespace PBT205_Group_Project
 
                     playerPosition.RemoveAt(0); // 0 index always removes first item added
                     secondClick = clickedSpace;
-                    secondClick.ForeColor = Color.Blue;
+                    secondClick.ForeColor = Color.DodgerBlue;
                     playerPosition.Add(secondClick.TabIndex);
                     playerMoves.Add(secondClick.TabIndex);
                 }
-                else
+                else // Plays for EVERY subsequent click
                 {
-
-                    // Plays for EVERY subsequent click
-                    playerPosition.RemoveAt(0); // 0 index always removes first item added
+                    playerPosition.RemoveAt(0);
                     secondClick = clickedSpace;
                     if(!playerContacts.Contains(clickedSpace.TabIndex)) // don't paint over if player is currently contacting
-                            secondClick.ForeColor = Color.Blue;
+                            secondClick.ForeColor = Color.DodgerBlue;
                     playerPosition.Add(secondClick.TabIndex);
                     playerMoves.Add(secondClick.TabIndex);
                 }
@@ -339,7 +338,17 @@ namespace PBT205_Group_Project
                 {
                     for (int i = 0; i < playerContacts.Count; i++)
                     {
-                        addedMessage = "QUERY RESPONSE - Player contacted at location " + Convert.ToString(playerContacts[i]) + "  \n";
+                        // account for persons in 0-9 tabIndex labels
+                        string original = Convert.ToString(playerContacts[i]);
+                        if (original == "0" || original == "1" || original == "2" || original == "3" || original == "4" ||
+                            original == "5" || original == "6" || original == "7" || original == "8" || original == "9")
+                        {
+                            //create "0" string
+                            string zero = "0";
+                            original = zero + original;
+                        }
+                        string modified = original.Insert(1, ",");
+                        addedMessage = "QUERY RESPONSE - Player contacted another person at cell (x,y): " + modified + "  \n";
                         queryResponseMessage += addedMessage + System.Environment.NewLine;
                     }
 
@@ -347,7 +356,7 @@ namespace PBT205_Group_Project
                 }
                 else
                 {
-                    infoBox.Text = "QUERY RESPONSE - You Searched, but found only emptiness... ";
+                    infoBox.Text = "QUERY RESPONSE - Player has not contacted anyone yet... ";
                 }
 
                 hitSearchButton = false; // reset for next run
@@ -360,7 +369,16 @@ namespace PBT205_Group_Project
                     //infoBox.Text = "QUERY RESPONSE - ";
                     for (int i = 0; i < personsContacts.Count; i++)
                     {
-                        addedMessage = "QUERY RESPONSE - Persons contacted at location " + Convert.ToString(personsContacts[i]) + "  \n";
+                        string original = Convert.ToString(personsContacts[i]);
+                        if (original == "0" || original == "1" || original == "2" || original == "3" || original == "4" ||
+                            original == "5" || original == "6" || original == "7" || original == "8" || original == "9")
+                        {
+                            //create "0" string
+                            string zero = "0";
+                            original = zero + original;
+                        }
+                        string modified = original.Insert(1, ",");
+                        addedMessage = "QUERY RESPONSE - Persons contacted one another at cell (x,y): " + modified + "  \n";
                         queryResponseMessage += addedMessage + System.Environment.NewLine;
                     }
 
@@ -380,7 +398,16 @@ namespace PBT205_Group_Project
                 {
                     for (int i = 0; i < Infected.Count; i++)
                     {
-                        addedMessage = "QUERY RESPONSE - Infected person at cell " + Convert.ToString(Infected[i]) + "  \n";
+                        string original = Convert.ToString(Infected[i]);
+                        if (original == "0" || original == "1" || original == "2" || original == "3" || original == "4" ||
+                            original == "5" || original == "6" || original == "7" || original == "8" || original == "9")
+                        {
+                            //create "0" string
+                            string zero = "0";
+                            original = zero + original;
+                        }
+                        string modified = original.Insert(1, ",");
+                        addedMessage = "QUERY RESPONSE - Infected person in cell (x,y): " + modified + "  \n";
                         infectedMessage += addedMessage + System.Environment.NewLine;
                     }
 
@@ -388,7 +415,7 @@ namespace PBT205_Group_Project
                 }
                 else
                 {
-                    infoBox.Text = "QUERY RESPONSE - You Searched, but found only emptiness... ";
+                    infoBox.Text = "QUERY RESPONSE - No infected persons, yet... ";
                 }
 
                 hitSearchButton = false; // reset for next run
@@ -403,7 +430,16 @@ namespace PBT205_Group_Project
             {
                 for (int i = 0; i < playerMoves.Count; i++)
                 {
-                    addedMessage = "POSITION - You Moved to cell " + Convert.ToString(playerMoves[i]) + "  \n";
+                    string originalIndex = Convert.ToString(playerMoves[i]);
+                    if (originalIndex == "0" || originalIndex == "1" || originalIndex == "2" || originalIndex == "3" || originalIndex == "4" ||
+                        originalIndex == "5" || originalIndex == "6" || originalIndex == "7" || originalIndex == "8" || originalIndex == "9")
+                    {
+                        //create "0" string
+                        string zero = "0";
+                        originalIndex = zero + originalIndex;
+                    }
+                    string modifiedIndex = originalIndex.Insert(1, ",");
+                    addedMessage = "POSITION - You Moved to cell (x,y): " + modifiedIndex + "  \n";
                     positionMessage += addedMessage + System.Environment.NewLine;
                 }
 
