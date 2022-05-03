@@ -13,15 +13,17 @@ namespace PBT205_Group_Project
     public partial class contactTracingWindow : Form
     {
         ClientSocket server;
+        // Connect to server
         public contactTracingWindow(ClientSocket s)
         {
             server = s;
             InitializeComponent();
         }
 
-        // crete random seed
+        // random seed for move selection
         Random random = new Random();
 
+        // List of possible moves for persons
         List<int> move = new List<int>()
         {
             -1, 1, -9, 9, -10, 10, -11, 11
@@ -36,8 +38,6 @@ namespace PBT205_Group_Project
             // 11 moves diag down/right
         };
 
-        //TODO set up a "player" script to hold positional data, infected status, movement data
-
         List<int> currentPersons = new List<int>(); // lists to track persons positions
         List<int> newPersons = new List<int>();  // list to update persons positions
 
@@ -47,34 +47,43 @@ namespace PBT205_Group_Project
         List<int> playerContacts = new List<int>(); // list to track all player contacts
         List<int> personsContacts = new List<int>(); // list to track all persons contacts
         List<int> duplicates = new List<int>(); // list to check if Persons are occupying same space
-        List<int> Infected = new List<int>(); // List to track infected persons
+        List<int> Exposed = new List<int>(); // List to track persons who have Contacted and could be infected
 
         //Strings for message box
         string queryResponseMessage = "";
         string positionMessage = "";
         string infectedMessage = "";
         bool hitSearchButton = false;
+        bool playerHasContacted = false;
 
         // labels to hold data of where player moves, through clicks
         Label firstClick = null; 
         Label secondClick = null;
 
-        // Function to reset the board
+        // Initialize the window for display and operations
+        public contactTracingWindow()
+        {
+            InitializeComponent();
+        }
+
+        // Function to reset the board for next play
         private void ResetBoard()
         {
-            // this runs through everylabel on the board
             foreach (Control control in tableLayoutPanel2.Controls)
             {
                 Label iconLabel = control as Label;
 
                 if (iconLabel != null)
                 {
-                    iconLabel.ForeColor = iconLabel.BackColor;
+                    iconLabel.ForeColor = iconLabel.BackColor; // set all tiles the same colour
                 }
             }
+
+            //reset player comtact bool
+            playerHasContacted = false;
         }
 
-        //Function to assign perosns to the board at beginning of game
+        //Function to assign persons randomly to the board at beginning of game
         private void AssignPersons()
         {
             currentPersons.Clear(); // clear list for new players
@@ -112,54 +121,37 @@ namespace PBT205_Group_Project
         }
 
         //===================================================================UPDATE POSITIONS
-        // Function which updates positions of current players
+        // Function which updates visual positions of current players/persons 
+        // called every 2 seconds when the update timer runs
         void UpdatePersons()
         {
-            //tableLayoutPanel2.GetCellPosition;
-
-
-            //POSITIONAL STUFF
-            //// get the position of the icon in that tableLayout
-            //tableLayoutPanel2.GetCellPosition(iconLabel);
-            //
-            ////Creating a cell position
-            //TableLayoutPanelCellPosition b = new TableLayoutPanelCellPosition();
-            //b.Column = 5;
-            //b.Row = 2;
-            //b.Column--;
-
-            // KEY INPUTS
-            // in the Events, double click KeyDown, that will create method I can use to manipulate position
-            /*
-             private void contactTracingWindow_KeyPress(object sender, KeyPressEventArgs e)
-             {
-                if (e.KeyChar == (char)Keys.W)
-                {
-                    //Move player up on board
-                }
-             }
-            */
-
-
             foreach (Control control in tableLayoutPanel2.Controls)
             {
-                Label iconLabel = control as Label; // converts the control variable to a label named iconLabel.
+                Label iconLabel = control as Label;
 
-                // check if index is in our current players list
+                // assign the index for readable code
                 int cell = iconLabel.TabIndex;
 
                 // positional bools
                 bool playerOnBoard = currentPersons.Contains(playerPosition[0]);
-                bool playerOccupiesSpace = iconLabel.TabIndex == playerPosition[0];
+                bool playerOccupiesSpace = cell == playerPosition[0];
                 bool personOnBoard = currentPersons.Contains(cell);
 
+                // contacted/infected bools
                 bool isDuplicate = duplicates.Contains(cell);
-                bool isInfected = Infected.Contains(cell);
+                bool isInfected = Exposed.Contains(cell);
 
                 // ensure player doesn't get painted over
                 if (playerPosition.Contains(cell)) 
                 {
-                    iconLabel.ForeColor = Color.DodgerBlue;
+                    if (playerHasContacted)
+                    {
+                        iconLabel.ForeColor = Color.MediumOrchid;
+                    }
+                    else
+                    {
+                        iconLabel.ForeColor = Color.DodgerBlue;
+                    }
                 }
                 else
                 {
@@ -173,6 +165,7 @@ namespace PBT205_Group_Project
                     iconLabel.Text = "mm"; // Display 2 people in same square
                     playerContacts.Add(cell); // log contact
                     iconLabel.ForeColor = Color.ForestGreen; // display contact through colour change
+                    playerHasContacted = true;
                 }
                 else if (isDuplicate) // check if position is already occupied
                 {
@@ -180,13 +173,13 @@ namespace PBT205_Group_Project
                     if(isInfected)
                     {
                         iconLabel.ForeColor = Color.Goldenrod;
-                        //Infected.Add(cell); // Log infection spread
                     }
                     else
                     {
                         iconLabel.ForeColor = Color.ForestGreen;
                     }
-                    duplicates.Remove(cell);
+
+                    duplicates.Remove(cell); // remove for next visual update
                 }
                 else
                 {
@@ -204,27 +197,27 @@ namespace PBT205_Group_Project
             }
         }
 
+        // This function updates the text to display controls, Persons on board & total contacts so far
         void UpdateTexts()
         {
-            // Middle Text
+            int playerInfected = 0;
+            if(playerHasContacted)
+            {
+                playerInfected = 1;
+            }
+            // Info Text on side of screen
             label3.Text = "    'CLICK' to MOVE \nTotal Persons On Board: "
                             + (currentPersons.Count + playerPosition.Count).ToString() +
-                            "\n     Total Infected:  " + Infected.Count.ToString();
+                            "\n       Total Exposed:  " + (Exposed.Count + playerInfected).ToString();
             
         }
 
-
-        public contactTracingWindow()
-        {
-            InitializeComponent();
-
-        }
-
         //==========================================================================PLAYER CONTROL
-        // This event handler, handles every label in the grids Label Click event
+        // This event handler, handles every label in the grids Label-Click event
+        // This is where the user controls the simulation/grid space
         private void gridSpace_Click(object sender, EventArgs e)
         {
-            Label clickedSpace = sender as Label;
+            Label clickedSpace = sender as Label; // get information of the cell clicked on by userS
 
             //==========================================================Limit player movement
             int move1 = playerPosition[0] - 1; // -1 moves to the left
@@ -256,10 +249,20 @@ namespace PBT205_Group_Project
                 {
                     //log contact
                     playerContacts.Add(clickedSpace.TabIndex);
+                    playerHasContacted = true;
 
                     playerPosition.RemoveAt(0);
                     clickedSpace.Text = "mm";
-                    clickedSpace.ForeColor = Color.ForestGreen;
+
+                    // account for if the space occupied is from a contacted/infected persons
+                    if (clickedSpace.ForeColor == Color.Goldenrod) 
+                    {
+                        clickedSpace.ForeColor = Color.Goldenrod;
+                    }
+                    else
+                    {
+                        clickedSpace.ForeColor = Color.ForestGreen;
+                    }
                     playerPosition.Add(clickedSpace.TabIndex);
                     playerMoves.Add(clickedSpace.TabIndex);
                 }
@@ -269,7 +272,16 @@ namespace PBT205_Group_Project
                 {
                     playerPosition.RemoveAt(0); // remove Initial placement
                     firstClick = clickedSpace;
-                    firstClick.ForeColor = Color.DodgerBlue;
+
+                    if(playerHasContacted)
+                    {
+                        firstClick.ForeColor = Color.MediumOrchid;
+                    }
+                    else
+                    {
+                        firstClick.ForeColor = Color.DodgerBlue;
+                    }
+
                     playerPosition.Add(firstClick.TabIndex);
                     playerMoves.Add(firstClick.TabIndex);
                     UpdatePersons(); // call update to remove first instance of player
@@ -280,7 +292,16 @@ namespace PBT205_Group_Project
 
                     playerPosition.RemoveAt(0); // 0 index always removes first item added
                     secondClick = clickedSpace;
-                    secondClick.ForeColor = Color.DodgerBlue;
+
+                    if (playerHasContacted)
+                    {
+                        firstClick.ForeColor = Color.MediumOrchid;
+                    }
+                    else
+                    {
+                        secondClick.ForeColor = Color.DodgerBlue;
+                    }
+
                     playerPosition.Add(secondClick.TabIndex);
                     playerMoves.Add(secondClick.TabIndex);
                 }
@@ -288,8 +309,20 @@ namespace PBT205_Group_Project
                 {
                     playerPosition.RemoveAt(0);
                     secondClick = clickedSpace;
-                    if(!playerContacts.Contains(clickedSpace.TabIndex)) // don't paint over if player is currently contacting
+
+                    // don't paint over if player is currently contacting
+                    if (!playerContacts.Contains(clickedSpace.TabIndex))
+                    {
+                        if(playerHasContacted)
+                        {
+                            secondClick.ForeColor = Color.MediumOrchid;
+                        }
+                        else
+                        {
                             secondClick.ForeColor = Color.DodgerBlue;
+                        }
+                    }
+
                     playerPosition.Add(secondClick.TabIndex);
                     playerMoves.Add(secondClick.TabIndex);
                 }
@@ -303,7 +336,7 @@ namespace PBT205_Group_Project
                 }
 
                 //TODO THIS CALLS THE MESSAGE UPDATE
-                infoBox_TextChanged(sender, e); // send a call to update messgae
+                infoBox_TextChanged(sender, e); // send a call to update positional messgae
             }
         }
 
@@ -322,7 +355,7 @@ namespace PBT205_Group_Project
             this.Close();
         }
 
-        // Search text given
+        // Search Button click event. this tells the infobox to update its message
         private void searchButton_Click(object sender, EventArgs e)
         {
             hitSearchButton = true;
@@ -348,7 +381,7 @@ namespace PBT205_Group_Project
                 {
                     for (int i = 0; i < playerContacts.Count; i++)
                     {
-                        // account for persons in 0-9 tabIndex labels
+                        // account for persons in 0-9 tabIndex labels (as index does not log 01, just 1 for position)
                         string original = Convert.ToString(playerContacts[i]);
                         if (original == "0" || original == "1" || original == "2" || original == "3" || original == "4" ||
                             original == "5" || original == "6" || original == "7" || original == "8" || original == "9")
@@ -399,16 +432,16 @@ namespace PBT205_Group_Project
                     infoBox.Text = "QUERY RESPONSE - No one has contacted, yet...";
                 }
 
-                hitSearchButton = false; // reset for next run
+                hitSearchButton = false;
             }
             //============================================================== INFECTED CONTACTS
-            else if (comboBox1.Text == "Infected Contacts" && hitSearchButton)
+            else if (comboBox1.Text == "Exposed Contacts" && hitSearchButton)
             {
-                if (Infected.Count > 0)
+                if (Exposed.Count > 0)
                 {
-                    for (int i = 0; i < Infected.Count; i++)
+                    for (int i = 0; i < Exposed.Count; i++)
                     {
-                        string original = Convert.ToString(Infected[i]);
+                        string original = Convert.ToString(Exposed[i]);
                         if (original == "0" || original == "1" || original == "2" || original == "3" || original == "4" ||
                             original == "5" || original == "6" || original == "7" || original == "8" || original == "9")
                         {
@@ -417,7 +450,7 @@ namespace PBT205_Group_Project
                             original = zero + original;
                         }
                         string modified = original.Insert(1, ",");
-                        addedMessage = "QUERY RESPONSE - Infected person in cell (x,y): " + modified + "  \n";
+                        addedMessage = "QUERY RESPONSE - Exposed person in cell (x,y): " + modified + "  \n";
                         infectedMessage += addedMessage + System.Environment.NewLine;
                     }
 
@@ -425,15 +458,16 @@ namespace PBT205_Group_Project
                 }
                 else
                 {
-                    infoBox.Text = "QUERY RESPONSE - No infected persons, yet... ";
+                    infoBox.Text = "QUERY RESPONSE - No potentially infected persons, yet... ";
                 }
 
-                hitSearchButton = false; // reset for next run
+                hitSearchButton = false;
             }
             //============================================================== NO SELECTION
             else if (hitSearchButton)
             {
                 infoBox.Text = "QUERY RESPONSE - No Contacts found, please specify Search Target";
+                hitSearchButton = false;
             }
             //============================================================== DEFAULT MOVEMENT
             else
@@ -455,11 +489,9 @@ namespace PBT205_Group_Project
 
                 infoBox.Text = positionMessage;
             }
-
-
         }
 
-        // If Start button is pressed!
+        // If Start button is pressed, call all necessary functions to begin application
         private void startButton_Click(object sender, EventArgs e)
         {
             ResetBoard();
@@ -471,10 +503,11 @@ namespace PBT205_Group_Project
             UpdateTexts();
         }
 
-
         //================================================================== UPDATE TIMER
+        // This timer handles all positional data of persons on board & updates their new positions
         private void UpdateTimer_Tick(object sender, System.EventArgs e)
         {
+            // stop timer to perform its funcitons
             updateTimer.Stop();
 
             // for every item in the position list
@@ -485,6 +518,7 @@ namespace PBT205_Group_Project
                 int randomNumber = random.Next(0, 7);
                 int movement = move[randomNumber]; // chose a movement direction, based on number
 
+                // Region is to handle persons trying to leave to visible area
                 #region Handle Boundry
 
                 //Check if against LEFT wall
@@ -607,14 +641,14 @@ namespace PBT205_Group_Project
 
                 int tempIndex = index; // store old index
 
-                // If the index is any of the following lists, Mark them as INFECTED
-                if (duplicates.Contains(tempIndex) || playerContacts.Contains(tempIndex) || personsContacts.Contains(tempIndex)
-                     || Infected.Contains(tempIndex))
+                // If the index is any of the following lists, Mark them as EXPOSED
+                if (duplicates.Contains(tempIndex) || playerContacts.Contains(tempIndex) || 
+                    personsContacts.Contains(tempIndex) || Exposed.Contains(tempIndex))
                 {
-                    if(Infected.Contains(tempIndex)) Infected.Remove(tempIndex); // remove old position of infected
+                    if(Exposed.Contains(tempIndex)) Exposed.Remove(tempIndex); // remove old position of exposed
                     tempIndex += movement; // update index
                     if (tempIndex < 100 && tempIndex > -1) // if its within bounds
-                        Infected.Add(tempIndex); // add next position to infected list, were it will be next update
+                        Exposed.Add(tempIndex); // add next position to exposed list, were it will be next update
                 }
                 else
                 {
@@ -626,10 +660,8 @@ namespace PBT205_Group_Project
                 {
                     if (newPersons.Contains(tempIndex)) // if updated positions ALREADY contain this position
                     {
-                     
                         personsContacts.Add(tempIndex); // add to contact tracing list for Text
                         duplicates.Add(tempIndex); // add to duplicate list for display
-
                     }
 
                     newPersons.Add(tempIndex); // add to new list for position update
@@ -648,7 +680,7 @@ namespace PBT205_Group_Project
             UpdateTexts();
         }
 
-         // Timer to add people to the board
+         // Timer to add people to the board after a given amount of time
         private void addPersonTimer_Tick(object sender, EventArgs e)
         {
             addPersonTimer.Stop();
@@ -658,16 +690,46 @@ namespace PBT205_Group_Project
             addPersonTimer.Start();
         }
 
-
-        //TODO Handle or delete crap below safely
-        private void label2_Click(object sender, EventArgs e)
+        //====================================================================RESET BUTTON
+        //Reset button, this resets the playing field so there's no need to close and re-open window
+        private void button1_Click(object sender, EventArgs e)
         {
+            //Clear info box
+            infoBox.Text = "";
+
+            // Reset play data
+            ResetBoard();
+            updateTimer.Stop();
+            addPersonTimer.Stop();
+
+            // reset strings and bools
+            queryResponseMessage = "";
+            positionMessage = "";
+            infectedMessage = "";
+            hitSearchButton = false;
+            playerHasContacted = false;
+
+            //Clear all lists
+            currentPersons.Clear();
+            newPersons.Clear();
+            playerPosition.Clear();
+            playerMoves.Clear();
+            playerContacts.Clear();
+            personsContacts.Clear(); 
+            duplicates.Clear();
+            Exposed.Clear();
 
         }
 
+        ////TODO Handle or delete crap below safely
+        private void label2_Click(object sender, EventArgs e)
+        {
+        
+        }
+        
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
-
+        
         }
 
     }

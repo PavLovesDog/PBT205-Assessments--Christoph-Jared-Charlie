@@ -32,6 +32,7 @@ namespace PBT205_Group_Project
             this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.button1 = new System.Windows.Forms.Button();
             this.startButton = new System.Windows.Forms.Button();
             this.quitButton = new System.Windows.Forms.Button();
             this.logOutButton = new System.Windows.Forms.Button();
@@ -41,6 +42,7 @@ namespace PBT205_Group_Project
             this.lblTopic = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.searchButton = new System.Windows.Forms.Button();
+            this.label111 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
@@ -155,7 +157,6 @@ namespace PBT205_Group_Project
             this.label5 = new System.Windows.Forms.Label();
             this.updateTimer = new System.Windows.Forms.Timer(this.components);
             this.addPersonTimer = new System.Windows.Forms.Timer(this.components);
-            this.label111 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
@@ -193,6 +194,7 @@ namespace PBT205_Group_Project
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.Controls.Add(this.button1);
             this.flowLayoutPanel1.Controls.Add(this.startButton);
             this.flowLayoutPanel1.Controls.Add(this.quitButton);
             this.flowLayoutPanel1.Controls.Add(this.logOutButton);
@@ -203,13 +205,26 @@ namespace PBT205_Group_Project
             this.flowLayoutPanel1.Size = new System.Drawing.Size(852, 43);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.button1.Font = new System.Drawing.Font("Wingdings 3", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.button1.Location = new System.Drawing.Point(0, 0);
+            this.button1.Margin = new System.Windows.Forms.Padding(0, 0, 60, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(36, 41);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "P";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // startButton
             // 
             this.startButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.startButton.AutoSize = true;
             this.startButton.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.startButton.Location = new System.Drawing.Point(80, 0);
-            this.startButton.Margin = new System.Windows.Forms.Padding(80, 0, 60, 10);
+            this.startButton.Location = new System.Drawing.Point(136, 0);
+            this.startButton.Margin = new System.Windows.Forms.Padding(40, 0, 60, 10);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(108, 39);
             this.startButton.TabIndex = 0;
@@ -222,8 +237,8 @@ namespace PBT205_Group_Project
             this.quitButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.quitButton.AutoSize = true;
             this.quitButton.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.quitButton.Location = new System.Drawing.Point(368, 0);
-            this.quitButton.Margin = new System.Windows.Forms.Padding(120, 0, 120, 10);
+            this.quitButton.Location = new System.Drawing.Point(364, 0);
+            this.quitButton.Margin = new System.Windows.Forms.Padding(60, 0, 60, 10);
             this.quitButton.Name = "quitButton";
             this.quitButton.Size = new System.Drawing.Size(108, 39);
             this.quitButton.TabIndex = 2;
@@ -235,7 +250,7 @@ namespace PBT205_Group_Project
             // 
             this.logOutButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.logOutButton.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.logOutButton.Location = new System.Drawing.Point(656, 0);
+            this.logOutButton.Location = new System.Drawing.Point(592, 0);
             this.logOutButton.Margin = new System.Windows.Forms.Padding(60, 0, 80, 10);
             this.logOutButton.Name = "logOutButton";
             this.logOutButton.Size = new System.Drawing.Size(108, 39);
@@ -288,7 +303,7 @@ namespace PBT205_Group_Project
             this.comboBox1.Items.AddRange(new object[] {
             "Player Contacts",
             "Person Contacts",
-            "Infected Contacts"});
+            "Exposed Contacts"});
             this.comboBox1.Location = new System.Drawing.Point(293, 0);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(220, 0, 0, 3);
             this.comboBox1.MaxDropDownItems = 2;
@@ -307,6 +322,17 @@ namespace PBT205_Group_Project
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = false;
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            // 
+            // label111
+            // 
+            this.label111.AutoSize = true;
+            this.label111.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label111.Location = new System.Drawing.Point(719, 3);
+            this.label111.Margin = new System.Windows.Forms.Padding(118, 3, 3, 0);
+            this.label111.Name = "label111";
+            this.label111.Size = new System.Drawing.Size(115, 19);
+            this.label111.TabIndex = 6;
+            this.label111.Text = "Column  (Y) 0 - 9";
             // 
             // label1
             // 
@@ -346,7 +372,7 @@ namespace PBT205_Group_Project
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(178, 57);
             this.label3.TabIndex = 2;
-            this.label3.Text = "    \'CLICK\' to MOVE\r\nTotal Persons On Board:   \r\n     Total Infected: ";
+            this.label3.Text = "    \'CLICK\' to MOVE\r\nTotal Persons On Board:   \r\n       Total Exposed: ";
             // 
             // label105
             // 
@@ -445,9 +471,9 @@ namespace PBT205_Group_Project
             this.label109.Location = new System.Drawing.Point(681, 25);
             this.label109.Margin = new System.Windows.Forms.Padding(0, 25, 3, 0);
             this.label109.Name = "label109";
-            this.label109.Size = new System.Drawing.Size(80, 19);
+            this.label109.Size = new System.Drawing.Size(74, 19);
             this.label109.TabIndex = 8;
-            this.label109.Text = "= Infected";
+            this.label109.Text = "= Exposed";
             // 
             // tableLayoutPanel2
             // 
@@ -2090,17 +2116,6 @@ namespace PBT205_Group_Project
             this.addPersonTimer.Interval = 30000;
             this.addPersonTimer.Tick += new System.EventHandler(this.addPersonTimer_Tick);
             // 
-            // label111
-            // 
-            this.label111.AutoSize = true;
-            this.label111.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label111.Location = new System.Drawing.Point(719, 3);
-            this.label111.Margin = new System.Windows.Forms.Padding(118, 3, 3, 0);
-            this.label111.Name = "label111";
-            this.label111.Size = new System.Drawing.Size(115, 19);
-            this.label111.TabIndex = 6;
-            this.label111.Text = "Column  (Y) 0 - 9";
-            // 
             // contactTracingWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -2251,5 +2266,6 @@ namespace PBT205_Group_Project
         private System.Windows.Forms.Label label108;
         private System.Windows.Forms.Label label107;
         private System.Windows.Forms.Label label111;
+        private System.Windows.Forms.Button button1;
     }
 }
