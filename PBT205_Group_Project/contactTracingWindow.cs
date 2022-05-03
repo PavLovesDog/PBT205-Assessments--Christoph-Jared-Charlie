@@ -111,6 +111,7 @@ namespace PBT205_Group_Project
             addPersonTimer.Start();
         }
 
+        //===================================================================UPDATE POSITIONS
         // Function which updates positions of current players
         void UpdatePersons()
         {
@@ -176,7 +177,15 @@ namespace PBT205_Group_Project
                 else if (isDuplicate) // check if position is already occupied
                 {
                     iconLabel.Text = "mm";
-                    iconLabel.ForeColor = Color.ForestGreen;
+                    if(isInfected)
+                    {
+                        iconLabel.ForeColor = Color.Goldenrod;
+                        //Infected.Add(cell); // Log infection spread
+                    }
+                    else
+                    {
+                        iconLabel.ForeColor = Color.ForestGreen;
+                    }
                     duplicates.Remove(cell);
                 }
                 else
@@ -211,6 +220,7 @@ namespace PBT205_Group_Project
 
         }
 
+        //==========================================================================PLAYER CONTROL
         // This event handler, handles every label in the grids Label Click event
         private void gridSpace_Click(object sender, EventArgs e)
         {
@@ -290,7 +300,6 @@ namespace PBT205_Group_Project
                 {
                     firstClick.ForeColor = firstClick.BackColor; // revert old color
                     firstClick = secondClick; // update previous position to current
-
                 }
 
                 //TODO THIS CALLS THE MESSAGE UPDATE
@@ -323,6 +332,7 @@ namespace PBT205_Group_Project
             infoBox_TextChanged(sender, e);
         }
 
+        // =================================================================TEXT BOX
         // Handles Text Shown in search box!
         private void infoBox_TextChanged(object sender, EventArgs e)
         {
@@ -604,7 +614,7 @@ namespace PBT205_Group_Project
                     if(Infected.Contains(tempIndex)) Infected.Remove(tempIndex); // remove old position of infected
                     tempIndex += movement; // update index
                     if (tempIndex < 100 && tempIndex > -1) // if its within bounds
-                        Infected.Add(tempIndex); // add next position to infected list
+                        Infected.Add(tempIndex); // add next position to infected list, were it will be next update
                 }
                 else
                 {
@@ -616,8 +626,10 @@ namespace PBT205_Group_Project
                 {
                     if (newPersons.Contains(tempIndex)) // if updated positions ALREADY contain this position
                     {
+                     
                         personsContacts.Add(tempIndex); // add to contact tracing list for Text
                         duplicates.Add(tempIndex); // add to duplicate list for display
+
                     }
 
                     newPersons.Add(tempIndex); // add to new list for position update
