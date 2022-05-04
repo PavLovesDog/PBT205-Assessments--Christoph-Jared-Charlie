@@ -14,7 +14,6 @@ C:\Users\charl\Desktop\Git\PBT205-Assessments--Christoph-Jared-Charlie\Server\ob
 C:\Users\charl\Desktop\Git\PBT205-Assessments--Christoph-Jared-Charlie\Server\obj\Debug\netcoreapp3.1\Server.AssemblyInfoInputs.cache
 C:\Users\charl\Desktop\Git\PBT205-Assessments--Christoph-Jared-Charlie\Server\obj\Debug\netcoreapp3.1\Server.AssemblyInfo.cs
 C:\Users\charl\Desktop\Git\PBT205-Assessments--Christoph-Jared-Charlie\Server\obj\Debug\netcoreapp3.1\Server.csproj.CoreCompileInputs.cache
-C:\Users\charl\Desktop\Git\PBT205-Assessments--Christoph-Jared-Charlie\Server\obj\Debug\netcoreapp3.1\Server.csproj.CopyComplete
 C:\Users\charl\Desktop\Git\PBT205-Assessments--Christoph-Jared-Charlie\Server\obj\Debug\netcoreapp3.1\Server.dll
 C:\Users\charl\Desktop\Git\PBT205-Assessments--Christoph-Jared-Charlie\Server\obj\Debug\netcoreapp3.1\Server.pdb
 C:\Users\charl\Desktop\Git\PBT205-Assessments--Christoph-Jared-Charlie\Server\obj\Debug\netcoreapp3.1\Server.genruntimeconfig.cache

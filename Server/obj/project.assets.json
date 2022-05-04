@@ -77,19 +77,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Christoph\\.nuget\\packages\\": {}
+    "C:\\Users\\charl\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "A:\\_UNI\\2022_Tri_01\\PBT202\\Assessment\\Assessment 03\\PBT205-Assessments--Christoph-Jared-Charlie\\Server\\Server.csproj",
+      "projectUniqueName": "C:\\Users\\charl\\Desktop\\Git\\PBT205-Assessments--Christoph-Jared-Charlie\\Server\\Server.csproj",
       "projectName": "Server",
-      "projectPath": "A:\\_UNI\\2022_Tri_01\\PBT202\\Assessment\\Assessment 03\\PBT205-Assessments--Christoph-Jared-Charlie\\Server\\Server.csproj",
-      "packagesPath": "C:\\Users\\Christoph\\.nuget\\packages\\",
-      "outputPath": "A:\\_UNI\\2022_Tri_01\\PBT202\\Assessment\\Assessment 03\\PBT205-Assessments--Christoph-Jared-Charlie\\Server\\obj\\",
+      "projectPath": "C:\\Users\\charl\\Desktop\\Git\\PBT205-Assessments--Christoph-Jared-Charlie\\Server\\Server.csproj",
+      "packagesPath": "C:\\Users\\charl\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\charl\\Desktop\\Git\\PBT205-Assessments--Christoph-Jared-Charlie\\Server\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "A:\\Users\\Christoph\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\charl\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -130,18 +130,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[3.1.22, 3.1.22]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.407\\RuntimeIdentifierGraph.json"
       }
     }
   }

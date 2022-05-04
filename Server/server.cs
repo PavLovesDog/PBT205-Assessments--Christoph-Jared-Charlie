@@ -87,13 +87,43 @@ class Server
         }
         ClientSocket newClientSocket = new ClientSocket();
         newClientSocket.socket = joiningSocket;
-        newClientSocket.state = State.LoginWindow;
+        //newClientSocket.state = State.LoginWindow; //BAD, defaulting state
         connectedClients.Add(newClientSocket);
         Console.WriteLine(joiningSocket + " joined");
         joiningSocket.BeginReceive(newClientSocket.buffer, 0, ClientSocket.BUFFER_SIZE, SocketFlags.None, ReceiveCallback, newClientSocket);
         Console.WriteLine("Client connected...");
 
         serverSocket.BeginAccept(AcceptCallback, null);
+    }
+
+    private ClientSocket UpdateClient(string message, ClientSocket currentClient)
+    {
+        //ClientSocket cs = new ClientSocket();
+        string m = message.Substring("<UpdateClient> <State>".Length);
+        string[] str = m.Split("<User>", StringSplitOptions.None);
+        switch (str[0])
+        {
+            case "LoginWindow":
+                currentClient.state = State.LoginWindow;
+                break;
+            case "AppSelect":
+                currentClient.state = State.AppSelect;
+                break;
+            case "Trading":
+                currentClient.state = State.Trading;
+                break;
+            case "Messaging":
+                currentClient.state = State.Messaging;
+                break;
+            case "ContactTracing":
+                currentClient.state = State.ContactTracing;
+                break;
+        }
+        str = str[1].Split("<Pass>", StringSplitOptions.None);
+        currentClient.username = str[0];
+        currentClient.password = str[1];
+
+        return currentClient;
     }
 
     void ReceiveCallback(IAsyncResult ar)
@@ -131,6 +161,11 @@ class Server
             Console.WriteLine(currentClientSocket.username + " has disconnected");
             return;
         }
+        else if (data.StartsWith("<UpdateClient>"))
+        {
+            currentClientSocket = UpdateClient(data,currentClientSocket);
+        }
+
         GetState(currentClientSocket);
         if (data.StartsWith("<State> "))
         {
@@ -395,25 +430,28 @@ class Server
     #region Contact Tracing Handling
     private ClientSocket HandleTracing(string message, ClientSocket cs)
     {
-
-
-        foreach (ClientSocket c in connectedClients)
+        // Check what was sent through and send the back the appropriate response to client side
+        if (message == "POSITION <User Update>")
         {
-            if (c.username == cs.username)
-            {
-                cs.location = c.location;
-            }
+            SendData("POSITION <User Location>", cs);
         }
-        cs.location = "4,3";
-
-        if (message.StartsWith("<UpdatePosition>"))
+        else if (message == "QUERY <User Contacts>")
         {
-            message = message.Substring("<UpdatePosition>".Length);
-            string[] m = message.Split("< UpdatePosition >", StringSplitOptions.None);
-            m[0] = "";
-            m[1] = "8,6";
+            SendData("QUERY RESPONSE <User Contacts>", cs);
         }
-        //do server side tracing here
+        else if (message == "QUERY <Person Contacts>")
+        {
+            SendData("QUERY RESPONSE <Person Contacts>", cs);
+        }
+        else if (message == "QUERY <Exposed Contacts>")
+        {
+            SendData("QUERY RESPONSE <Exposed Contacts>", cs);
+        }
+        else if (message == "Topic <No Search Topic>")
+        {
+            SendData("TOPIC <No Message>", cs);
+        }
+
         return cs;
     }
     #endregion

@@ -190,7 +190,6 @@ namespace PBT205_Group_Project
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(874, 696);
             this.tableLayoutPanel1.TabIndex = 0;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // flowLayoutPanel1
             // 
@@ -301,7 +300,7 @@ namespace PBT205_Group_Project
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "Player Contacts",
+            "User Contacts",
             "Person Contacts",
             "Exposed Contacts"});
             this.comboBox1.Location = new System.Drawing.Point(293, 0);
@@ -412,7 +411,6 @@ namespace PBT205_Group_Project
             this.label2.Size = new System.Drawing.Size(41, 42);
             this.label2.TabIndex = 1;
             this.label2.Text = "m";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label110
             // 

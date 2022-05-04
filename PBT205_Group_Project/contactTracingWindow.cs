@@ -15,88 +15,6 @@ namespace PBT205_Group_Project
 
     public partial class contactTracingWindow : Form
     {
-        byte[] buffer = new byte[2048];
-        Socket serverSocket;
-        ClientSocket currentUser; //keeps track of the currentuser's details
-
-        public contactTracingWindow(ClientSocket s)
-        {
-            currentUser = s;            
-            InitializeComponent();
-
-            ConnectToServer();
-            currentUser.socket = serverSocket;
-        }
-        
-        // Connect to server
-        private void ConnectToServer()
-        {
-            try
-            {
-                IPHostEntry host = Dns.GetHostEntry("localhost");
-                IPAddress ipAddress = host.AddressList[0];
-                IPEndPoint remoteEp = new IPEndPoint(ipAddress, 11000);
-                serverSocket = new Socket(ipAddress.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-                while (!serverSocket.Connected)
-                {
-                    try
-                    {
-                        serverSocket.Connect(remoteEp);
-                    }
-                    catch (Exception e)
-                    {
-                        MessageBox.Show(e.ToString(), "Error");
-                    }
-                }
-
-
-                serverSocket.BeginReceive(buffer, 0, 2048, SocketFlags.None, ReceiveCallback, currentUser);
-                //connectDone.Set();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.ToString(), "Error");
-            }
-        }
-        //handles receiving a message from the server
-        void ReceiveCallback(IAsyncResult ar)
-        {
-            serverSocket = (Socket)ar.AsyncState;
-            int received;//recevied bytes
-            try
-            {
-                received = serverSocket.EndReceive(ar); //get the data from the stream
-            }
-            catch(Exception e)
-            {
-                MessageBox.Show(e.Message, "ERROR", MessageBoxButtons.OK);
-                serverSocket.Shutdown(SocketShutdown.Both);
-                serverSocket.Close();
-                return;
-            }
-
-            byte[] recBuf = new byte[received]; //set a buffer for the received
-            Array.Copy(buffer, recBuf, received); //copies the bytes into the buffer object
-            string data = Encoding.ASCII.GetString(recBuf); //converty the bytes to human readable string
-            //handle data string somehow here
-            //can use a switch or if statements
-            //EXAMPLE:
-            if (data.StartsWith("<Received Position>"))
-            {
-               //position was received by the server
-            } else if (data.StartsWith("<Some commands thing>"))
-            {
-                //handle that command.
-                //look at String.Split() function or String.Substring() function\
-                //both are useful for splitting up string into informatino you want
-
-                //the same can be done on the server side
-            }
-
-            //start BeginReceive again so that this can get messages from the server
-            serverSocket.BeginReceive(buffer, 0, 2048, SocketFlags.None, ReceiveCallback, currentUser);
-        }
-
         // random seed for move selection
         Random random = new Random();
 
@@ -130,19 +48,148 @@ namespace PBT205_Group_Project
         string queryResponseMessage = "";
         string positionMessage = "";
         string infectedMessage = "";
+        string addedMessage = "";
+        string receivedMessage = "";
+
+        // bools for one-time events
         bool hitSearchButton = false;
         bool playerHasContacted = false;
+        bool waitingForMessage = true;
 
         // labels to hold data of where player moves, through clicks
         Label firstClick = null;
         Label secondClick = null;
 
+        // Server Variables
+        byte[] buffer = new byte[2048];
+        Socket serverSocket;
+        ClientSocket currentUser; //keeps track of the currentuser's details
+
+        // CONSTRUCTOR
+        public contactTracingWindow(ClientSocket s)
+        {
+            currentUser = s;            
+            InitializeComponent();
+
+            ConnectToServer();
+            currentUser.socket = serverSocket;
+
+            if(serverSocket.Connected)
+            currentUser.state = State.ContactTracing;
+
+            SendMessage("<UpdateClient> <State>" + currentUser.state + 
+                        "<User>" + currentUser.username + 
+                        "<Pass>" + currentUser.password, 
+                        serverSocket);
+        }
+        
+        //======================================================SERVER FUNCTIONS
+        // Connect to server
+        private void ConnectToServer()
+        {
+            try
+            {
+                IPHostEntry host = Dns.GetHostEntry("localhost");
+                IPAddress ipAddress = host.AddressList[0];
+                IPEndPoint remoteEp = new IPEndPoint(ipAddress, 11000);
+                serverSocket = new Socket(ipAddress.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+                while (!serverSocket.Connected)
+                {
+                    try
+                    {
+                        serverSocket.Connect(remoteEp);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show(e.ToString(), "Error");
+                    }
+                }
+
+                //this line is always listening for messages
+                serverSocket.BeginReceive(buffer, 0, 2048, SocketFlags.None, ReceiveCallback, serverSocket);
+                //connectDone.Set();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "Error");
+            }
+        }
+       
+        //handles receiving a message from the server
+        void ReceiveCallback(IAsyncResult ar)
+        {
+            serverSocket = (Socket)ar.AsyncState;
+            int received;//recevied bytes
+            try
+            {
+                received = serverSocket.EndReceive(ar); //get the data from the stream
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message, "ERROR", MessageBoxButtons.OK);
+                serverSocket.Shutdown(SocketShutdown.Both);
+                serverSocket.Close();
+                return;
+            }
+
+            byte[] recBuf = new byte[received]; //set a buffer for the received
+            Array.Copy(buffer, recBuf, received); //copies the bytes into the buffer object
+            string data = Encoding.ASCII.GetString(recBuf); //converty the bytes to human readable string
+            //handle data string somehow here
+            //can use a switch or if statements
+
+            // Check data received from server side and add it to string for infobox text update
+            switch(data)
+            {
+                case "QUERY RESPONSE <User Contacts>":
+                    receivedMessage += data;
+                    waitingForMessage = false;
+                    break;
+
+                case "QUERY RESPONSE <Person Contacts>":
+                    receivedMessage += data;
+                    waitingForMessage = false;
+                    break;
+
+                case "QUERY RESPONSE <Exposed Contacts>":
+                    receivedMessage += data;
+                    waitingForMessage = false;
+                    break;
+
+                case "TOPIC <No Message>":
+                    receivedMessage += data;
+                    waitingForMessage = false;
+                    break;
+
+                case "POSITION <User Location>":
+                    receivedMessage += data;
+                    waitingForMessage = false;
+                    break;
+
+                default:
+                    waitingForMessage = false; // catch to stop infinite while loops in click/search space
+                    break;
+            }
+
+            //start BeginReceive again so that this can get messages from the server
+            serverSocket.BeginReceive(buffer, 0, 2048, SocketFlags.None, ReceiveCallback, serverSocket);
+        }
+
+        // Function to send a message to the server
+        void SendMessage(string data, Socket target)
+        {
+            byte[] msg = Encoding.ASCII.GetBytes(data);
+            target.Send(msg);
+        }
+        
+        //====================================================INITIALIZE WINDOW
         // Initialize the window for display and operations
         public contactTracingWindow()
         {
             InitializeComponent();
         }
 
+        //==================================================================SET UP FUNCTIONS
         // Function to reset the board for next play
         private void ResetBoard()
         {
@@ -197,7 +244,7 @@ namespace PBT205_Group_Project
             addPersonTimer.Start();
         }
 
-        //===================================================================UPDATE POSITIONS
+        //===================================================================UPDATE POSITIONS & TEXT
         // Function which updates visual positions of current players/persons 
         // called every 2 seconds when the update timer runs
         void UpdatePersons()
@@ -402,8 +449,9 @@ namespace PBT205_Group_Project
 
                     playerPosition.Add(secondClick.TabIndex);
                     playerMoves.Add(secondClick.TabIndex);
+
                     currentUser.location = playerPosition.First().ToString();
-                    
+
                 }
 
 
@@ -414,49 +462,29 @@ namespace PBT205_Group_Project
                     firstClick = secondClick; // update previous position to current
                 }
 
-                //TODO THIS CALLS THE MESSAGE UPDATE
+                // send move position to Server
+                SendMessage("POSITION <User Update>", serverSocket);
+                waitingForMessage = true; // begin while loop whilst messages are updated server side
+                while(waitingForMessage)
+                {
+                    /* Elevator music plays */
+                }
                 infoBox_TextChanged(sender, e); // send a call to update positional messgae
             }
         }
 
-        // Quit and return to App Select screen
-        private void quitButton_Click(object sender, EventArgs e)
-        {
-            //TODO Server connection for return to window?
-            appSelectWindow selectWindow = new appSelectWindow(currentUser);
-            selectWindow.ShowDialog();
-            this.Close();
-        }
-
-        // Log Out and return to log In page
-        private void logOutButton_Click(object sender, EventArgs e)
-        {
-            logInWindow login = new logInWindow();
-            this.Close();
-            login.ShowDialog();
-        }
-
-        // Search Button click event. this tells the infobox to update its message
-        private void searchButton_Click(object sender, EventArgs e)
-        {
-            hitSearchButton = true;
-            playerMoves.Clear(); // clear list for fresh movements after search
-
-            // trigger change in info box
-            infoBox_TextChanged(sender, e);
-        }
-
-        // =================================================================TEXT BOX
+        // =========================================================================== INFO BOX
         // Handles Text Shown in search box!
         private void infoBox_TextChanged(object sender, EventArgs e)
         {
             queryResponseMessage = ""; // reset message ?
             positionMessage = "";
             infectedMessage = "";
-            string addedMessage = ""; // clear addition
+            addedMessage = ""; // clear addition
 
-            //============================================================== SEARCH PLAYER CONTACTS
-            if (comboBox1.Text == "Player Contacts" && hitSearchButton)
+            // Check what message was sent back from server
+            //============================================================== USER CONTACTS
+            if (receivedMessage == "QUERY RESPONSE <User Contacts>" && hitSearchButton)
             {
                 if (playerContacts.Count > 0)
                 {
@@ -472,21 +500,22 @@ namespace PBT205_Group_Project
                             original = zero + original;
                         }
                         string modified = original.Insert(1, ",");
-                        addedMessage = "QUERY RESPONSE - Player contacted another person at cell (x,y): " + modified + "  \n";
+                        addedMessage = "QUERY RESPONSE - User contacted another person at cell (x,y): " + modified + "  \n";
                         queryResponseMessage += addedMessage + System.Environment.NewLine;
                     }
-
+                
                     infoBox.Text = queryResponseMessage;
                 }
                 else
                 {
-                    infoBox.Text = "QUERY RESPONSE - Player has not contacted anyone yet... ";
+                    infoBox.Text = "QUERY RESPONSE - User has not contacted anyone yet... ";
                 }
 
+                waitingForMessage = true;
                 hitSearchButton = false; // reset for next run
             }
             //============================================================== PERSON CONTACTS
-            else if (comboBox1.Text == "Person Contacts" && hitSearchButton)
+            else if (receivedMessage == "QUERY RESPONSE <Person Contacts>" && hitSearchButton)
             {
                 if (personsContacts.Count > 0)
                 {
@@ -505,7 +534,7 @@ namespace PBT205_Group_Project
                         addedMessage = "QUERY RESPONSE - Persons contacted one another at cell (x,y): " + modified + "  \n";
                         queryResponseMessage += addedMessage + System.Environment.NewLine;
                     }
-
+            
                     infoBox.Text = queryResponseMessage;
                 }
                 else
@@ -513,10 +542,11 @@ namespace PBT205_Group_Project
                     infoBox.Text = "QUERY RESPONSE - No one has contacted, yet...";
                 }
 
+                waitingForMessage = true;
                 hitSearchButton = false;
             }
             //============================================================== INFECTED CONTACTS
-            else if (comboBox1.Text == "Exposed Contacts" && hitSearchButton)
+            else if (receivedMessage == "QUERY RESPONSE <Exposed Contacts>" && hitSearchButton)
             {
                 if (Exposed.Count > 0)
                 {
@@ -534,7 +564,7 @@ namespace PBT205_Group_Project
                         addedMessage = "QUERY RESPONSE - Exposed person in cell (x,y): " + modified + "  \n";
                         infectedMessage += addedMessage + System.Environment.NewLine;
                     }
-
+            
                     infoBox.Text = infectedMessage;
                 }
                 else
@@ -542,16 +572,19 @@ namespace PBT205_Group_Project
                     infoBox.Text = "QUERY RESPONSE - No potentially infected persons, yet... ";
                 }
 
+                waitingForMessage = true;
                 hitSearchButton = false;
             }
             //============================================================== NO SELECTION
-            else if (hitSearchButton)
+            else if (receivedMessage == "TOPIC <No Message>" && hitSearchButton)
             {
                 infoBox.Text = "QUERY RESPONSE - No Contacts found, please specify Search Target";
+
+                waitingForMessage = true;
                 hitSearchButton = false;
             }
-            //============================================================== DEFAULT MOVEMENT
-            else
+            //============================================================== USER MOVEMENT
+            else if(receivedMessage == "POSITION <User Location>")
             {
                 for (int i = 0; i < playerMoves.Count; i++)
                 {
@@ -567,11 +600,51 @@ namespace PBT205_Group_Project
                     addedMessage = "POSITION - You Moved to cell (x,y): " + modifiedIndex + "  \n";
                     positionMessage += addedMessage + System.Environment.NewLine;
                 }
-
+            
                 infoBox.Text = positionMessage;
             }
+            
+            waitingForMessage = true; // reset waiting for messages from server next run
+            receivedMessage = ""; // reset message
         }
 
+        //================================================================== SEARH BUTTON
+        // Search Button click event. this sends messages to the server, to update infobox message
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            receivedMessage = ""; // reset message for update from server
+            hitSearchButton = true;
+            playerMoves.Clear(); // clear list for fresh movements after search
+
+            // Send message to server based on drop-down selection
+            if (comboBox1.Text == "User Contacts")
+            {
+                SendMessage("QUERY <User Contacts>", serverSocket);
+            }
+            else if (comboBox1.Text == "Person Contacts")
+            {
+                SendMessage("QUERY <Person Contacts>", serverSocket);
+            }
+            else if (comboBox1.Text == "Exposed Contacts")
+            {
+                SendMessage("QUERY <Exposed Contacts>", serverSocket);
+            }
+            else // Combobox is empty
+            {
+                SendMessage("Topic <No Search Topic>", serverSocket);
+            }
+
+            waitingForMessage = true; // initiate loop
+            while (waitingForMessage) // Loop and wait for message from server
+            {
+                /* Elevator music plays */
+            }
+
+            // once message has been processed server-side, trigger change in info box
+            infoBox_TextChanged(sender, e);
+        }
+
+        // ================================================================= START BUTTON
         // If Start button is pressed, call all necessary functions to begin application
         private void startButton_Click(object sender, EventArgs e)
         {
@@ -582,6 +655,54 @@ namespace PBT205_Group_Project
             UpdatePersons();
 
             UpdateTexts();
+        }
+
+        //====================================================================RESET BUTTON
+        //Reset button, this resets the playing field so there's no need to close and re-open window
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //Clear info box
+            infoBox.Text = "";
+
+            // Reset play data
+            ResetBoard();
+            updateTimer.Stop();
+            addPersonTimer.Stop();
+
+            // reset strings and bools
+            queryResponseMessage = "";
+            positionMessage = "";
+            infectedMessage = "";
+            hitSearchButton = false;
+            playerHasContacted = false;
+
+            //Clear all lists
+            currentPersons.Clear();
+            newPersons.Clear();
+            playerPosition.Clear();
+            playerMoves.Clear();
+            playerContacts.Clear();
+            personsContacts.Clear();
+            duplicates.Clear();
+            Exposed.Clear();
+
+        }
+
+        //========================================================= LOG OUT & QUIT BUTTONS
+        // Quit and return to App Select screen
+        private void quitButton_Click(object sender, EventArgs e)
+        {
+            appSelectWindow selectWindow = new appSelectWindow(currentUser);
+            selectWindow.ShowDialog();
+            this.Close();
+        }
+
+        // Log Out and return to log In page
+        private void logOutButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            logInWindow login = new logInWindow();
+            login.ShowDialog();
         }
 
         //================================================================== UPDATE TIMER
@@ -599,8 +720,6 @@ namespace PBT205_Group_Project
                 int randomNumber = random.Next(0, 7);
                 int movement = move[randomNumber]; // chose a movement direction, based on number
 
-
-                
                 // Region is to handle persons trying to leave to visible area
                 #region Handle Boundry
 
@@ -750,7 +869,7 @@ namespace PBT205_Group_Project
                     newPersons.Add(tempIndex); // add to new list for position update
                 }
             }
-            
+
             updateTimer.Start(); // reset timer for next run
 
             //Make persons list equal to newPersons list 
@@ -763,6 +882,7 @@ namespace PBT205_Group_Project
             UpdateTexts();
         }
 
+        // ============================================================== ADD PERSON TIMER
         // Timer to add people to the board after a given amount of time
         private void addPersonTimer_Tick(object sender, EventArgs e)
         {
@@ -772,48 +892,5 @@ namespace PBT205_Group_Project
 
             addPersonTimer.Start();
         }
-
-        //====================================================================RESET BUTTON
-        //Reset button, this resets the playing field so there's no need to close and re-open window
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //Clear info box
-            infoBox.Text = "";
-
-            // Reset play data
-            ResetBoard();
-            updateTimer.Stop();
-            addPersonTimer.Stop();
-
-            // reset strings and bools
-            queryResponseMessage = "";
-            positionMessage = "";
-            infectedMessage = "";
-            hitSearchButton = false;
-            playerHasContacted = false;
-
-            //Clear all lists
-            currentPersons.Clear();
-            newPersons.Clear();
-            playerPosition.Clear();
-            playerMoves.Clear();
-            playerContacts.Clear();
-            personsContacts.Clear();
-            duplicates.Clear();
-            Exposed.Clear();
-
-        }
-
-        ////TODO Handle or delete crap below safely
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
     }
 }
