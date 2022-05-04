@@ -39,21 +39,26 @@ namespace PBT205_Group_Project
             selectedTopic = lstTopics.GetItemText(lstTopics.SelectedItem);
             selectedBuyOrSell = buySellCombo.GetItemText(buySellCombo.SelectedItem);
             price = priceTextBox.Text;
-
+            MessageBox.Show("You have made a " + selectedBuyOrSell + " order of " + price + ", thank you","Thank",MessageBoxButtons.OK);
+            /*
             tradeConfirmWindow tConfWindow = new tradeConfirmWindow();
-            tConfWindow.Show();
+            tConfWindow.ShowDialog();
+            */
         }
 
         private void quitBtn_Click(object sender, EventArgs e)
         {
             appSelectWindow selectWindow = new appSelectWindow(client);
-            selectWindow.Show();
+            selectWindow.ShowDialog();
             this.Close();
         }
 
         private void logOutBtn_Click(object sender, EventArgs e)
         {
+            logInWindow login = new logInWindow();
+
             this.Close();
+            login.ShowDialog();
         }
     }
 }

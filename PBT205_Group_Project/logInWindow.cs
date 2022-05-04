@@ -5,7 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 using System.Net.Sockets;
 using System.Net;
@@ -14,112 +14,186 @@ namespace PBT205_Group_Project
 {
     public partial class logInWindow : Form
     {
-        ClientSocket currentClient = new ClientSocket();
+
+        ClientSocket currentUser = new ClientSocket();
+        //ClientSocket server = new ClientSocket();
+        Socket serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+        byte[] buffer = new byte[2048];
+        bool loggedin = false;
         public static string username = "";
         string password;
+
+        ManualResetEvent connectDone = new ManualResetEvent(false);
+        ManualResetEvent sendDone = new ManualResetEvent(false);
+        ManualResetEvent receiveDone = new ManualResetEvent(false);
+
         public logInWindow()
         {
             InitializeComponent();
-            currentClient.state = State.LoginWindow;
+            currentUser.socket = serverSocket;
+            //ConnectToServer();
+            //currentClient.state = State.LoginWindow;
         }
+        //when app starts connect to server.
+        // when login button is pressed then send a message to server
+
 
         // LOG-IN BUTTON
         private void btnLogIn_Click(object sender, EventArgs e)
         {
-            //connect to server to check for loging details
-            username = usernameText.Text;
-            password = passwordText.Text;
-            if (ConnectToServer())
+            if (usernameText.Text != "" && passwordText.Text != "")
             {
-                currentClient.username = username;
-                currentClient.password = password;
-                appSelectWindow f2 = new appSelectWindow(currentClient);
-                f2.Show();
-            }
-            //check if username already exists
-            //if not then ask to create user
-            //if it does check if the password matches
-            //if password doesn't match then let the user know
-            //if password matches then login and connect with socket
-            //carry over the socket information to use in the any of the apps
+                username = usernameText.Text;
+                password = passwordText.Text;
+                ConnectToServer();
 
-            // Open second window
+            }
+            else
+            {
+                MessageBox.Show("Username/Password cannot be blank.", "No Blank Pls", MessageBoxButtons.OK);
+            }
+            //  if (!server.socket.Connected)
+            //{
+            //connect to server to check for loging details
+            //}
+            if (serverSocket.Connected)
+            {
+                byte[] msg = Encoding.ASCII.GetBytes("<username>" + username + "<EOF>" + password + "<EOF>");
+                serverSocket.Send(msg);
+            }
+
+
 
         }
-
-        private bool ConnectToServer()
+        //Connects to the server
+        private void ConnectToServer()
         {
-            bool connected = false;
-            byte[] bytes = new byte[1024];
-
             try
             {
                 IPHostEntry host = Dns.GetHostEntry("localhost");
                 IPAddress ipAddress = host.AddressList[0];
                 IPEndPoint remoteEp = new IPEndPoint(ipAddress, 11000);
-                Socket sender = new Socket(ipAddress.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-                
-                try
+
+                serverSocket = new Socket(ipAddress.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+                while (!serverSocket.Connected)
                 {
-                    sender.Connect(remoteEp);
-
-                    byte[] msg = Encoding.ASCII.GetBytes("<username>"+username + "<EOF>");
-                    int bytesSent = sender.Send(msg);
-
-                    msg = Encoding.ASCII.GetBytes(password + "<EOF>");
-                    bytesSent = sender.Send(msg);
-
-                    int bytesRec = sender.Receive(bytes);
-
-                    string data = Encoding.ASCII.GetString(bytes, 0, bytesRec);
-                    switch (data)
+                    try
                     {
-                        //connected
-                        case "<True > Connected":
-                            connected = true;
-                            currentClient.socket = sender;
-                            break;
-                        case "<0>": // user exists, pass wrong
-                            MessageBox.Show("Password is wrong, try again");
-                            connected = false;
-                            break;
-                        case "<1>": //user not exist, ask to create new user
-                            DialogResult r = MessageBox.Show("User does not exist, would you like to create a new user with the chosen password?","Create User?",MessageBoxButtons.YesNo);
-                            if(r == DialogResult.Yes)
-                            {
-                                msg = Encoding.ASCII.GetBytes("<Create> <User>" + username + "<Pass>" + password);
-                                bytesSent = sender.Send(msg);
-                                bytesRec = sender.Receive(bytes);
-                                data = Encoding.ASCII.GetString(bytes, 0, bytesRec);
-                                if(data == "User Created")
-                                {
-                                    connected = true;
-                                }
-                            }else if(r == DialogResult.No)
-                            {
-                                break;
-                            }
-                            break;
+                        serverSocket.Connect(remoteEp);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show(e.ToString(), "Error");
+                        return;
                     }
                 }
-                catch (Exception e)
-                {
-                    MessageBox.Show(e.ToString(), "Error");
-                }
+                serverSocket.BeginReceive(buffer, 0, 2048, SocketFlags.None, ReceiveCallback, serverSocket);
+                connectDone.Set();
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.ToString(), "Error");
             }
-            return connected;
         }
+
 
         // EXIT BUTTON
         private void ExitButton_Click(object sender, System.EventArgs e)
         {
+            if (serverSocket != null)
+            {
+
+                if (serverSocket.Connected)
+                {
+                    SendMessage("<EXIT>", serverSocket);
+                    Thread.Sleep(500);
+                    serverSocket.Shutdown(SocketShutdown.Both);
+                    serverSocket.Close();
+                }
+            }
             this.Close();
         }
 
+        void SendMessage(string data, Socket target)
+        {
+            byte[] msg = Encoding.ASCII.GetBytes(data);
+            target.Send(msg);
+        }
+
+        void ReceiveCallback(IAsyncResult ar)
+        {
+            serverSocket = (Socket)ar.AsyncState;
+            int received;
+            try
+            {
+                received = serverSocket.EndReceive(ar);
+            }
+            catch (SocketException se)
+            {
+
+                serverSocket.Close();
+                return;
+            }
+            byte[] recBuf = new byte[received];
+            Array.Copy(buffer, recBuf, received);
+            string data = Encoding.ASCII.GetString(recBuf);
+            switch (data)
+            {
+                //connected
+                case "Logged in":
+                    loggedin = true;
+                    break;
+                case "<0>": // user exists, pass wrong
+                    MessageBox.Show("Password is wrong, try again");
+                    break;
+                case "<1>": //user not exist, ask to create new user
+                    DialogResult r = MessageBox.Show("User does not exist, would you like to create a new user with the chosen password?", "Create User?", MessageBoxButtons.YesNo);
+                    if (r == DialogResult.Yes)
+                    {
+                        byte[] msg = Encoding.ASCII.GetBytes("<Create> <User>" + username + "<Pass>" + password);
+                        serverSocket.Send(msg);
+                    }
+                    else if (r == DialogResult.No)
+                    {
+                        serverSocket.Shutdown(SocketShutdown.Both);
+                        serverSocket.Close();
+
+                        //return;
+                        break;
+                    }
+                    break;
+                case "User Created":
+
+                    loggedin = true;
+                    break;
+            }
+            if (loggedin)
+            {
+
+                currentUser.username = username;
+                currentUser.password = password;
+                currentUser.socket = serverSocket;
+                currentUser.state = State.AppSelect;
+                SendMessage("<EXIT>", serverSocket);
+                serverSocket.Shutdown(SocketShutdown.Both);
+                serverSocket.Close();
+                appSelectWindow f2 = new appSelectWindow(currentUser);
+                this.Invoke((MethodInvoker)delegate
+                {
+                    this.Hide();
+                });
+                f2.ShowDialog();
+
+
+                return;
+            }
+            receiveDone.Set();
+            if (serverSocket.Connected)
+            {
+                serverSocket.BeginReceive(buffer, 0, 2048, SocketFlags.None, ReceiveCallback, serverSocket);
+                //SendMessage(currentUser.state.ToString(), serverSocket);
+            }
+        }
 
         // these functions are for when user click on the user 0r password text.... probs not needed. 
         private void UserLabel_Click(object sender, System.EventArgs e)

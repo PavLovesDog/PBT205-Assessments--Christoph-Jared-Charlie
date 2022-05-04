@@ -18,3 +18,23 @@ C:\Users\charl\Desktop\Git\PBT205-Assessments--Christoph-Jared-Charlie\Server\ob
 C:\Users\charl\Desktop\Git\PBT205-Assessments--Christoph-Jared-Charlie\Server\obj\Debug\netcoreapp3.1\Server.dll
 C:\Users\charl\Desktop\Git\PBT205-Assessments--Christoph-Jared-Charlie\Server\obj\Debug\netcoreapp3.1\Server.pdb
 C:\Users\charl\Desktop\Git\PBT205-Assessments--Christoph-Jared-Charlie\Server\obj\Debug\netcoreapp3.1\Server.genruntimeconfig.cache
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 03\PBT205-Assessments--Christoph-Jared-Charlie\Server\bin\Debug\netcoreapp3.1\Server.exe
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 03\PBT205-Assessments--Christoph-Jared-Charlie\Server\bin\Debug\netcoreapp3.1\Server.deps.json
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 03\PBT205-Assessments--Christoph-Jared-Charlie\Server\bin\Debug\netcoreapp3.1\Server.runtimeconfig.json
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 03\PBT205-Assessments--Christoph-Jared-Charlie\Server\bin\Debug\netcoreapp3.1\Server.runtimeconfig.dev.json
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 03\PBT205-Assessments--Christoph-Jared-Charlie\Server\bin\Debug\netcoreapp3.1\Server.dll
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 03\PBT205-Assessments--Christoph-Jared-Charlie\Server\bin\Debug\netcoreapp3.1\Server.pdb
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 03\PBT205-Assessments--Christoph-Jared-Charlie\Server\bin\Debug\netcoreapp3.1\System.Data.SQLite.dll
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 03\PBT205-Assessments--Christoph-Jared-Charlie\Server\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\SQLite.Interop.dll
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 03\PBT205-Assessments--Christoph-Jared-Charlie\Server\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\SQLite.Interop.dll
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 03\PBT205-Assessments--Christoph-Jared-Charlie\Server\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\SQLite.Interop.dll
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 03\PBT205-Assessments--Christoph-Jared-Charlie\Server\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\SQLite.Interop.dll
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 03\PBT205-Assessments--Christoph-Jared-Charlie\Server\obj\Debug\netcoreapp3.1\Server.csproj.AssemblyReference.cache
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 03\PBT205-Assessments--Christoph-Jared-Charlie\Server\obj\Debug\netcoreapp3.1\Server.GeneratedMSBuildEditorConfig.editorconfig
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 03\PBT205-Assessments--Christoph-Jared-Charlie\Server\obj\Debug\netcoreapp3.1\Server.AssemblyInfoInputs.cache
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 03\PBT205-Assessments--Christoph-Jared-Charlie\Server\obj\Debug\netcoreapp3.1\Server.AssemblyInfo.cs
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 03\PBT205-Assessments--Christoph-Jared-Charlie\Server\obj\Debug\netcoreapp3.1\Server.csproj.CoreCompileInputs.cache
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 03\PBT205-Assessments--Christoph-Jared-Charlie\Server\obj\Debug\netcoreapp3.1\Server.csproj.CopyComplete
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 03\PBT205-Assessments--Christoph-Jared-Charlie\Server\obj\Debug\netcoreapp3.1\Server.dll
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 03\PBT205-Assessments--Christoph-Jared-Charlie\Server\obj\Debug\netcoreapp3.1\Server.pdb
+A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 03\PBT205-Assessments--Christoph-Jared-Charlie\Server\obj\Debug\netcoreapp3.1\Server.genruntimeconfig.cache

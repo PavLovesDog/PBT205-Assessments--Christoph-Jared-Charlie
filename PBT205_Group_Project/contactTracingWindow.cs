@@ -345,14 +345,16 @@ namespace PBT205_Group_Project
         {
             //TODO Server connection for return to window?
             appSelectWindow selectWindow = new appSelectWindow(server);
-            selectWindow.Show();
+            selectWindow.ShowDialog();
             this.Close();
         }
 
         // Log Out and return to log In page
         private void logOutButton_Click(object sender, EventArgs e)
         {
+            logInWindow login = new logInWindow();
             this.Close();
+            login.ShowDialog();
         }
 
         // Search Button click event. this tells the infobox to update its message
