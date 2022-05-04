@@ -119,7 +119,6 @@ namespace PBT205_Group_Project
             this.buttonSend.TabIndex = 2;
             this.buttonSend.Text = "Send";
             this.buttonSend.UseVisualStyleBackColor = true;
-            this.buttonSend.Click += new System.EventHandler(this.buttonConnect_Click);
             // 
             // listMessage
             // 

@@ -17,13 +17,78 @@ namespace PBT205_Group_Project
         Socket socket;
         EndPoint epLocal, epRemote;
         byte[] buffer;
-        ClientSocket client;
+        ClientSocket currentUser;
+        Socket serverSocket;
         public messagingWindow(ClientSocket cs)
         {
-            client = cs;
+            currentUser = cs;
             InitializeComponent();
+            ConnectToServer();
         }
+        //connect to server
+        private void ConnectToServer()
+        {
+            try
+            {
+                IPHostEntry host = Dns.GetHostEntry("localhost");
+                IPAddress ipAddress = host.AddressList[0];
+                IPEndPoint remoteEp = new IPEndPoint(ipAddress, 11000);
+                serverSocket = new Socket(ipAddress.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+                while (!serverSocket.Connected)
+                {
+                    try
+                    {
+                        serverSocket.Connect(remoteEp);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show(e.ToString(), "Error");
+                    }
+                }
 
+
+                serverSocket.BeginReceive(buffer, 0, 2048, SocketFlags.None, ReceiveCallback, currentUser);
+                //connectDone.Set();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "Error");
+            }
+        }
+        //handle any messages that come in here
+        private void ReceiveCallback(IAsyncResult ar)
+        {
+            serverSocket = (Socket)ar.AsyncState;
+            int received;//recevied bytes
+            try
+            {
+                received = serverSocket.EndReceive(ar); //get the data from the stream
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "ERROR", MessageBoxButtons.OK);
+                serverSocket.Shutdown(SocketShutdown.Both);
+                serverSocket.Close();
+                return;
+            }
+
+            byte[] recBuf = new byte[received]; //set a buffer for the received
+            Array.Copy(buffer, recBuf, received); //copies the bytes into the buffer object
+            string data = Encoding.ASCII.GetString(recBuf); //converty the bytes to human readable string
+
+            //handle data here with
+            //StartsWith() function checks if the message starts with a certain string
+            // maybe look up String.Split() and String.Substring()
+            //both useful to work with
+
+
+
+            if (data.StartsWith(""))
+            {
+                //do something here
+            }
+        }
+        /*
         private void messagingWindow_Load(object sender, EventArgs e)
         {
             // Setting up the socket
@@ -35,6 +100,8 @@ namespace PBT205_Group_Project
             textRemoteIP.Text = GetLocalIP();
         }
 
+        */
+        /*
         private string GetLocalIP()
         {
             IPHostEntry host;
@@ -48,7 +115,8 @@ namespace PBT205_Group_Project
             }
             return "127.0.0.1";
         }
-
+        */
+        /*
         private void buttonConnect_Click(object sender, EventArgs e)
         {
             // Binding the socket
@@ -63,7 +131,9 @@ namespace PBT205_Group_Project
             buffer = new byte[1500];
             socket.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack), buffer);
         }
+        */
 
+        /*
         private void MessageCallBack(IAsyncResult aResult)
         {
             try
@@ -86,6 +156,13 @@ namespace PBT205_Group_Project
                 MessageBox.Show(ex.ToString());
             }
         }
+        */
+
+        void SendMessage(string data, Socket target)
+        {
+            byte[] msg = Encoding.ASCII.GetBytes(data);
+            target.Send(msg);
+        }
 
         private void buttonSend_Click(object sender, EventArgs e)
         {
@@ -94,6 +171,7 @@ namespace PBT205_Group_Project
             byte[] sendingMessage = new byte[1500];
             sendingMessage = aEncoding.GetBytes(textMessage.Text);
 
+            
             // Sending the encoded message
             socket.Send(sendingMessage);
 

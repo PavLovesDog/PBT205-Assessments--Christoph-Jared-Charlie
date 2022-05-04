@@ -31,7 +31,6 @@ A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 03\PBT205-Assessments--Christop
 A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 03\PBT205-Assessments--Christoph-Jared-Charlie\PBT205_Group_Project\obj\Debug\PBT205_Group_Project.appSelectWindow.resources
 A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 03\PBT205-Assessments--Christoph-Jared-Charlie\PBT205_Group_Project\obj\Debug\PBT205_Group_Project.messagingWindow.resources
 A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 03\PBT205-Assessments--Christoph-Jared-Charlie\PBT205_Group_Project\obj\Debug\PBT205_Group_Project.Properties.Resources.resources
-A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 03\PBT205-Assessments--Christoph-Jared-Charlie\PBT205_Group_Project\obj\Debug\PBT205_Group_Project.tradeConfirmWindow.resources
 A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 03\PBT205-Assessments--Christoph-Jared-Charlie\PBT205_Group_Project\obj\Debug\PBT205_Group_Project.tradingWindow.resources
 A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 03\PBT205-Assessments--Christoph-Jared-Charlie\PBT205_Group_Project\obj\Debug\PBT205_Group_Project.csproj.GenerateResource.cache
 A:\_UNI\2022_Tri_01\PBT202\Assessment\Assessment 03\PBT205-Assessments--Christoph-Jared-Charlie\PBT205_Group_Project\obj\Debug\PBT205_Group_Project.csproj.CoreCompileInputs.cache

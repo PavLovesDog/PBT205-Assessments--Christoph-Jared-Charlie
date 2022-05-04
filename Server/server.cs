@@ -151,10 +151,13 @@ class Server
                     break;
             }
         }
+
         switch (currentClientSocket.state)
         {
 
+        //Handle login window stuff
             case State.LoginWindow:
+                /*
                 Console.WriteLine("user is on login Screen");
 
                 //when in the LoginWindow check what message was received from the client and handle that.
@@ -204,9 +207,13 @@ class Server
                     currentClientSocket.socket.Send(msg);
 
                 }
+                */
+                currentClientSocket = HandleLogin(data, currentClientSocket);
                 currentClientSocket.socket.BeginReceive(currentClientSocket.buffer, 0, ClientSocket.BUFFER_SIZE, SocketFlags.None, ReceiveCallback, currentClientSocket);
+
                 break;
             case State.AppSelect:
+                /*
                 Console.WriteLine("User is at app select");
                 if (data == "<Messaging>")
                 {
@@ -219,21 +226,30 @@ class Server
                 if (data == "<ContactTracing>")
                 {
                     currentClientSocket.state = State.ContactTracing;
-                }
+                }*/
+                currentClientSocket = HandleAppSelect(data, currentClientSocket);
                 break;
             case State.Messaging:
                 //Handle any messaging stuff here
+                currentClientSocket = HandleMessage(data,currentClientSocket);
+
+                /*
                 Console.WriteLine("Opening messageing app for " + currentClientSocket.username);
+                */
                 currentClientSocket.socket.BeginReceive(currentClientSocket.buffer, 0, ClientSocket.BUFFER_SIZE, SocketFlags.None, ReceiveCallback, currentClientSocket);
                 break;
             case State.Trading:
+                currentClientSocket = HandleTrading(data, currentClientSocket);
                 //handle any trading stuff here
-                Console.WriteLine("Opening Trading app for " + currentClientSocket.username);
+
+                //Console.WriteLine("Opening Trading app for " + currentClientSocket.username);
                 currentClientSocket.socket.BeginReceive(currentClientSocket.buffer, 0, ClientSocket.BUFFER_SIZE, SocketFlags.None, ReceiveCallback, currentClientSocket);
                 break;
             case State.ContactTracing:
                 //handle any contactTracing stuff here
-                Console.WriteLine("Opening Contact Tracingapp for " + currentClientSocket.username);
+                currentClientSocket = HandleTracing(data, currentClientSocket);
+
+                //Console.WriteLine("Opening Contact Tracingapp for " + currentClientSocket.username);
                 currentClientSocket.socket.BeginReceive(currentClientSocket.buffer, 0, ClientSocket.BUFFER_SIZE, SocketFlags.None, ReceiveCallback, currentClientSocket);
                 break;
         }
@@ -297,4 +313,104 @@ class Server
         //  connection.Close();
         return found;
     }
+
+
+    #region Login Window Handling
+    private ClientSocket HandleLogin(string message,ClientSocket cs)
+    {
+        Console.WriteLine("user is on login Screen");
+
+        //when in the LoginWindow check what message was received from the client and handle that.
+        if (message.ToLower().StartsWith("<username>"))
+        {
+            string[] loginDetails = message.Split("<EOF>", StringSplitOptions.None);
+            string user = loginDetails[0];
+            user = user.Substring("<username>".Length);
+            string pass = loginDetails[1];
+            if (FindUser(user))
+            {
+                if (FindPass(pass))
+                {
+                    //byte[] msg = Encoding.ASCII.GetBytes("<True> Connected");
+                    //int bytesSent = handler.Send(msg);
+                    cs.username = user;
+                    cs.password = pass;
+                    SendData("Logged in", cs);
+                    Console.WriteLine("{0} connected", loginDetails[0]);
+                    Console.WriteLine("with password {0}", loginDetails[1]);
+                    cs.state = State.AppSelect;
+                    Console.WriteLine(cs.username + " has logged in and has changed state to " + cs.state);
+                }
+                else
+                {
+                    byte[] msg = Encoding.ASCII.GetBytes("<0>"); //user exists but password is wrong
+                    int bytesSent = cs.socket.Send(msg);
+                }
+            }
+            else
+            {
+                byte[] msg = Encoding.ASCII.GetBytes("<1>");//user doesn't exist
+                int bytesSent = cs.socket.Send(msg);
+            }
+        }
+        else if (message.StartsWith("<Create> <User>"))
+        {
+            message = message.Substring("<Create> <User>".Length);
+            string[] s = message.Split("<Pass>", StringSplitOptions.None);
+            string user = s[0];
+            string pass = s[1];
+
+            AddUserToDB(user, pass);
+            byte[] msg = Encoding.ASCII.GetBytes("User Created");
+            cs.username = user;
+            cs.password = pass;
+            cs.socket.Send(msg);
+
+        }
+        return cs;
+    }
+    #endregion
+
+
+    #region App Select Handling
+    private ClientSocket HandleAppSelect(string message, ClientSocket cs)
+    {
+        Console.WriteLine("User is at app select");
+        if (message == "<Messaging>")
+        {
+            cs.state = State.Messaging;
+        }
+        if (message== "<Trading>")
+        {
+            cs.state = State.Trading;
+        }
+        if (message == "<ContactTracing>")
+        {
+            cs.state = State.ContactTracing;
+        }
+        return cs;
+    }
+
+    #endregion
+    #region Contact Tracing Handling
+    private ClientSocket HandleTracing(string message,ClientSocket cs)
+    {
+        //do server side tracing here
+        return cs;
+    }
+    #endregion
+    #region Messaging Handling
+    private ClientSocket HandleMessage(string message, ClientSocket cs)
+    {
+        //do server side message stuff here
+        return cs;
+    }
+    #endregion
+    #region Trading Handling
+    private ClientSocket HandleTrading(string message, ClientSocket cs)
+    {
+        //do servse side trading stuff here
+        return cs;
+    }
+    #endregion
 }

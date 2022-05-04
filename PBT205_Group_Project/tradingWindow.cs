@@ -13,6 +13,8 @@ namespace PBT205_Group_Project
 {
     public partial class tradingWindow : Form
     {
+        List<string> orderChat = new List<string>();
+        List<string> tradeChat = new List<string>();
         public static string selectedTopic = "";
         public static string price = "";
         public static string selectedBuyOrSell = "";

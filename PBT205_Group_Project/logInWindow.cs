@@ -111,7 +111,7 @@ namespace PBT205_Group_Project
                     serverSocket.Close();
                 }
             }
-            this.Close();
+            Application.Exit();
         }
 
         void SendMessage(string data, Socket target)

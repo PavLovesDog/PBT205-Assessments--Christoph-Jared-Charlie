@@ -7,17 +7,94 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net;
+using System.Net.Sockets;
 
 namespace PBT205_Group_Project
 {
+
     public partial class contactTracingWindow : Form
     {
-        ClientSocket server;
-        // Connect to server
+        byte[] buffer = new byte[2048];
+        Socket serverSocket;
+        ClientSocket currentUser; //keeps track of the currentuser's details
+
         public contactTracingWindow(ClientSocket s)
         {
-            server = s;
+            currentUser = s;            
             InitializeComponent();
+
+            ConnectToServer();
+            currentUser.socket = serverSocket;
+        }
+        
+        // Connect to server
+        private void ConnectToServer()
+        {
+            try
+            {
+                IPHostEntry host = Dns.GetHostEntry("localhost");
+                IPAddress ipAddress = host.AddressList[0];
+                IPEndPoint remoteEp = new IPEndPoint(ipAddress, 11000);
+                serverSocket = new Socket(ipAddress.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+                while (!serverSocket.Connected)
+                {
+                    try
+                    {
+                        serverSocket.Connect(remoteEp);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show(e.ToString(), "Error");
+                    }
+                }
+
+
+                serverSocket.BeginReceive(buffer, 0, 2048, SocketFlags.None, ReceiveCallback, currentUser);
+                //connectDone.Set();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "Error");
+            }
+        }
+        //handles receiving a message from the server
+        void ReceiveCallback(IAsyncResult ar)
+        {
+            serverSocket = (Socket)ar.AsyncState;
+            int received;//recevied bytes
+            try
+            {
+                received = serverSocket.EndReceive(ar); //get the data from the stream
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message, "ERROR", MessageBoxButtons.OK);
+                serverSocket.Shutdown(SocketShutdown.Both);
+                serverSocket.Close();
+                return;
+            }
+
+            byte[] recBuf = new byte[received]; //set a buffer for the received
+            Array.Copy(buffer, recBuf, received); //copies the bytes into the buffer object
+            string data = Encoding.ASCII.GetString(recBuf); //converty the bytes to human readable string
+            //handle data string somehow here
+            //can use a switch or if statements
+            //EXAMPLE:
+            if (data.StartsWith("<Received Position>"))
+            {
+               //position was received by the server
+            } else if (data.StartsWith("<Some commands thing>"))
+            {
+                //handle that command.
+                //look at String.Split() function or String.Substring() function\
+                //both are useful for splitting up string into informatino you want
+
+                //the same can be done on the server side
+            }
+
+            //start BeginReceive again so that this can get messages from the server
+            serverSocket.BeginReceive(buffer, 0, 2048, SocketFlags.None, ReceiveCallback, currentUser);
         }
 
         // random seed for move selection
@@ -57,7 +134,7 @@ namespace PBT205_Group_Project
         bool playerHasContacted = false;
 
         // labels to hold data of where player moves, through clicks
-        Label firstClick = null; 
+        Label firstClick = null;
         Label secondClick = null;
 
         // Initialize the window for display and operations
@@ -90,7 +167,7 @@ namespace PBT205_Group_Project
 
             //Assign Player 
             Control Player = tableLayoutPanel2;
-            Label label = Player as Label;     
+            Label label = Player as Label;
             label = label60; // middle location
             playerPosition.Add(label.TabIndex);
             label.ForeColor = Color.Blue;
@@ -142,7 +219,7 @@ namespace PBT205_Group_Project
                 bool isInfected = Exposed.Contains(cell);
 
                 // ensure player doesn't get painted over
-                if (playerPosition.Contains(cell)) 
+                if (playerPosition.Contains(cell))
                 {
                     if (playerHasContacted)
                     {
@@ -170,7 +247,7 @@ namespace PBT205_Group_Project
                 else if (isDuplicate) // check if position is already occupied
                 {
                     iconLabel.Text = "mm";
-                    if(isInfected)
+                    if (isInfected)
                     {
                         iconLabel.ForeColor = Color.Goldenrod;
                     }
@@ -188,8 +265,8 @@ namespace PBT205_Group_Project
                     if (personOnBoard && isInfected)
                     {
                         iconLabel.ForeColor = Color.Goldenrod;
-                    } 
-                    else if(personOnBoard)
+                    }
+                    else if (personOnBoard)
                     {
                         iconLabel.ForeColor = Color.OrangeRed;
                     }
@@ -201,7 +278,7 @@ namespace PBT205_Group_Project
         void UpdateTexts()
         {
             int playerInfected = 0;
-            if(playerHasContacted)
+            if (playerHasContacted)
             {
                 playerInfected = 1;
             }
@@ -209,7 +286,7 @@ namespace PBT205_Group_Project
             label3.Text = "    'CLICK' to MOVE \nTotal Persons On Board: "
                             + (currentPersons.Count + playerPosition.Count).ToString() +
                             "\n       Total Exposed:  " + (Exposed.Count + playerInfected).ToString();
-            
+
         }
 
         //==========================================================================PLAYER CONTROL
@@ -229,8 +306,8 @@ namespace PBT205_Group_Project
             int move7 = playerPosition[0] - 11; // -11 moves diag up/left
             int move8 = playerPosition[0] + 11; // 11 moves diag down/right
 
-            bool isWithinMoveSpace = clickedSpace.TabIndex == move1 || clickedSpace.TabIndex == move2 || 
-                                     clickedSpace.TabIndex == move3 || clickedSpace.TabIndex == move4 || 
+            bool isWithinMoveSpace = clickedSpace.TabIndex == move1 || clickedSpace.TabIndex == move2 ||
+                                     clickedSpace.TabIndex == move3 || clickedSpace.TabIndex == move4 ||
                                      clickedSpace.TabIndex == move5 || clickedSpace.TabIndex == move6 ||
                                      clickedSpace.TabIndex == move7 || clickedSpace.TabIndex == move8;
 
@@ -239,7 +316,7 @@ namespace PBT205_Group_Project
             {
 
                 // Limit movement to only spaces around player
-                if(!isWithinMoveSpace)
+                if (!isWithinMoveSpace)
                 {
                     return;
                 }
@@ -255,7 +332,7 @@ namespace PBT205_Group_Project
                     clickedSpace.Text = "mm";
 
                     // account for if the space occupied is from a contacted/infected persons
-                    if (clickedSpace.ForeColor == Color.Goldenrod) 
+                    if (clickedSpace.ForeColor == Color.Goldenrod)
                     {
                         clickedSpace.ForeColor = Color.Goldenrod;
                     }
@@ -268,12 +345,12 @@ namespace PBT205_Group_Project
                 }
 
                 //First click, Plays once!
-                if(firstClick == null)
+                if (firstClick == null)
                 {
                     playerPosition.RemoveAt(0); // remove Initial placement
                     firstClick = clickedSpace;
 
-                    if(playerHasContacted)
+                    if (playerHasContacted)
                     {
                         firstClick.ForeColor = Color.MediumOrchid;
                     }
@@ -287,7 +364,7 @@ namespace PBT205_Group_Project
                     UpdatePersons(); // call update to remove first instance of player
                 }
                 //Second click
-                else if(secondClick == null)
+                else if (secondClick == null)
                 {
 
                     playerPosition.RemoveAt(0); // 0 index always removes first item added
@@ -313,7 +390,7 @@ namespace PBT205_Group_Project
                     // don't paint over if player is currently contacting
                     if (!playerContacts.Contains(clickedSpace.TabIndex))
                     {
-                        if(playerHasContacted)
+                        if (playerHasContacted)
                         {
                             secondClick.ForeColor = Color.MediumOrchid;
                         }
@@ -344,7 +421,7 @@ namespace PBT205_Group_Project
         private void quitButton_Click(object sender, EventArgs e)
         {
             //TODO Server connection for return to window?
-            appSelectWindow selectWindow = new appSelectWindow(server);
+            appSelectWindow selectWindow = new appSelectWindow(currentUser);
             selectWindow.ShowDialog();
             this.Close();
         }
@@ -524,7 +601,7 @@ namespace PBT205_Group_Project
                 #region Handle Boundry
 
                 //Check if against LEFT wall
-                if (index == 0  || index == 10 || index == 20 || index == 30 || index == 40 || index == 50 || 
+                if (index == 0 || index == 10 || index == 20 || index == 30 || index == 40 || index == 50 ||
                     index == 60 || index == 70 || index == 80 || index == 90)
                 {
                     // check if index is top or bottom row (0 or 90/ 9 or 99)
@@ -571,25 +648,25 @@ namespace PBT205_Group_Project
                 {
                     switch (index)
                     {
-                        case 1: 
+                        case 1:
                             movement = 11; // move diag down right
                             break;
-                        case 2: 
+                        case 2:
                             movement = 9; // move diag down left
                             break;
-                        case 3: 
+                        case 3:
                             movement = -1; // move left
                             break;
-                        case 4: 
+                        case 4:
                             movement = 10; // move down
                             break;
-                        case 5: 
+                        case 5:
                             movement = 10; // move down
                             break;
                         case 6:
                             movement = 1; // move right  
                             break;
-                        case 7: 
+                        case 7:
                             movement = 11; // move diag down right  
                             break;
                         case 8:
@@ -644,10 +721,10 @@ namespace PBT205_Group_Project
                 int tempIndex = index; // store old index
 
                 // If the index is any of the following lists, Mark them as EXPOSED
-                if (duplicates.Contains(tempIndex) || playerContacts.Contains(tempIndex) || 
+                if (duplicates.Contains(tempIndex) || playerContacts.Contains(tempIndex) ||
                     personsContacts.Contains(tempIndex) || Exposed.Contains(tempIndex))
                 {
-                    if(Exposed.Contains(tempIndex)) Exposed.Remove(tempIndex); // remove old position of exposed
+                    if (Exposed.Contains(tempIndex)) Exposed.Remove(tempIndex); // remove old position of exposed
                     tempIndex += movement; // update index
                     if (tempIndex < 100 && tempIndex > -1) // if its within bounds
                         Exposed.Add(tempIndex); // add next position to exposed list, were it will be next update
@@ -682,7 +759,7 @@ namespace PBT205_Group_Project
             UpdateTexts();
         }
 
-         // Timer to add people to the board after a given amount of time
+        // Timer to add people to the board after a given amount of time
         private void addPersonTimer_Tick(object sender, EventArgs e)
         {
             addPersonTimer.Stop();
@@ -717,7 +794,7 @@ namespace PBT205_Group_Project
             playerPosition.Clear();
             playerMoves.Clear();
             playerContacts.Clear();
-            personsContacts.Clear(); 
+            personsContacts.Clear();
             duplicates.Clear();
             Exposed.Clear();
 
@@ -726,12 +803,12 @@ namespace PBT205_Group_Project
         ////TODO Handle or delete crap below safely
         private void label2_Click(object sender, EventArgs e)
         {
-        
+
         }
-        
+
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
-        
+
         }
 
     }
