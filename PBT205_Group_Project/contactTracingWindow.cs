@@ -402,6 +402,8 @@ namespace PBT205_Group_Project
 
                     playerPosition.Add(secondClick.TabIndex);
                     playerMoves.Add(secondClick.TabIndex);
+                    currentUser.location = playerPosition.First().ToString();
+                    
                 }
 
 
@@ -597,6 +599,8 @@ namespace PBT205_Group_Project
                 int randomNumber = random.Next(0, 7);
                 int movement = move[randomNumber]; // chose a movement direction, based on number
 
+
+                
                 // Region is to handle persons trying to leave to visible area
                 #region Handle Boundry
 
@@ -746,7 +750,7 @@ namespace PBT205_Group_Project
                     newPersons.Add(tempIndex); // add to new list for position update
                 }
             }
-
+            
             updateTimer.Start(); // reset timer for next run
 
             //Make persons list equal to newPersons list 

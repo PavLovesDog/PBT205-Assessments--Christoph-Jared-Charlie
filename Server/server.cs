@@ -155,7 +155,7 @@ class Server
         switch (currentClientSocket.state)
         {
 
-        //Handle login window stuff
+            //Handle login window stuff
             case State.LoginWindow:
                 /*
                 Console.WriteLine("user is on login Screen");
@@ -231,7 +231,7 @@ class Server
                 break;
             case State.Messaging:
                 //Handle any messaging stuff here
-                currentClientSocket = HandleMessage(data,currentClientSocket);
+                currentClientSocket = HandleMessage(data, currentClientSocket);
 
                 /*
                 Console.WriteLine("Opening messageing app for " + currentClientSocket.username);
@@ -293,7 +293,7 @@ class Server
         var command = new SQLiteCommand(connection);
         command.CommandText = "INSERT OR IGNORE INTO users (username, password) VALUES ('" + user + "','" + pass + "');";
         command.ExecuteNonQuery();
-        Console.WriteLine(user + " was added to database wit hte password: " + pass);
+        Console.WriteLine(user + " was added to database wit the password: " + pass);
         //   connection.Close();
     }
     //Looking up a password in the database
@@ -316,7 +316,7 @@ class Server
 
 
     #region Login Window Handling
-    private ClientSocket HandleLogin(string message,ClientSocket cs)
+    private ClientSocket HandleLogin(string message, ClientSocket cs)
     {
         Console.WriteLine("user is on login Screen");
 
@@ -380,7 +380,7 @@ class Server
         {
             cs.state = State.Messaging;
         }
-        if (message== "<Trading>")
+        if (message == "<Trading>")
         {
             cs.state = State.Trading;
         }
@@ -393,8 +393,26 @@ class Server
 
     #endregion
     #region Contact Tracing Handling
-    private ClientSocket HandleTracing(string message,ClientSocket cs)
+    private ClientSocket HandleTracing(string message, ClientSocket cs)
     {
+
+
+        foreach (ClientSocket c in connectedClients)
+        {
+            if (c.username == cs.username)
+            {
+                cs.location = c.location;
+            }
+        }
+        cs.location = "4,3";
+
+        if (message.StartsWith("<UpdatePosition>"))
+        {
+            message = message.Substring("<UpdatePosition>".Length);
+            string[] m = message.Split("< UpdatePosition >", StringSplitOptions.None);
+            m[0] = "";
+            m[1] = "8,6";
+        }
         //do server side tracing here
         return cs;
     }
@@ -405,7 +423,15 @@ class Server
         //do server side message stuff here
         return cs;
     }
+
+    void SendMessageToAll(string message, ClientSocket sender)
+    {
+       
+    }
+
+
     #endregion
+
     #region Trading Handling
     private ClientSocket HandleTrading(string message, ClientSocket cs)
     {

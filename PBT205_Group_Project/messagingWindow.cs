@@ -80,13 +80,7 @@ namespace PBT205_Group_Project
             //StartsWith() function checks if the message starts with a certain string
             // maybe look up String.Split() and String.Substring()
             //both useful to work with
-
-
-
-            if (data.StartsWith(""))
-            {
-                //do something here
-            }
+            SendMessage(textMessage.Text,serverSocket);
         }
         /*
         private void messagingWindow_Load(object sender, EventArgs e)
@@ -157,7 +151,6 @@ namespace PBT205_Group_Project
             }
         }
         */
-
         void SendMessage(string data, Socket target)
         {
             byte[] msg = Encoding.ASCII.GetBytes(data);
