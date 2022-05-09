@@ -141,7 +141,7 @@ namespace PBT205_Group_Project
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Local";
-            //this.groupBox2.Enter += new System.EventHandler(this.text);
+            // this.groupBox2.Enter += new System.EventHandler(this.text);
             // 
             // groupBox3
             // 

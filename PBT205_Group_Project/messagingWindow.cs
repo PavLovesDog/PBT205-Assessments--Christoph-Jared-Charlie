@@ -24,6 +24,10 @@ namespace PBT205_Group_Project
             currentUser = cs;
             InitializeComponent();
             ConnectToServer();
+            if (serverSocket.Connected)
+            {
+                SendState();
+            }
         }
         //connect to server
         private void ConnectToServer()
@@ -155,6 +159,12 @@ namespace PBT205_Group_Project
         {
             byte[] msg = Encoding.ASCII.GetBytes(data);
             target.Send(msg);
+        }
+
+        void SendState()
+        {
+            byte[] msg = Encoding.ASCII.GetBytes("<State> " + currentUser.state);
+            serverSocket.Send(msg);
         }
 
         private void buttonSend_Click(object sender, EventArgs e)
