@@ -130,7 +130,7 @@ namespace PBT205_Group_Project
             }
             catch (SocketException se)
             {
-                
+                MessageBox.Show(se.Message, "ERROR",MessageBoxButtons.OK);
                 serverSocket.Close();
                 return;
             }

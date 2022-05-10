@@ -12,6 +12,9 @@ class Server
     //list of currently connected clients
     List<ClientSocket> connectedClients = new List<ClientSocket>();
 
+    List<Trades> doneTrades = new List<Trades>();
+    List<Trades> activeTrades = new List<Trades>();
+
     public Socket serverSocket;
 
     ManualResetEvent allDone = new ManualResetEvent(false);
@@ -24,7 +27,7 @@ class Server
         Server s = new Server();
         s.SetupServer();
     }
-    //Database
+    //Setup the Database
     public static void StartDBConnection()
     {
 
@@ -163,10 +166,9 @@ class Server
         }
         else if (data.StartsWith("<UpdateClient>"))
         {
-            currentClientSocket = UpdateClient(data,currentClientSocket);
+            currentClientSocket = UpdateClient(data, currentClientSocket);
         }
 
-        GetState(currentClientSocket);
         if (data.StartsWith("<State> "))
         {
             data = data.Substring("<State> ".Length);
@@ -185,124 +187,61 @@ class Server
                     currentClientSocket.state = State.Trading;
                     break;
             }
-        }
 
-        switch (currentClientSocket.state)
+            currentClientSocket.socket.BeginReceive(currentClientSocket.buffer, 0, ClientSocket.BUFFER_SIZE, SocketFlags.None, ReceiveCallback, currentClientSocket);
+        }
+        else
         {
+            switch (currentClientSocket.state)
+            {
 
-            //Handle login window stuff
-            case State.LoginWindow:
-                /*
-                Console.WriteLine("user is on login Screen");
+                //Handle login window stuff
+                case State.LoginWindow:
+                    currentClientSocket = HandleLogin(data, currentClientSocket);
 
-                //when in the LoginWindow check what message was received from the client and handle that.
-                if (data.ToLower().StartsWith("<username>"))
-                {
-                    string[] loginDetails = data.Split("<EOF>", StringSplitOptions.None);
-                    string user = loginDetails[0];
-                    user = user.Substring("<username>".Length);
-                    string pass = loginDetails[1];
-                    if (FindUser(user))
-                    {
-                        if (FindPass(pass))
-                        {
-                            //byte[] msg = Encoding.ASCII.GetBytes("<True> Connected");
-                            //int bytesSent = handler.Send(msg);
-                            currentClientSocket.username = user;
-                            currentClientSocket.password = pass;
-                            SendData("Logged in", currentClientSocket);
-                            Console.WriteLine("{0} connected", loginDetails[0]);
-                            Console.WriteLine("with password {0}", loginDetails[1]);
-                            currentClientSocket.state = State.AppSelect;
-                            Console.WriteLine(currentClientSocket.username + " has logged in and has changed state to " + currentClientSocket.state);
-                        }
-                        else
-                        {
-                            byte[] msg = Encoding.ASCII.GetBytes("<0>"); //user exists but password is wrong
-                            int bytesSent = currentClientSocket.socket.Send(msg);
-                        }
-                    }
-                    else
-                    {
-                        byte[] msg = Encoding.ASCII.GetBytes("<1>");//user doesn't exist
-                        int bytesSent = currentClientSocket.socket.Send(msg);
-                    }
-                }
-                else if (data.StartsWith("<Create> <User>"))
-                {
-                    data = data.Substring("<Create> <User>".Length);
-                    string[] s = data.Split("<Pass>", StringSplitOptions.None);
-                    string user = s[0];
-                    string pass = s[1];
+                    currentClientSocket.socket.BeginReceive(currentClientSocket.buffer, 0, ClientSocket.BUFFER_SIZE, SocketFlags.None, ReceiveCallback, currentClientSocket);
 
-                    AddUserToDB(user, pass);
-                    byte[] msg = Encoding.ASCII.GetBytes("User Created");
-                    currentClientSocket.username = user;
-                    currentClientSocket.password = pass;
-                    currentClientSocket.socket.Send(msg);
+                    break;
+                case State.AppSelect:
 
-                }
-                */
-                currentClientSocket = HandleLogin(data, currentClientSocket);
-                currentClientSocket.socket.BeginReceive(currentClientSocket.buffer, 0, ClientSocket.BUFFER_SIZE, SocketFlags.None, ReceiveCallback, currentClientSocket);
+                    currentClientSocket = HandleAppSelect(data, currentClientSocket);
+                    break;
+                case State.Messaging:
+                    //Handle any messaging stuff here
+                    currentClientSocket = HandleMessage(data, currentClientSocket);
 
-                break;
-            case State.AppSelect:
-                /*
-                Console.WriteLine("User is at app select");
-                if (data == "<Messaging>")
-                {
-                    currentClientSocket.state = State.Messaging;
-                }
-                if (data == "<Trading>")
-                {
-                    currentClientSocket.state = State.Trading;
-                }
-                if (data == "<ContactTracing>")
-                {
-                    currentClientSocket.state = State.ContactTracing;
-                }*/
-                currentClientSocket = HandleAppSelect(data, currentClientSocket);
-                break;
-            case State.Messaging:
-                //Handle any messaging stuff here
-                currentClientSocket = HandleMessage(data, currentClientSocket);
 
-                /*
-                Console.WriteLine("Opening messageing app for " + currentClientSocket.username);
-                */
-                currentClientSocket.socket.BeginReceive(currentClientSocket.buffer, 0, ClientSocket.BUFFER_SIZE, SocketFlags.None, ReceiveCallback, currentClientSocket);
-                break;
-            case State.Trading:
-                currentClientSocket = HandleTrading(data, currentClientSocket);
-                //handle any trading stuff here
+                    Console.WriteLine("Opening messageing app for " + currentClientSocket.username);
 
-                //Console.WriteLine("Opening Trading app for " + currentClientSocket.username);
-                currentClientSocket.socket.BeginReceive(currentClientSocket.buffer, 0, ClientSocket.BUFFER_SIZE, SocketFlags.None, ReceiveCallback, currentClientSocket);
-                break;
-            case State.ContactTracing:
-                //handle any contactTracing stuff here
-                currentClientSocket = HandleTracing(data, currentClientSocket);
+                    currentClientSocket.socket.BeginReceive(currentClientSocket.buffer, 0, ClientSocket.BUFFER_SIZE, SocketFlags.None, ReceiveCallback, currentClientSocket);
+                    break;
+                case State.Trading:
+                    currentClientSocket = HandleTrading(data, currentClientSocket);
+                    //handle any trading stuff here
 
-                //Console.WriteLine("Opening Contact Tracingapp for " + currentClientSocket.username);
-                currentClientSocket.socket.BeginReceive(currentClientSocket.buffer, 0, ClientSocket.BUFFER_SIZE, SocketFlags.None, ReceiveCallback, currentClientSocket);
-                break;
+                    //Console.WriteLine("Opening Trading app for " + currentClientSocket.username);
+                    currentClientSocket.socket.BeginReceive(currentClientSocket.buffer, 0, ClientSocket.BUFFER_SIZE, SocketFlags.None, ReceiveCallback, currentClientSocket);
+                    break;
+                case State.ContactTracing:
+                    //handle any contactTracing stuff here
+                    currentClientSocket = HandleTracing(data, currentClientSocket);
+
+                    //Console.WriteLine("Opening Contact Tracingapp for " + currentClientSocket.username);
+                    currentClientSocket.socket.BeginReceive(currentClientSocket.buffer, 0, ClientSocket.BUFFER_SIZE, SocketFlags.None, ReceiveCallback, currentClientSocket);
+                    break;
+            }
         }
-
         // serverSocket.socket.BeginAccept(AcceptCallback, null);
         //}
     }
-
+    //used to send data
     public static void SendData(string data, ClientSocket target)
     {
         byte[] msg = Encoding.ASCII.GetBytes(data);
         target.socket.Send(msg);
     }
-    //Look up client's state
-    State GetState(ClientSocket cs)
-    {
-        return cs.state;
-    }
+
+    #region Database
     //Function for looking up user in database
     public static bool FindUser(string user)
     {
@@ -348,7 +287,7 @@ class Server
         //  connection.Close();
         return found;
     }
-
+    #endregion
 
     #region Login Window Handling
     private ClientSocket HandleLogin(string message, ClientSocket cs)
@@ -459,12 +398,13 @@ class Server
     private ClientSocket HandleMessage(string message, ClientSocket cs)
     {
         //do server side message stuff here
+
         return cs;
     }
 
     void SendMessageToAll(string message, ClientSocket sender)
     {
-       
+
     }
 
 
@@ -473,8 +413,90 @@ class Server
     #region Trading Handling
     private ClientSocket HandleTrading(string message, ClientSocket cs)
     {
-        //do servse side trading stuff here
+        //do server side trading stuff here
+        if (message.StartsWith("<Trade>"))
+        {
+
+            string m = message.Substring("<Trade>".Length);
+            string[] mess = m.Split("<Price>", StringSplitOptions.None);
+            string type = mess[0];
+            int amount = int.Parse(mess[1]);
+            Trades foundTrade = CompareTrade(type, amount);
+            if (foundTrade != null)
+            {
+                //a matching trade was found so remove it from the list of active trades
+                Console.WriteLine("Trade was found");
+                SendData("<TradeFound>" + m, cs);
+                activeTrades.Remove(foundTrade);
+                doneTrades.Add(foundTrade);
+                //send a message to the matching client that a trade was found.
+                SendMessageToAll(cs.username + " has " + type + " XYZ stock for " + amount, null);
+
+            }
+            else
+            {
+                //no trade as found so add it to the list of active trades
+                foundTrade = new Trades();
+                foundTrade.buySell = type;
+                foundTrade.price = amount;
+                Console.WriteLine("Trade was not found");
+                SendData("<TradeNotFound>" + m, cs);
+                activeTrades.Add(foundTrade);
+
+            }
+        }
+        else if (message.StartsWith("<Fetch"))
+        {
+            string m = message.Substring("<Fetch".Length);
+            if (m.StartsWith("DoneTrades>"))
+            {
+                GetDoneTrades(cs);
+            }
+            else if (m.StartsWith("ActiveTrades>"))
+            {
+                GetActiveTrades(cs);
+            }
+        }
         return cs;
+    }
+
+    private void GetActiveTrades(ClientSocket cs)
+    {
+        string msg = "<ActiveTrades>";
+        foreach (Trades t in activeTrades)
+        {
+            msg += t.buySell + "<Price>" + t.price + "<NEXT>";
+        }
+        SendData(msg, cs);
+        //return activeTrades;
+    }
+    private void GetDoneTrades(ClientSocket cs)
+    {
+        string msg = "<DoneTrades>";
+        foreach (Trades t in doneTrades)
+        {
+            msg += t.buySell + "<Price>" + t.price + "<NEXT>";
+        }
+        SendData(msg, cs);
+        //return doneTrades;
+    }
+    private Trades CompareTrade(string buySell, int amount)
+    {
+        foreach (Trades t in activeTrades)
+        {
+            if (t.price == amount)
+            {
+                if (buySell == "Sell" && t.buySell == "Buy")
+                {
+                    return t;
+                }
+                else if (buySell == "Buy" && t.buySell == "Sell")
+                {
+                    return t;
+                }
+            }
+        }
+        return null;
     }
     #endregion
 }

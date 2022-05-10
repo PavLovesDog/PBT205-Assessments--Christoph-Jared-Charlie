@@ -68,7 +68,7 @@ namespace PBT205_Group_Project
             this.priceTextBox.Name = "priceTextBox";
             this.priceTextBox.Size = new System.Drawing.Size(62, 20);
             this.priceTextBox.TabIndex = 2;
-            this.priceTextBox.Text = "$0";
+            this.priceTextBox.Text = "0";
             // 
             // buySellCombo
             // 
