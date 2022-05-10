@@ -404,7 +404,14 @@ class Server
 
     void SendMessageToAll(string message, ClientSocket sender)
     {
-
+        foreach (ClientSocket clientSocket in connectedClients)
+        {
+            if (sender == null || !sender.socket.Equals(clientSocket))
+            {
+                byte[] msg = Encoding.ASCII.GetBytes(message);
+                clientSocket.socket.Send(msg);
+            }
+        }
     }
 
 
