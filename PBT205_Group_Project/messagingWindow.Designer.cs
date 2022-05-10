@@ -1,5 +1,4 @@
-﻿
-namespace PBT205_Group_Project
+﻿namespace PBT205_Group_Project
 {
     partial class messagingWindow
     {
@@ -119,7 +118,6 @@ namespace PBT205_Group_Project
             this.buttonSend.TabIndex = 2;
             this.buttonSend.Text = "Send";
             this.buttonSend.UseVisualStyleBackColor = true;
-            this.buttonSend.Click += new System.EventHandler(this.buttonConnect_Click);
             // 
             // listMessage
             // 
@@ -142,7 +140,7 @@ namespace PBT205_Group_Project
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Local";
-            //this.groupBox2.Enter += new System.EventHandler(this.text);
+            // this.groupBox2.Enter += new System.EventHandler(this.text);
             // 
             // groupBox3
             // 
