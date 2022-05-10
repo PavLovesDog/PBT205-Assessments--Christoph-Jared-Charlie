@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "+WEpsNtepXkQHdGyMFLmf0LXYJjfHXApg+bPgJkR+GvbF5SlPvTnqIu9Bm1M/fow7SM4q1ezGO0V+eOz5D2Vig==",
+  "dgSpecHash": "k0qfuNKIcaXSr74Ys8aG8TH5k16WiotHoSz4Dbvz/cUkml6IN42fEtpnFlpfhqgvQPchMjucJMPhqY4rljZ/vw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\charl\\Desktop\\Git\\PBT205-Assessments--Christoph-Jared-Charlie\\Server\\Server.csproj",
+  "projectFilePath": "C:\\Users\\jared\\OneDrive\\Documents\\GitHub\\PBT205-Assessments--Christoph-Jared-Charlie\\Server\\Server.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\charl\\.nuget\\packages\\stub.system.data.sqlite.core.netstandard\\1.0.115.5\\stub.system.data.sqlite.core.netstandard.1.0.115.5.nupkg.sha512",
-    "C:\\Users\\charl\\.nuget\\packages\\system.data.sqlite.core\\1.0.115.5\\system.data.sqlite.core.1.0.115.5.nupkg.sha512"
+    "C:\\Users\\jared\\.nuget\\packages\\stub.system.data.sqlite.core.netstandard\\1.0.115.5\\stub.system.data.sqlite.core.netstandard.1.0.115.5.nupkg.sha512",
+    "C:\\Users\\jared\\.nuget\\packages\\system.data.sqlite.core\\1.0.115.5\\system.data.sqlite.core.1.0.115.5.nupkg.sha512"
   ],
   "logs": []
 }

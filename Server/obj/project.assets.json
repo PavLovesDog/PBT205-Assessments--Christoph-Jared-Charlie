@@ -77,19 +77,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\charl\\.nuget\\packages\\": {}
+    "C:\\Users\\jared\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\charl\\Desktop\\Git\\PBT205-Assessments--Christoph-Jared-Charlie\\Server\\Server.csproj",
+      "projectUniqueName": "C:\\Users\\jared\\OneDrive\\Documents\\GitHub\\PBT205-Assessments--Christoph-Jared-Charlie\\Server\\Server.csproj",
       "projectName": "Server",
-      "projectPath": "C:\\Users\\charl\\Desktop\\Git\\PBT205-Assessments--Christoph-Jared-Charlie\\Server\\Server.csproj",
-      "packagesPath": "C:\\Users\\charl\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\charl\\Desktop\\Git\\PBT205-Assessments--Christoph-Jared-Charlie\\Server\\obj\\",
+      "projectPath": "C:\\Users\\jared\\OneDrive\\Documents\\GitHub\\PBT205-Assessments--Christoph-Jared-Charlie\\Server\\Server.csproj",
+      "packagesPath": "C:\\Users\\jared\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\jared\\OneDrive\\Documents\\GitHub\\PBT205-Assessments--Christoph-Jared-Charlie\\Server\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\charl\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\jared\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -135,7 +135,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.407\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.406\\RuntimeIdentifierGraph.json"
       }
     }
   }
