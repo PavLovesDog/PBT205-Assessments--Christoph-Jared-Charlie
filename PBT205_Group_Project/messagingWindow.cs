@@ -85,6 +85,8 @@ namespace PBT205_Group_Project
             // maybe look up String.Split() and String.Substring()
             //both useful to work with
             SendMessage(textMessage.Text,serverSocket);
+
+            serverSocket.BeginReceive(buffer,0,2048, SocketFlags.None, ReceiveCallback, serverSocket);
         }
         /*
         private void messagingWindow_Load(object sender, EventArgs e)

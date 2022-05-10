@@ -95,11 +95,10 @@ namespace PBT205_Group_Project
         private void TradingButton_Click(object sender, System.EventArgs e)
         {
             // Go to Trading App
-            //msg = Encoding.ASCII.GetBytes("<State> Trading");
-            //serverSocket.Send(msg);
             currentUser.state = State.Trading;
             SendState();
             tradingWindow tWindow = new tradingWindow(currentUser);
+
             this.Close();
             tWindow.ShowDialog();
         }
@@ -116,8 +115,6 @@ namespace PBT205_Group_Project
         private void ContactButton_Click(object sender, System.EventArgs e)
         {
             // Go to Contact Tracing App
-            //msg = Encoding.ASCII.GetBytes("<ContactTracing>");
-            //serverSocket.Send(msg);
             currentUser.state = State.ContactTracing;
             SendState();
             contactTracingWindow contactTracingWindow = new contactTracingWindow(currentUser);
@@ -127,8 +124,8 @@ namespace PBT205_Group_Project
 
         private void closeButton_Click(object sender, EventArgs e)
         {
-            //msg = Encoding.ASCII.GetBytes("<EXIT>");
-            //serverSocket.Send(msg);
+            msg = Encoding.ASCII.GetBytes("<EXIT>");
+            serverSocket.Send(msg);
             logInWindow logWindow = new logInWindow();
             this.Close(); // close current window
             logWindow.ShowDialog();

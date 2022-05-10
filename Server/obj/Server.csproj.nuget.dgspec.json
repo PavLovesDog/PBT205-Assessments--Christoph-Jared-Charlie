@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jared\\OneDrive\\Documents\\GitHub\\PBT205-Assessments--Christoph-Jared-Charlie\\Server\\Server.csproj": {}
+    "A:\\_UNI\\2022_Tri_01\\PBT202\\Assessment\\Assessment 03\\PBT205-Assessments--Christoph-Jared-Charlie\\Server\\Server.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jared\\OneDrive\\Documents\\GitHub\\PBT205-Assessments--Christoph-Jared-Charlie\\Server\\Server.csproj": {
+    "A:\\_UNI\\2022_Tri_01\\PBT202\\Assessment\\Assessment 03\\PBT205-Assessments--Christoph-Jared-Charlie\\Server\\Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jared\\OneDrive\\Documents\\GitHub\\PBT205-Assessments--Christoph-Jared-Charlie\\Server\\Server.csproj",
+        "projectUniqueName": "A:\\_UNI\\2022_Tri_01\\PBT202\\Assessment\\Assessment 03\\PBT205-Assessments--Christoph-Jared-Charlie\\Server\\Server.csproj",
         "projectName": "Server",
-        "projectPath": "C:\\Users\\jared\\OneDrive\\Documents\\GitHub\\PBT205-Assessments--Christoph-Jared-Charlie\\Server\\Server.csproj",
-        "packagesPath": "C:\\Users\\jared\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jared\\OneDrive\\Documents\\GitHub\\PBT205-Assessments--Christoph-Jared-Charlie\\Server\\obj\\",
+        "projectPath": "A:\\_UNI\\2022_Tri_01\\PBT202\\Assessment\\Assessment 03\\PBT205-Assessments--Christoph-Jared-Charlie\\Server\\Server.csproj",
+        "packagesPath": "C:\\Users\\Christoph\\.nuget\\packages\\",
+        "outputPath": "A:\\_UNI\\2022_Tri_01\\PBT202\\Assessment\\Assessment 03\\PBT205-Assessments--Christoph-Jared-Charlie\\Server\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\jared\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "A:\\Users\\Christoph\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -55,12 +55,18 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.1.22, 3.1.22]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.406\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

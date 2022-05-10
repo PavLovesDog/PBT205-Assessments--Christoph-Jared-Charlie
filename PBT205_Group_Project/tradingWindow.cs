@@ -14,8 +14,8 @@ namespace PBT205_Group_Project
 {
     public partial class tradingWindow : Form
     {
-        List<string> orderChat = new List<string>();
-        List<string> tradeChat = new List<string>();
+        List<string> orderChat = new List<string>(); //keep track of active trades
+        List<string> tradeChat = new List<string>(); //keep track of done trades
 
         public static string selectedTopic = "";
         public static string price = "";
@@ -28,10 +28,29 @@ namespace PBT205_Group_Project
         {
             InitializeComponent();
             currentUser = cs;
+            switch (selectedTopic)
+            {
+                case "Orders":
+                    Send("<FetchActiveTrades>");
+                    foreach (string s in tradeChat)
+                    {
+                        Invoke((Action)delegate
+                        {
+                            messageBox.Text += s;
+                        });
+                    }
+                    break;
+                case "Trades":
+                    Send("<FetchDoneTrades>");
+                    foreach (string s in orderChat)
+                    {
+                        messageBox.Text += s;
+                    }
+                    break;
+            }
             ConnectToServer();
             if (serverSocket.Connected)
             {
-                currentUser.socket = serverSocket;
                 SendState();
                 lstTopics.SelectedIndex = 0;
                 buySellCombo.SelectedIndex = 0;
@@ -52,19 +71,20 @@ namespace PBT205_Group_Project
                 IPHostEntry host = Dns.GetHostEntry("localhost");
                 IPAddress ipAddress = host.AddressList[0];
                 IPEndPoint remoteEp = new IPEndPoint(ipAddress, 11000);
-                serverSocket = new Socket(ipAddress.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-                while (!serverSocket.Connected)
+
+                currentUser.socket = new Socket(ipAddress.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+                while (!currentUser.socket.Connected)
                 {
                     try
                     {
-                        serverSocket.Connect(remoteEp);
+                        currentUser.socket.Connect(remoteEp);
                     }
                     catch (Exception e)
                     {
                         MessageBox.Show(e.ToString(), "Error");
                     }
                 }
-
+                serverSocket = currentUser.socket;
 
                 serverSocket.BeginReceive(buffer, 0, 2048, SocketFlags.None, ReceiveCallback, currentUser);
                 //connectDone.Set();
@@ -93,34 +113,12 @@ namespace PBT205_Group_Project
             byte[] recBuf = new byte[received]; //set a buffer for the received
             Array.Copy(buffer, recBuf, received); //copies the bytes into the buffer object
             string data = Encoding.ASCII.GetString(recBuf); //converty the bytes to human readable string
-            //get all active trades and put them into the activeTrades List
+            //get all active trades and put them into the orderChat List
             if (data.StartsWith("<ActiveTrades>"))
             {
                 data = data.Substring("<ActiveTrades>".Length);
                 string[] trades = data.Split(new[] { "<NEXT>" }, StringSplitOptions.RemoveEmptyEntries);
-                for (int i = 0; i < trades.Length; i++)
-                {
-                    if (trades[i] != "")
-                    {
-                        string[] entry = trades[i].Split(new[] { "<Price>" }, StringSplitOptions.None);
-                        AddToTrades(entry[0] + " - " + entry[1]);
-                    }
-
-                }
-                /*
-                foreach (string s in trades)
-                {
-                    string[] entry = s.Split(new[] { "<Price>" }, StringSplitOptions.None);
-                    AddToTrades(entry[0] + " - " + entry[1]);
-                    //tradeChat.Add(entry[0] + " - " + entry[1]);
-                }
-                */
-            }
-            //get all done trades and put them into the doneTrades List
-            else if (data.StartsWith("<DoneTrades>"))
-            {
-                data = data.Substring("<DoneTrades>".Length);
-                string[] trades = data.Split(new[] { "<NEXT>" }, StringSplitOptions.None);
+                orderChat.Clear();
                 for (int i = 0; i < trades.Length; i++)
                 {
                     if (trades[i] != "")
@@ -129,28 +127,36 @@ namespace PBT205_Group_Project
                         AddToOrders(entry[0] + " - " + entry[1]);
                     }
                 }
-                /*
-                foreach (String s in trades)
-                {
-                    string[] entry = s.Split(new[] { "<Price>" }, StringSplitOptions.None);
+            }
+            //get all done trades and put them into the tradesChat List
+            else if (data.StartsWith("<DoneTrades>"))
+            {
+                data = data.Substring("<DoneTrades>".Length);
+                string[] trades = data.Split(new[] { "<NEXT>" }, StringSplitOptions.RemoveEmptyEntries);
 
-                    AddToOrders(entry[0] + " - " + entry[1]);
-                    //                    orderChat.Add(entry[0] + " - " + entry[1]);
+                tradeChat.Clear();
+                for (int i = 0; i < trades.Length; i++)
+                {
+                    if (trades[i] != "")
+                    {
+                        string[] entry = trades[i].Split(new[] { "<Price>" }, StringSplitOptions.None);
+                        AddToTrades(entry[0] + " - " + entry[1]);
+                    }
                 }
-                */
             }
             else if (data.StartsWith("<TradeFound>"))
             {
                 string m = data.Substring("<TradeFound>".Length);
                 string[] sArr = m.Split(new[] { "<Price>" }, StringSplitOptions.None);
                 MessageBox.Show("The order to " + sArr[0] + " stock at " + sArr[1] + " was succesful");
-
+                Send("<FetchDoneTrades>");
             }
             else if (data.StartsWith("<TradeNotFound>"))
             {
                 string m = data.Substring("<TradeNotFound>".Length);
                 string[] sArr = m.Split(new[] { "<Price>" }, StringSplitOptions.None);
                 MessageBox.Show("The order to " + sArr[0] + " stock at " + sArr[1] + " was not found, added to orders list.");
+                Send("<FetchActiveTrades>");
             }
 
             currentClientUser.socket.BeginReceive(buffer, 0, 2048, SocketFlags.None, ReceiveCallback, currentClientUser);
@@ -158,21 +164,13 @@ namespace PBT205_Group_Project
 
         private void AddToOrders(string s)
         {
-            orderChat.Clear();
             orderChat.Add(s + Environment.NewLine);
-            UpdateMessagebox();
         }
 
         private void AddToTrades(string s)
         {
-            tradeChat.Clear();
             tradeChat.Add(s + Environment.NewLine);
-            UpdateMessagebox();
 
-        }
-        void UpdateMessagebox()
-        {
-            
         }
         private void lstTopics_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -184,18 +182,18 @@ namespace PBT205_Group_Project
             switch (selectedTopic)
             {
                 case "Orders":
-                    Send("<FetchActiveTrades>");
-                    foreach (string s in tradeChat)
+                    //Send("<FetchActiveTrades>");
+                    foreach (string s in orderChat)
                     {
                         //Invoke((Action)delegate
-                       // {
-                            messageBox.Text += s;
+                        // {
+                        messageBox.Text += s;
                         //});
                     }
                     break;
                 case "Trades":
-                    Send("<FetchDoneTrades>");
-                    foreach (string s in orderChat)
+                    // Send("<FetchDoneTrades>");
+                    foreach (string s in tradeChat)
                     {
                         messageBox.Text += s;
                     }
@@ -206,7 +204,7 @@ namespace PBT205_Group_Project
         private void confirmOrderBtn_Click(object sender, EventArgs e)
         {
 
-            selectedTopic = lstTopics.GetItemText(lstTopics.SelectedItem);
+            //selectedTopic = lstTopics.GetItemText(lstTopics.SelectedItem);
             selectedBuyOrSell = buySellCombo.GetItemText(buySellCombo.SelectedItem);
             price = priceTextBox.Text;
 
