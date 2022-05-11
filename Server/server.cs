@@ -437,7 +437,7 @@ class Server
                 activeTrades.Remove(foundTrade);
                 doneTrades.Add(foundTrade);
                 //send a message to the matching client that a trade was found.
-                SendMessageToAll(cs.username + " has " + type + " XYZ stock for " + amount, null);
+                //SendMessageToAll(cs.username + " has " + type + " XYZ stock for " + amount, null);
 
             }
             else
@@ -452,39 +452,53 @@ class Server
 
             }
         }
+        else if (message.StartsWith("<FetchOrders>")){
+            string msg = "<UpdateOrders>";
+            msg += GetActiveTrades();
+            msg += GetDoneTrades();
+            SendData(msg, cs);
+        }
         else if (message.StartsWith("<Fetch"))
         {
             string m = message.Substring("<Fetch".Length);
             if (m.StartsWith("DoneTrades>"))
             {
-                GetDoneTrades(cs);
+                //GetDoneTrades(cs);
             }
             else if (m.StartsWith("ActiveTrades>"))
             {
-                GetActiveTrades(cs);
+                //GetActiveTrades(cs);
             }
         }
         return cs;
     }
 
-    private void GetActiveTrades(ClientSocket cs)
+    private string GetActiveTrades()
     {
-        string msg = "<ActiveTrades>";
+        string msg = "";
         foreach (Trades t in activeTrades)
         {
             msg += t.buySell + "<Price>" + t.price + "<NEXT>";
         }
-        SendData(msg, cs);
+        if(msg == "")
+        {
+            msg = "<NULL>";
+        }
+        return msg;
         //return activeTrades;
     }
-    private void GetDoneTrades(ClientSocket cs)
+    private string GetDoneTrades()
     {
         string msg = "<DoneTrades>";
         foreach (Trades t in doneTrades)
         {
             msg += t.buySell + "<Price>" + t.price + "<NEXT>";
         }
-        SendData(msg, cs);
+        if (msg == "<DoneTrades>")
+        {
+            msg += "<NULL>";
+        }
+        return msg;
         //return doneTrades;
     }
     private Trades CompareTrade(string buySell, int amount)

@@ -114,6 +114,37 @@ namespace PBT205_Group_Project
             Array.Copy(buffer, recBuf, received); //copies the bytes into the buffer object
             string data = Encoding.ASCII.GetString(recBuf); //converty the bytes to human readable string
             //get all active trades and put them into the orderChat List
+            if (data.StartsWith("<UpdateOrders>"))
+            {
+                data = data.Substring("<UpdateOrders>".Length);
+                string[] trades = data.Split(new[] { "<DoneTrades>" }, StringSplitOptions.RemoveEmptyEntries);
+                string[] str = trades[0].Split(new[] { "<NEXT>" } , StringSplitOptions.RemoveEmptyEntries);
+                //get the active trades
+
+                orderChat.Clear();
+                for (int i = 0; i < str.Length; i++)
+                {
+                    if (str[i] != "")
+                    {
+                        string[] entry = str[i].Split(new[] { "<Price>" }, StringSplitOptions.None);
+                        AddToOrders(entry[0] + " - " + entry[1]);
+                    }
+                }
+
+
+                //get the done trades
+                tradeChat.Clear();
+                str = trades[1].Split(new[] { "<NEXT>" }, StringSplitOptions.RemoveEmptyEntries);
+                for (int i = 0; i < str.Length; i++)
+                {
+                    if (str[i] != "<NULL>")
+                    {
+                        string[] entry = str[i].Split(new[] { "<Price>" }, StringSplitOptions.None);
+                        AddToTrades(entry[0] + " - " + entry[1]);
+                    }
+                }
+            }
+
             if (data.StartsWith("<ActiveTrades>"))
             {
                 data = data.Substring("<ActiveTrades>".Length);
@@ -127,6 +158,11 @@ namespace PBT205_Group_Project
                         AddToOrders(entry[0] + " - " + entry[1]);
                     }
                 }
+                messageBox.Invoke((Action)delegate
+                {
+
+                    messageBox.Text = UpdateMessageBox();
+                });
             }
             //get all done trades and put them into the tradesChat List
             else if (data.StartsWith("<DoneTrades>"))
@@ -143,20 +179,27 @@ namespace PBT205_Group_Project
                         AddToTrades(entry[0] + " - " + entry[1]);
                     }
                 }
+                messageBox.Invoke((Action)delegate
+                {
+
+                    messageBox.Text = UpdateMessageBox();
+                });
             }
             else if (data.StartsWith("<TradeFound>"))
             {
                 string m = data.Substring("<TradeFound>".Length);
                 string[] sArr = m.Split(new[] { "<Price>" }, StringSplitOptions.None);
                 MessageBox.Show("The order to " + sArr[0] + " stock at " + sArr[1] + " was succesful");
-                Send("<FetchDoneTrades>");
+                //Send("<FetchDoneTrades>");
+                Send("<FetchOrders>");
             }
             else if (data.StartsWith("<TradeNotFound>"))
             {
                 string m = data.Substring("<TradeNotFound>".Length);
                 string[] sArr = m.Split(new[] { "<Price>" }, StringSplitOptions.None);
                 MessageBox.Show("The order to " + sArr[0] + " stock at " + sArr[1] + " was not found, added to orders list.");
-                Send("<FetchActiveTrades>");
+                // Send("<FetchActiveTrades>");
+                Send("<FetchOrders>");
             }
 
             currentClientUser.socket.BeginReceive(buffer, 0, 2048, SocketFlags.None, ReceiveCallback, currentClientUser);
@@ -179,26 +222,30 @@ namespace PBT205_Group_Project
             messageBox.Text = "";
 
             selectedTopic = lstTopics.GetItemText(lstTopics.SelectedItem);
+            messageBox.Text = UpdateMessageBox();
+        }
+
+        private string UpdateMessageBox()
+        {
+            string str = "";
             switch (selectedTopic)
             {
                 case "Orders":
                     //Send("<FetchActiveTrades>");
                     foreach (string s in orderChat)
                     {
-                        //Invoke((Action)delegate
-                        // {
-                        messageBox.Text += s;
-                        //});
+                        str += s;
                     }
                     break;
                 case "Trades":
                     // Send("<FetchDoneTrades>");
                     foreach (string s in tradeChat)
                     {
-                        messageBox.Text += s;
+                        str += s;
                     }
                     break;
             }
+            return str;
         }
 
         private void confirmOrderBtn_Click(object sender, EventArgs e)
