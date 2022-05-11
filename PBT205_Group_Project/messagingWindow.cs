@@ -26,6 +26,7 @@ namespace PBT205_Group_Project
             ConnectToServer();
             if (serverSocket.Connected)
             {
+                currentUser.socket = serverSocket;
                 SendState();
             }
         }
@@ -62,7 +63,7 @@ namespace PBT205_Group_Project
         //handle any messages that come in here
         private void ReceiveCallback(IAsyncResult ar)
         {
-            serverSocket = (Socket)ar.AsyncState;
+            ClientSocket currentClientUser = (ClientSocket)ar.AsyncState;
             int received;//recevied bytes
             try
             {
@@ -79,84 +80,23 @@ namespace PBT205_Group_Project
             byte[] recBuf = new byte[received]; //set a buffer for the received
             Array.Copy(buffer, recBuf, received); //copies the bytes into the buffer object
             string data = Encoding.ASCII.GetString(recBuf); //converty the bytes to human readable string
-
+            AddToChat(data);
             //handle data here with
             //StartsWith() function checks if the message starts with a certain string
             // maybe look up String.Split() and String.Substring()
             //both useful to work with
-            SendMessage(textMessage.Text,serverSocket);
+            //SendMessage(textMessage.Text,serverSocket);
 
-            serverSocket.BeginReceive(buffer,0,2048, SocketFlags.None, ReceiveCallback, serverSocket);
+            currentClientUser.socket.BeginReceive(buffer,0,2048, SocketFlags.None, ReceiveCallback, currentClientUser);
         }
-        /*
-        private void messagingWindow_Load(object sender, EventArgs e)
+     
+        void AddToChat(string msg)
         {
-            // Setting up the socket
-            socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
-            socket.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
-
-            // Getting user IP
-            textLocalIp.Text = GetLocalIP();
-            textRemoteIP.Text = GetLocalIP();
-        }
-
-        */
-        /*
-        private string GetLocalIP()
-        {
-            IPHostEntry host;
-            host = Dns.GetHostEntry(Dns.GetHostName());
-            foreach (IPAddress ip in host.AddressList)
+            listMessage.Invoke((Action)delegate
             {
-                if (ip.AddressFamily == AddressFamily.InterNetwork)
-                {
-                    return ip.ToString();
-                }
-            }
-            return "127.0.0.1";
+                listMessage.Items.Add(msg);
+            });
         }
-        */
-        /*
-        private void buttonConnect_Click(object sender, EventArgs e)
-        {
-            // Binding the socket
-            epLocal = new IPEndPoint(IPAddress.Parse(textLocalIp.Text), Convert.ToInt32(textLocalPort.Text));
-            socket.Bind(epLocal);
-
-            // Connecting to the Remote IP
-            epRemote = new IPEndPoint(IPAddress.Parse(textRemoteIP.Text), Convert.ToInt32(textRemoteIP.Text));
-            socket.Connect(epRemote);
-
-            // Listening to the specific port
-            buffer = new byte[1500];
-            socket.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack), buffer);
-        }
-        */
-
-        /*
-        private void MessageCallBack(IAsyncResult aResult)
-        {
-            try
-            {
-                byte[] receivedData = new byte[1500];
-                receivedData = (byte[])aResult.AsyncState;
-
-                // Converting the byte into a string
-                ASCIIEncoding aEncoding = new ASCIIEncoding();
-                string receivedMessage = aEncoding.GetString(receivedData);
-
-                // Adding the message into listbox
-                listMessage.Items.Add("Friend: " + receivedMessage);
-
-                buffer = new byte[1500];
-                socket.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack), buffer);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-        }
-        */
         void SendMessage(string data, Socket target)
         {
             byte[] msg = Encoding.ASCII.GetBytes(data);
@@ -180,16 +120,19 @@ namespace PBT205_Group_Project
         private void buttonSend_Click(object sender, EventArgs e)
         {
             // Converting the string message to a byte
+            /*
             ASCIIEncoding aEncoding = new ASCIIEncoding();
             byte[] sendingMessage = new byte[1500];
             sendingMessage = aEncoding.GetBytes(textMessage.Text);
 
-            
             // Sending the encoded message
             socket.Send(sendingMessage);
+            */
+
+            SendMessage(currentUser.username+": "+ textMessage.Text,serverSocket);
 
             // Adding to the listbox
-            listMessage.Items.Add("Me: " + textMessage.Text);
+            //listMessage.Items.Add("Me: " + textMessage.Text);
             textMessage.Text = "";
         }
     }

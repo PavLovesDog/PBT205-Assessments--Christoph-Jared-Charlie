@@ -137,8 +137,6 @@ class Server
 
 
         //check which window the user is on
-        //while (true)
-        // {
         try
         {
 
@@ -231,8 +229,7 @@ class Server
                     break;
             }
         }
-        // serverSocket.socket.BeginAccept(AcceptCallback, null);
-        //}
+
     }
     //used to send data
     public static void SendData(string data, ClientSocket target)
@@ -288,7 +285,6 @@ class Server
         return found;
     }
     #endregion
-
     #region Login Window Handling
     private ClientSocket HandleLogin(string message, ClientSocket cs)
     {
@@ -344,8 +340,6 @@ class Server
         return cs;
     }
     #endregion
-
-
     #region App Select Handling
     private ClientSocket HandleAppSelect(string message, ClientSocket cs)
     {
@@ -398,6 +392,7 @@ class Server
     private ClientSocket HandleMessage(string message, ClientSocket cs)
     {
         //do server side message stuff here
+        SendMessageToAll(message, cs);
 
         return cs;
     }
@@ -416,7 +411,6 @@ class Server
 
 
     #endregion
-
     #region Trading Handling
     private ClientSocket HandleTrading(string message, ClientSocket cs)
     {

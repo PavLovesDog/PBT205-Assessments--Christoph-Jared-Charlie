@@ -112,12 +112,13 @@ namespace PBT205_Group_Project
             this.buttonSend.TabIndex = 2;
             this.buttonSend.Text = "Send";
             this.buttonSend.UseVisualStyleBackColor = true;
+            this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
             // 
             // listMessage
             // 
             this.listMessage.FormattingEnabled = true;
             this.listMessage.Location = new System.Drawing.Point(10, 76);
-            this.listMessage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listMessage.Margin = new System.Windows.Forms.Padding(2);
             this.listMessage.Name = "listMessage";
             this.listMessage.Size = new System.Drawing.Size(649, 225);
             this.listMessage.TabIndex = 3;
@@ -129,9 +130,9 @@ namespace PBT205_Group_Project
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Location = new System.Drawing.Point(75, 10);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(150, 61);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
@@ -140,7 +141,7 @@ namespace PBT205_Group_Project
             // textLocalPort
             // 
             this.textLocalPort.Location = new System.Drawing.Point(52, 40);
-            this.textLocalPort.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textLocalPort.Margin = new System.Windows.Forms.Padding(2);
             this.textLocalPort.Name = "textLocalPort";
             this.textLocalPort.Size = new System.Drawing.Size(76, 20);
             this.textLocalPort.TabIndex = 3;
@@ -148,7 +149,7 @@ namespace PBT205_Group_Project
             // textLocalIp
             // 
             this.textLocalIp.Location = new System.Drawing.Point(52, 17);
-            this.textLocalIp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textLocalIp.Margin = new System.Windows.Forms.Padding(2);
             this.textLocalIp.Name = "textLocalIp";
             this.textLocalIp.Size = new System.Drawing.Size(76, 20);
             this.textLocalIp.TabIndex = 2;
@@ -180,9 +181,9 @@ namespace PBT205_Group_Project
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Location = new System.Drawing.Point(409, 11);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox3.Size = new System.Drawing.Size(150, 60);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
@@ -191,7 +192,7 @@ namespace PBT205_Group_Project
             // textRemoteIP
             // 
             this.textRemoteIP.Location = new System.Drawing.Point(52, 16);
-            this.textRemoteIP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textRemoteIP.Margin = new System.Windows.Forms.Padding(2);
             this.textRemoteIP.Name = "textRemoteIP";
             this.textRemoteIP.Size = new System.Drawing.Size(76, 20);
             this.textRemoteIP.TabIndex = 3;
@@ -199,7 +200,7 @@ namespace PBT205_Group_Project
             // textRemotePort
             // 
             this.textRemotePort.Location = new System.Drawing.Point(52, 39);
-            this.textRemotePort.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textRemotePort.Margin = new System.Windows.Forms.Padding(2);
             this.textRemotePort.Name = "textRemotePort";
             this.textRemotePort.Size = new System.Drawing.Size(76, 20);
             this.textRemotePort.TabIndex = 2;
@@ -227,7 +228,7 @@ namespace PBT205_Group_Project
             // buttonConnect
             // 
             this.buttonConnect.Location = new System.Drawing.Point(594, 29);
-            this.buttonConnect.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonConnect.Margin = new System.Windows.Forms.Padding(2);
             this.buttonConnect.Name = "buttonConnect";
             this.buttonConnect.Size = new System.Drawing.Size(56, 19);
             this.buttonConnect.TabIndex = 6;

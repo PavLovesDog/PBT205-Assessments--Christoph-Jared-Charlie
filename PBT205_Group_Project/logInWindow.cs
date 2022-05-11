@@ -178,10 +178,13 @@ namespace PBT205_Group_Project
                 serverSocket.Shutdown(SocketShutdown.Both);
                 serverSocket.Close();
                 appSelectWindow f2 = new appSelectWindow(currentUser);
+                
                 this.Invoke((MethodInvoker)delegate
                 {
                     this.Hide();
+                //this.Close();
                 });
+                
                 f2.ShowDialog();
 
 

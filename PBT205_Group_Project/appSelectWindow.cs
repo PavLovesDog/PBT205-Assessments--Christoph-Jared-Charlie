@@ -69,6 +69,9 @@ namespace PBT205_Group_Project
         {
             ClientSocket currentClient = (ClientSocket)ar.AsyncState;
             int receivedBytes;
+            if (currentClient.socket.Connected)
+            {
+
             try
             {
                 receivedBytes = currentClient.socket.EndReceive(ar);
@@ -84,6 +87,7 @@ namespace PBT205_Group_Project
             string text = Encoding.ASCII.GetString(receivedBuffer);
             MessageBox.Show(text + " convered from " + receivedBuffer, "Converted", MessageBoxButtons.OK);
             currentClient.socket.BeginReceive(currentClient.buffer, 0, ClientSocket.BUFFER_SIZE, SocketFlags.None, ReceiveCallback, currentClient);
+            }
         }
         //Function to send state to server
         void SendState()
@@ -92,11 +96,20 @@ namespace PBT205_Group_Project
             serverSocket.Send(msg);
         }
 
+        void SendMessage(string data)
+        {
+            byte[] msg = Encoding.ASCII.GetBytes(data);
+            serverSocket.Send(msg);
+        }
+
         private void TradingButton_Click(object sender, System.EventArgs e)
         {
             // Go to Trading App
             currentUser.state = State.Trading;
             SendState();
+            SendMessage("<EXIT>");
+            serverSocket.Shutdown(SocketShutdown.Both);
+            serverSocket.Close();
             tradingWindow tWindow = new tradingWindow(currentUser);
 
             this.Close();
@@ -107,6 +120,9 @@ namespace PBT205_Group_Project
             // Go to Messaging App
             currentUser.state = State.Messaging;
             SendState();
+            SendMessage("<EXIT>");
+            serverSocket.Shutdown(SocketShutdown.Both);
+            serverSocket.Close();
             messagingWindow msgWndw = new messagingWindow(currentUser);
             this.Close();
             msgWndw.ShowDialog();
@@ -117,25 +133,24 @@ namespace PBT205_Group_Project
             // Go to Contact Tracing App
             currentUser.state = State.ContactTracing;
             SendState();
+            //serverSocket.Shutdown(SocketShutdown.Both);
+            //serverSocket.Close();
             contactTracingWindow contactTracingWindow = new contactTracingWindow(currentUser);
-            this.Close();
+            this.Hide();
             contactTracingWindow.ShowDialog();
         }
 
         private void closeButton_Click(object sender, EventArgs e)
         {
-            msg = Encoding.ASCII.GetBytes("<EXIT>");
-            serverSocket.Send(msg);
+
             logInWindow logWindow = new logInWindow();
-            this.Close(); // close current window
+            this.Hide(); // close current window
             logWindow.ShowDialog();
         }
 
         private void appSelectWindow_FormClosed(object sender, FormClosedEventArgs e)
         {
-            byte[] msg = Encoding.ASCII.GetBytes("<EXIT>");
-            serverSocket.Send(msg);
-            this.Close(); // close current window
+            this.Hide(); // close current window
             Application.Exit();
         }
     }
