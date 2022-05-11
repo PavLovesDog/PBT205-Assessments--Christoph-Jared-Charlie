@@ -130,5 +130,13 @@ namespace PBT205_Group_Project
             this.Close(); // close current window
             logWindow.ShowDialog();
         }
+
+        private void appSelectWindow_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            byte[] msg = Encoding.ASCII.GetBytes("<EXIT>");
+            serverSocket.Send(msg);
+            this.Close(); // close current window
+            Application.Exit();
+        }
     }
 }

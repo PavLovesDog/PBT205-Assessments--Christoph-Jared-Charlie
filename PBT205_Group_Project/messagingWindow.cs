@@ -16,7 +16,7 @@ namespace PBT205_Group_Project
     {
         Socket socket;
         EndPoint epLocal, epRemote;
-        byte[] buffer;
+        byte[] buffer = new byte[2048];
         ClientSocket currentUser;
         Socket serverSocket;
         public messagingWindow(ClientSocket cs)
@@ -167,6 +167,14 @@ namespace PBT205_Group_Project
         {
             byte[] msg = Encoding.ASCII.GetBytes("<State> " + currentUser.state);
             serverSocket.Send(msg);
+        }
+
+        private void messagingWindow_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            byte[] msg = Encoding.ASCII.GetBytes("<EXIT>");
+            serverSocket.Send(msg);
+            this.Close(); // close current window
+            Application.Exit();
         }
 
         private void buttonSend_Click(object sender, EventArgs e)

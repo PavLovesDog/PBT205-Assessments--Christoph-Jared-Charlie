@@ -73,7 +73,7 @@ namespace PBT205_Group_Project
             this.passwordText.PasswordChar = '*';
             this.passwordText.Size = new System.Drawing.Size(278, 22);
             this.passwordText.TabIndex = 2;
-            this.passwordText.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            
             // 
             // userLabel
             // 
@@ -96,7 +96,6 @@ namespace PBT205_Group_Project
             this.passwordLabel.Size = new System.Drawing.Size(60, 15);
             this.passwordLabel.TabIndex = 4;
             this.passwordLabel.Text = " Password:";
-            this.passwordLabel.Click += new System.EventHandler(this.passwordLabel_Click);
             // 
             // lblRetort
             // 
@@ -149,7 +148,7 @@ namespace PBT205_Group_Project
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 224F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(797, 539);
             this.tableLayoutPanel1.TabIndex = 9;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
+            
             // 
             // flowLayoutPanel3
             // 

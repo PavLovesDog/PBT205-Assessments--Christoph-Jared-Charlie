@@ -144,6 +144,7 @@ namespace PBT205_Group_Project
             this.Controls.Add(this.lstTopics);
             this.Name = "tradingWindow";
             this.Text = "Trading XYZ-Corp";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.tradingWindow_FormClosed);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

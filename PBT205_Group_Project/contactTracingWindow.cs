@@ -892,5 +892,13 @@ namespace PBT205_Group_Project
 
             addPersonTimer.Start();
         }
+
+        private void contactTracingWindow_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            byte[] msg = Encoding.ASCII.GetBytes("<EXIT>");
+            serverSocket.Send(msg);
+            this.Close(); // close current window
+            Application.Exit();
+        }
     }
 }

@@ -200,27 +200,12 @@ namespace PBT205_Group_Project
         {
             //lblUserReply.Text = "Enter Your Username";
         }
-        private void passwordLabel_Click(object sender, EventArgs e)
-        {
-
-        }
 
         // TITLE TEXT
         private void LblTitleText_Click(object sender, EventArgs e)
         {
             // MORE TEST CRAP, can remove
             lblRetort.Text = "You click good.";
-        }
-
-        // controls table setup.. but what to put here? colour?
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

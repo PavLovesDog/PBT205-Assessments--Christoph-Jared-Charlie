@@ -169,9 +169,9 @@ namespace PBT205_Group_Project
             this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 858F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 644F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 6F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15F));
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.infoBox, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel3, 1, 3);
@@ -180,15 +180,16 @@ namespace PBT205_Group_Project
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 6;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80.45454F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.54545F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 151F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(874, 696);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 18F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 123F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(656, 566);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // flowLayoutPanel1
@@ -199,9 +200,10 @@ namespace PBT205_Group_Project
             this.flowLayoutPanel1.Controls.Add(this.logOutButton);
             this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel2);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(11, 650);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(8, 528);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(852, 43);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(640, 36);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // button1
@@ -209,9 +211,9 @@ namespace PBT205_Group_Project
             this.button1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.button1.Font = new System.Drawing.Font("Wingdings 3", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Margin = new System.Windows.Forms.Padding(0, 0, 60, 3);
+            this.button1.Margin = new System.Windows.Forms.Padding(0, 0, 45, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(36, 41);
+            this.button1.Size = new System.Drawing.Size(27, 33);
             this.button1.TabIndex = 10;
             this.button1.Text = "P";
             this.button1.UseVisualStyleBackColor = false;
@@ -222,10 +224,10 @@ namespace PBT205_Group_Project
             this.startButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.startButton.AutoSize = true;
             this.startButton.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.startButton.Location = new System.Drawing.Point(136, 0);
-            this.startButton.Margin = new System.Windows.Forms.Padding(40, 0, 60, 10);
+            this.startButton.Location = new System.Drawing.Point(102, 0);
+            this.startButton.Margin = new System.Windows.Forms.Padding(30, 0, 45, 8);
             this.startButton.Name = "startButton";
-            this.startButton.Size = new System.Drawing.Size(108, 39);
+            this.startButton.Size = new System.Drawing.Size(81, 32);
             this.startButton.TabIndex = 0;
             this.startButton.Text = "Start";
             this.startButton.UseVisualStyleBackColor = false;
@@ -236,10 +238,10 @@ namespace PBT205_Group_Project
             this.quitButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.quitButton.AutoSize = true;
             this.quitButton.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.quitButton.Location = new System.Drawing.Point(364, 0);
-            this.quitButton.Margin = new System.Windows.Forms.Padding(60, 0, 60, 10);
+            this.quitButton.Location = new System.Drawing.Point(273, 0);
+            this.quitButton.Margin = new System.Windows.Forms.Padding(45, 0, 45, 8);
             this.quitButton.Name = "quitButton";
-            this.quitButton.Size = new System.Drawing.Size(108, 39);
+            this.quitButton.Size = new System.Drawing.Size(81, 32);
             this.quitButton.TabIndex = 2;
             this.quitButton.Text = "Quit";
             this.quitButton.UseVisualStyleBackColor = false;
@@ -249,10 +251,10 @@ namespace PBT205_Group_Project
             // 
             this.logOutButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.logOutButton.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.logOutButton.Location = new System.Drawing.Point(592, 0);
-            this.logOutButton.Margin = new System.Windows.Forms.Padding(60, 0, 80, 10);
+            this.logOutButton.Location = new System.Drawing.Point(444, 0);
+            this.logOutButton.Margin = new System.Windows.Forms.Padding(45, 0, 60, 8);
             this.logOutButton.Name = "logOutButton";
-            this.logOutButton.Size = new System.Drawing.Size(108, 39);
+            this.logOutButton.Size = new System.Drawing.Size(81, 32);
             this.logOutButton.TabIndex = 1;
             this.logOutButton.Text = "Log Out";
             this.logOutButton.UseVisualStyleBackColor = false;
@@ -260,17 +262,19 @@ namespace PBT205_Group_Project
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 52);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(2, 42);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(200, 100);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(150, 81);
             this.flowLayoutPanel2.TabIndex = 3;
             // 
             // infoBox
             // 
-            this.infoBox.Location = new System.Drawing.Point(11, 499);
+            this.infoBox.Location = new System.Drawing.Point(8, 405);
+            this.infoBox.Margin = new System.Windows.Forms.Padding(2);
             this.infoBox.Multiline = true;
             this.infoBox.Name = "infoBox";
-            this.infoBox.Size = new System.Drawing.Size(848, 145);
+            this.infoBox.Size = new System.Drawing.Size(637, 119);
             this.infoBox.TabIndex = 2;
             this.infoBox.TextChanged += new System.EventHandler(this.infoBox_TextChanged);
             // 
@@ -280,19 +284,20 @@ namespace PBT205_Group_Project
             this.flowLayoutPanel3.Controls.Add(this.comboBox1);
             this.flowLayoutPanel3.Controls.Add(this.searchButton);
             this.flowLayoutPanel3.Controls.Add(this.label111);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(11, 467);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(8, 379);
+            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(852, 26);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(639, 21);
             this.flowLayoutPanel3.TabIndex = 3;
             // 
             // lblTopic
             // 
             this.lblTopic.AutoSize = true;
             this.lblTopic.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTopic.Location = new System.Drawing.Point(3, 5);
-            this.lblTopic.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
+            this.lblTopic.Location = new System.Drawing.Point(2, 4);
+            this.lblTopic.Margin = new System.Windows.Forms.Padding(2, 4, 2, 0);
             this.lblTopic.Name = "lblTopic";
-            this.lblTopic.Size = new System.Drawing.Size(67, 25);
+            this.lblTopic.Size = new System.Drawing.Size(54, 19);
             this.lblTopic.TabIndex = 2;
             this.lblTopic.Text = "TOPIC";
             // 
@@ -303,20 +308,20 @@ namespace PBT205_Group_Project
             "User Contacts",
             "Person Contacts",
             "Exposed Contacts"});
-            this.comboBox1.Location = new System.Drawing.Point(293, 0);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(220, 0, 0, 3);
+            this.comboBox1.Location = new System.Drawing.Point(223, 0);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(165, 0, 0, 2);
             this.comboBox1.MaxDropDownItems = 2;
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(230, 24);
+            this.comboBox1.Size = new System.Drawing.Size(174, 21);
             this.comboBox1.TabIndex = 5;
             // 
             // searchButton
             // 
             this.searchButton.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.searchButton.Location = new System.Drawing.Point(523, 0);
-            this.searchButton.Margin = new System.Windows.Forms.Padding(0, 0, 3, 3);
+            this.searchButton.Location = new System.Drawing.Point(397, 0);
+            this.searchButton.Margin = new System.Windows.Forms.Padding(0, 0, 2, 2);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(75, 23);
+            this.searchButton.Size = new System.Drawing.Size(56, 19);
             this.searchButton.TabIndex = 1;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = false;
@@ -326,10 +331,10 @@ namespace PBT205_Group_Project
             // 
             this.label111.AutoSize = true;
             this.label111.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label111.Location = new System.Drawing.Point(719, 3);
-            this.label111.Margin = new System.Windows.Forms.Padding(118, 3, 3, 0);
+            this.label111.Location = new System.Drawing.Point(543, 2);
+            this.label111.Margin = new System.Windows.Forms.Padding(88, 2, 2, 0);
             this.label111.Name = "label111";
-            this.label111.Size = new System.Drawing.Size(115, 19);
+            this.label111.Size = new System.Drawing.Size(91, 15);
             this.label111.TabIndex = 6;
             this.label111.Text = "Column  (Y) 0 - 9";
             // 
@@ -337,10 +342,10 @@ namespace PBT205_Group_Project
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(338, 447);
-            this.label1.Margin = new System.Windows.Forms.Padding(330, 5, 3, 0);
+            this.label1.Location = new System.Drawing.Point(254, 363);
+            this.label1.Margin = new System.Windows.Forms.Padding(248, 4, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(505, 17);
+            this.label1.Size = new System.Drawing.Size(389, 14);
             this.label1.TabIndex = 4;
             this.label1.Text = "Search Target (QUERY)                                    CELL INFO:  Row      (X)" +
     " 0 - 9";
@@ -357,19 +362,20 @@ namespace PBT205_Group_Project
             this.flowLayoutPanel4.Controls.Add(this.label107);
             this.flowLayoutPanel4.Controls.Add(this.label4);
             this.flowLayoutPanel4.Controls.Add(this.label109);
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(11, 359);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(8, 291);
+            this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(849, 77);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(637, 63);
             this.flowLayoutPanel4.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(5, 10);
-            this.label3.Margin = new System.Windows.Forms.Padding(5, 10, 3, 0);
+            this.label3.Location = new System.Drawing.Point(4, 8);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 8, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(178, 57);
+            this.label3.Size = new System.Drawing.Size(138, 45);
             this.label3.TabIndex = 2;
             this.label3.Text = "    \'CLICK\' to MOVE\r\nTotal Persons On Board:   \r\n       Total Exposed: ";
             // 
@@ -380,10 +386,10 @@ namespace PBT205_Group_Project
             this.label105.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label105.Font = new System.Drawing.Font("Webdings", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label105.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label105.Location = new System.Drawing.Point(211, 15);
-            this.label105.Margin = new System.Windows.Forms.Padding(25, 15, 3, 0);
+            this.label105.Location = new System.Drawing.Point(163, 12);
+            this.label105.Margin = new System.Windows.Forms.Padding(19, 12, 2, 0);
             this.label105.Name = "label105";
-            this.label105.Size = new System.Drawing.Size(40, 42);
+            this.label105.Size = new System.Drawing.Size(33, 33);
             this.label105.TabIndex = 4;
             this.label105.Text = "m";
             // 
@@ -391,10 +397,10 @@ namespace PBT205_Group_Project
             // 
             this.label108.AutoSize = true;
             this.label108.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label108.Location = new System.Drawing.Point(254, 25);
-            this.label108.Margin = new System.Windows.Forms.Padding(0, 25, 3, 0);
+            this.label108.Location = new System.Drawing.Point(198, 20);
+            this.label108.Margin = new System.Windows.Forms.Padding(0, 20, 2, 0);
             this.label108.Name = "label108";
-            this.label108.Size = new System.Drawing.Size(60, 19);
+            this.label108.Size = new System.Drawing.Size(48, 15);
             this.label108.TabIndex = 7;
             this.label108.Text = "= Player";
             // 
@@ -405,10 +411,10 @@ namespace PBT205_Group_Project
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label2.Font = new System.Drawing.Font("Webdings", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label2.ForeColor = System.Drawing.Color.OrangeRed;
-            this.label2.Location = new System.Drawing.Point(322, 15);
-            this.label2.Margin = new System.Windows.Forms.Padding(5, 15, 3, 0);
+            this.label2.Location = new System.Drawing.Point(252, 12);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 12, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 42);
+            this.label2.Size = new System.Drawing.Size(34, 33);
             this.label2.TabIndex = 1;
             this.label2.Text = "m";
             // 
@@ -416,10 +422,10 @@ namespace PBT205_Group_Project
             // 
             this.label110.AutoSize = true;
             this.label110.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label110.Location = new System.Drawing.Point(366, 25);
-            this.label110.Margin = new System.Windows.Forms.Padding(0, 25, 3, 0);
+            this.label110.Location = new System.Drawing.Point(288, 20);
+            this.label110.Margin = new System.Windows.Forms.Padding(0, 20, 2, 0);
             this.label110.Name = "label110";
-            this.label110.Size = new System.Drawing.Size(103, 19);
+            this.label110.Size = new System.Drawing.Size(83, 15);
             this.label110.TabIndex = 9;
             this.label110.Text = "= Person (NPC)";
             // 
@@ -430,10 +436,10 @@ namespace PBT205_Group_Project
             this.label106.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label106.Font = new System.Drawing.Font("Webdings", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label106.ForeColor = System.Drawing.Color.ForestGreen;
-            this.label106.Location = new System.Drawing.Point(477, 15);
-            this.label106.Margin = new System.Windows.Forms.Padding(5, 15, 3, 0);
+            this.label106.Location = new System.Drawing.Point(377, 12);
+            this.label106.Margin = new System.Windows.Forms.Padding(4, 12, 2, 0);
             this.label106.Name = "label106";
-            this.label106.Size = new System.Drawing.Size(61, 42);
+            this.label106.Size = new System.Drawing.Size(50, 33);
             this.label106.TabIndex = 5;
             this.label106.Text = "mm";
             // 
@@ -441,10 +447,10 @@ namespace PBT205_Group_Project
             // 
             this.label107.AutoSize = true;
             this.label107.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label107.Location = new System.Drawing.Point(541, 25);
-            this.label107.Margin = new System.Windows.Forms.Padding(0, 25, 3, 0);
+            this.label107.Location = new System.Drawing.Point(429, 20);
+            this.label107.Margin = new System.Windows.Forms.Padding(0, 20, 2, 0);
             this.label107.Name = "label107";
-            this.label107.Size = new System.Drawing.Size(88, 19);
+            this.label107.Size = new System.Drawing.Size(71, 15);
             this.label107.TabIndex = 6;
             this.label107.Text = "= Contacting";
             // 
@@ -455,10 +461,10 @@ namespace PBT205_Group_Project
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label4.Font = new System.Drawing.Font("Webdings", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label4.ForeColor = System.Drawing.Color.Goldenrod;
-            this.label4.Location = new System.Drawing.Point(637, 15);
-            this.label4.Margin = new System.Windows.Forms.Padding(5, 15, 3, 0);
+            this.label4.Location = new System.Drawing.Point(506, 12);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 12, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 42);
+            this.label4.Size = new System.Drawing.Size(34, 33);
             this.label4.TabIndex = 3;
             this.label4.Text = "m";
             // 
@@ -466,10 +472,10 @@ namespace PBT205_Group_Project
             // 
             this.label109.AutoSize = true;
             this.label109.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label109.Location = new System.Drawing.Point(681, 25);
-            this.label109.Margin = new System.Windows.Forms.Padding(0, 25, 3, 0);
+            this.label109.Location = new System.Drawing.Point(542, 20);
+            this.label109.Margin = new System.Windows.Forms.Padding(0, 20, 2, 0);
             this.label109.Name = "label109";
-            this.label109.Size = new System.Drawing.Size(74, 19);
+            this.label109.Size = new System.Drawing.Size(59, 15);
             this.label109.TabIndex = 8;
             this.label109.Text = "= Exposed";
             // 
@@ -589,7 +595,8 @@ namespace PBT205_Group_Project
             this.tableLayoutPanel2.Controls.Add(this.label6, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.label5, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(11, 3);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(8, 2);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 10;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
@@ -602,7 +609,7 @@ namespace PBT205_Group_Project
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(852, 350);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(640, 285);
             this.tableLayoutPanel2.TabIndex = 7;
             // 
             // label104
@@ -612,9 +619,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label104.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label104.ForeColor = System.Drawing.Color.LightGray;
-            this.label104.Location = new System.Drawing.Point(762, 309);
+            this.label104.Location = new System.Drawing.Point(572, 255);
+            this.label104.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label104.Name = "label104";
-            this.label104.Size = new System.Drawing.Size(84, 38);
+            this.label104.Size = new System.Drawing.Size(63, 27);
             this.label104.TabIndex = 99;
             this.label104.Text = "m";
             this.label104.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -627,9 +635,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label103.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label103.ForeColor = System.Drawing.Color.LightGray;
-            this.label103.Location = new System.Drawing.Point(678, 309);
+            this.label103.Location = new System.Drawing.Point(509, 255);
+            this.label103.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label103.Name = "label103";
-            this.label103.Size = new System.Drawing.Size(75, 38);
+            this.label103.Size = new System.Drawing.Size(56, 27);
             this.label103.TabIndex = 98;
             this.label103.Text = "m";
             this.label103.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -642,9 +651,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label102.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label102.ForeColor = System.Drawing.Color.LightGray;
-            this.label102.Location = new System.Drawing.Point(594, 309);
+            this.label102.Location = new System.Drawing.Point(446, 255);
+            this.label102.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label102.Name = "label102";
-            this.label102.Size = new System.Drawing.Size(75, 38);
+            this.label102.Size = new System.Drawing.Size(56, 27);
             this.label102.TabIndex = 97;
             this.label102.Text = "m";
             this.label102.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -657,9 +667,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label101.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label101.ForeColor = System.Drawing.Color.LightGray;
-            this.label101.Location = new System.Drawing.Point(510, 309);
+            this.label101.Location = new System.Drawing.Point(383, 255);
+            this.label101.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label101.Name = "label101";
-            this.label101.Size = new System.Drawing.Size(75, 38);
+            this.label101.Size = new System.Drawing.Size(56, 27);
             this.label101.TabIndex = 96;
             this.label101.Text = "m";
             this.label101.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -672,9 +683,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label100.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label100.ForeColor = System.Drawing.Color.LightGray;
-            this.label100.Location = new System.Drawing.Point(426, 309);
+            this.label100.Location = new System.Drawing.Point(320, 255);
+            this.label100.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label100.Name = "label100";
-            this.label100.Size = new System.Drawing.Size(75, 38);
+            this.label100.Size = new System.Drawing.Size(56, 27);
             this.label100.TabIndex = 95;
             this.label100.Text = "m";
             this.label100.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -687,9 +699,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label99.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label99.ForeColor = System.Drawing.Color.LightGray;
-            this.label99.Location = new System.Drawing.Point(342, 309);
+            this.label99.Location = new System.Drawing.Point(257, 255);
+            this.label99.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label99.Name = "label99";
-            this.label99.Size = new System.Drawing.Size(75, 38);
+            this.label99.Size = new System.Drawing.Size(56, 27);
             this.label99.TabIndex = 94;
             this.label99.Text = "m";
             this.label99.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -702,9 +715,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label98.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label98.ForeColor = System.Drawing.Color.LightGray;
-            this.label98.Location = new System.Drawing.Point(258, 309);
+            this.label98.Location = new System.Drawing.Point(194, 255);
+            this.label98.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label98.Name = "label98";
-            this.label98.Size = new System.Drawing.Size(75, 38);
+            this.label98.Size = new System.Drawing.Size(56, 27);
             this.label98.TabIndex = 93;
             this.label98.Text = "m";
             this.label98.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -717,9 +731,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label97.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label97.ForeColor = System.Drawing.Color.LightGray;
-            this.label97.Location = new System.Drawing.Point(174, 309);
+            this.label97.Location = new System.Drawing.Point(131, 255);
+            this.label97.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label97.Name = "label97";
-            this.label97.Size = new System.Drawing.Size(75, 38);
+            this.label97.Size = new System.Drawing.Size(56, 27);
             this.label97.TabIndex = 92;
             this.label97.Text = "m";
             this.label97.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -732,9 +747,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label96.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label96.ForeColor = System.Drawing.Color.LightGray;
-            this.label96.Location = new System.Drawing.Point(90, 309);
+            this.label96.Location = new System.Drawing.Point(68, 255);
+            this.label96.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label96.Name = "label96";
-            this.label96.Size = new System.Drawing.Size(75, 38);
+            this.label96.Size = new System.Drawing.Size(56, 27);
             this.label96.TabIndex = 91;
             this.label96.Text = "m";
             this.label96.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -747,9 +763,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label95.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label95.ForeColor = System.Drawing.Color.LightGray;
-            this.label95.Location = new System.Drawing.Point(6, 309);
+            this.label95.Location = new System.Drawing.Point(5, 255);
+            this.label95.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label95.Name = "label95";
-            this.label95.Size = new System.Drawing.Size(75, 38);
+            this.label95.Size = new System.Drawing.Size(56, 27);
             this.label95.TabIndex = 90;
             this.label95.Text = "m";
             this.label95.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -762,9 +779,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label94.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label94.ForeColor = System.Drawing.Color.LightGray;
-            this.label94.Location = new System.Drawing.Point(762, 275);
+            this.label94.Location = new System.Drawing.Point(572, 227);
+            this.label94.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label94.Name = "label94";
-            this.label94.Size = new System.Drawing.Size(84, 31);
+            this.label94.Size = new System.Drawing.Size(63, 25);
             this.label94.TabIndex = 89;
             this.label94.Text = "m";
             this.label94.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -777,9 +795,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label93.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label93.ForeColor = System.Drawing.Color.LightGray;
-            this.label93.Location = new System.Drawing.Point(678, 275);
+            this.label93.Location = new System.Drawing.Point(509, 227);
+            this.label93.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label93.Name = "label93";
-            this.label93.Size = new System.Drawing.Size(75, 31);
+            this.label93.Size = new System.Drawing.Size(56, 25);
             this.label93.TabIndex = 88;
             this.label93.Text = "m";
             this.label93.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -792,9 +811,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label92.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label92.ForeColor = System.Drawing.Color.LightGray;
-            this.label92.Location = new System.Drawing.Point(594, 275);
+            this.label92.Location = new System.Drawing.Point(446, 227);
+            this.label92.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label92.Name = "label92";
-            this.label92.Size = new System.Drawing.Size(75, 31);
+            this.label92.Size = new System.Drawing.Size(56, 25);
             this.label92.TabIndex = 87;
             this.label92.Text = "m";
             this.label92.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -807,9 +827,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label91.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label91.ForeColor = System.Drawing.Color.LightGray;
-            this.label91.Location = new System.Drawing.Point(510, 275);
+            this.label91.Location = new System.Drawing.Point(383, 227);
+            this.label91.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label91.Name = "label91";
-            this.label91.Size = new System.Drawing.Size(75, 31);
+            this.label91.Size = new System.Drawing.Size(56, 25);
             this.label91.TabIndex = 86;
             this.label91.Text = "m";
             this.label91.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -822,9 +843,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label90.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label90.ForeColor = System.Drawing.Color.LightGray;
-            this.label90.Location = new System.Drawing.Point(426, 275);
+            this.label90.Location = new System.Drawing.Point(320, 227);
+            this.label90.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label90.Name = "label90";
-            this.label90.Size = new System.Drawing.Size(75, 31);
+            this.label90.Size = new System.Drawing.Size(56, 25);
             this.label90.TabIndex = 85;
             this.label90.Text = "m";
             this.label90.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -837,9 +859,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label89.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label89.ForeColor = System.Drawing.Color.LightGray;
-            this.label89.Location = new System.Drawing.Point(342, 275);
+            this.label89.Location = new System.Drawing.Point(257, 227);
+            this.label89.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label89.Name = "label89";
-            this.label89.Size = new System.Drawing.Size(75, 31);
+            this.label89.Size = new System.Drawing.Size(56, 25);
             this.label89.TabIndex = 84;
             this.label89.Text = "m";
             this.label89.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -852,9 +875,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label88.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label88.ForeColor = System.Drawing.Color.LightGray;
-            this.label88.Location = new System.Drawing.Point(258, 275);
+            this.label88.Location = new System.Drawing.Point(194, 227);
+            this.label88.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label88.Name = "label88";
-            this.label88.Size = new System.Drawing.Size(75, 31);
+            this.label88.Size = new System.Drawing.Size(56, 25);
             this.label88.TabIndex = 83;
             this.label88.Text = "m";
             this.label88.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -867,9 +891,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label87.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label87.ForeColor = System.Drawing.Color.LightGray;
-            this.label87.Location = new System.Drawing.Point(174, 275);
+            this.label87.Location = new System.Drawing.Point(131, 227);
+            this.label87.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label87.Name = "label87";
-            this.label87.Size = new System.Drawing.Size(75, 31);
+            this.label87.Size = new System.Drawing.Size(56, 25);
             this.label87.TabIndex = 82;
             this.label87.Text = "m";
             this.label87.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -882,9 +907,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label86.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label86.ForeColor = System.Drawing.Color.LightGray;
-            this.label86.Location = new System.Drawing.Point(90, 275);
+            this.label86.Location = new System.Drawing.Point(68, 227);
+            this.label86.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label86.Name = "label86";
-            this.label86.Size = new System.Drawing.Size(75, 31);
+            this.label86.Size = new System.Drawing.Size(56, 25);
             this.label86.TabIndex = 81;
             this.label86.Text = "m";
             this.label86.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -897,9 +923,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label85.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label85.ForeColor = System.Drawing.Color.LightGray;
-            this.label85.Location = new System.Drawing.Point(6, 275);
+            this.label85.Location = new System.Drawing.Point(5, 227);
+            this.label85.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label85.Name = "label85";
-            this.label85.Size = new System.Drawing.Size(75, 31);
+            this.label85.Size = new System.Drawing.Size(56, 25);
             this.label85.TabIndex = 80;
             this.label85.Text = "m";
             this.label85.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -912,9 +939,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label84.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label84.ForeColor = System.Drawing.Color.LightGray;
-            this.label84.Location = new System.Drawing.Point(762, 241);
+            this.label84.Location = new System.Drawing.Point(572, 199);
+            this.label84.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label84.Name = "label84";
-            this.label84.Size = new System.Drawing.Size(84, 31);
+            this.label84.Size = new System.Drawing.Size(63, 25);
             this.label84.TabIndex = 79;
             this.label84.Text = "m";
             this.label84.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -927,9 +955,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label83.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label83.ForeColor = System.Drawing.Color.LightGray;
-            this.label83.Location = new System.Drawing.Point(678, 241);
+            this.label83.Location = new System.Drawing.Point(509, 199);
+            this.label83.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label83.Name = "label83";
-            this.label83.Size = new System.Drawing.Size(75, 31);
+            this.label83.Size = new System.Drawing.Size(56, 25);
             this.label83.TabIndex = 78;
             this.label83.Text = "m";
             this.label83.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -942,9 +971,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label82.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label82.ForeColor = System.Drawing.Color.LightGray;
-            this.label82.Location = new System.Drawing.Point(594, 241);
+            this.label82.Location = new System.Drawing.Point(446, 199);
+            this.label82.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label82.Name = "label82";
-            this.label82.Size = new System.Drawing.Size(75, 31);
+            this.label82.Size = new System.Drawing.Size(56, 25);
             this.label82.TabIndex = 77;
             this.label82.Text = "m";
             this.label82.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -957,9 +987,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label81.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label81.ForeColor = System.Drawing.Color.LightGray;
-            this.label81.Location = new System.Drawing.Point(510, 241);
+            this.label81.Location = new System.Drawing.Point(383, 199);
+            this.label81.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label81.Name = "label81";
-            this.label81.Size = new System.Drawing.Size(75, 31);
+            this.label81.Size = new System.Drawing.Size(56, 25);
             this.label81.TabIndex = 76;
             this.label81.Text = "m";
             this.label81.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -972,9 +1003,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label80.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label80.ForeColor = System.Drawing.Color.LightGray;
-            this.label80.Location = new System.Drawing.Point(426, 241);
+            this.label80.Location = new System.Drawing.Point(320, 199);
+            this.label80.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label80.Name = "label80";
-            this.label80.Size = new System.Drawing.Size(75, 31);
+            this.label80.Size = new System.Drawing.Size(56, 25);
             this.label80.TabIndex = 75;
             this.label80.Text = "m";
             this.label80.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -987,9 +1019,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label79.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label79.ForeColor = System.Drawing.Color.LightGray;
-            this.label79.Location = new System.Drawing.Point(342, 241);
+            this.label79.Location = new System.Drawing.Point(257, 199);
+            this.label79.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label79.Name = "label79";
-            this.label79.Size = new System.Drawing.Size(75, 31);
+            this.label79.Size = new System.Drawing.Size(56, 25);
             this.label79.TabIndex = 74;
             this.label79.Text = "m";
             this.label79.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1002,9 +1035,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label78.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label78.ForeColor = System.Drawing.Color.LightGray;
-            this.label78.Location = new System.Drawing.Point(258, 241);
+            this.label78.Location = new System.Drawing.Point(194, 199);
+            this.label78.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label78.Name = "label78";
-            this.label78.Size = new System.Drawing.Size(75, 31);
+            this.label78.Size = new System.Drawing.Size(56, 25);
             this.label78.TabIndex = 73;
             this.label78.Text = "m";
             this.label78.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1017,9 +1051,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label77.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label77.ForeColor = System.Drawing.Color.LightGray;
-            this.label77.Location = new System.Drawing.Point(174, 241);
+            this.label77.Location = new System.Drawing.Point(131, 199);
+            this.label77.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(75, 31);
+            this.label77.Size = new System.Drawing.Size(56, 25);
             this.label77.TabIndex = 72;
             this.label77.Text = "m";
             this.label77.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1032,9 +1067,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label76.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label76.ForeColor = System.Drawing.Color.LightGray;
-            this.label76.Location = new System.Drawing.Point(90, 241);
+            this.label76.Location = new System.Drawing.Point(68, 199);
+            this.label76.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label76.Name = "label76";
-            this.label76.Size = new System.Drawing.Size(75, 31);
+            this.label76.Size = new System.Drawing.Size(56, 25);
             this.label76.TabIndex = 71;
             this.label76.Text = "m";
             this.label76.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1047,9 +1083,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label75.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label75.ForeColor = System.Drawing.Color.LightGray;
-            this.label75.Location = new System.Drawing.Point(6, 241);
+            this.label75.Location = new System.Drawing.Point(5, 199);
+            this.label75.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label75.Name = "label75";
-            this.label75.Size = new System.Drawing.Size(75, 31);
+            this.label75.Size = new System.Drawing.Size(56, 25);
             this.label75.TabIndex = 70;
             this.label75.Text = "m";
             this.label75.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1062,9 +1099,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label74.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label74.ForeColor = System.Drawing.Color.LightGray;
-            this.label74.Location = new System.Drawing.Point(762, 207);
+            this.label74.Location = new System.Drawing.Point(572, 171);
+            this.label74.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label74.Name = "label74";
-            this.label74.Size = new System.Drawing.Size(84, 31);
+            this.label74.Size = new System.Drawing.Size(63, 25);
             this.label74.TabIndex = 69;
             this.label74.Text = "m";
             this.label74.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1077,9 +1115,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label73.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label73.ForeColor = System.Drawing.Color.LightGray;
-            this.label73.Location = new System.Drawing.Point(678, 207);
+            this.label73.Location = new System.Drawing.Point(509, 171);
+            this.label73.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label73.Name = "label73";
-            this.label73.Size = new System.Drawing.Size(75, 31);
+            this.label73.Size = new System.Drawing.Size(56, 25);
             this.label73.TabIndex = 68;
             this.label73.Text = "m";
             this.label73.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1092,9 +1131,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label72.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label72.ForeColor = System.Drawing.Color.LightGray;
-            this.label72.Location = new System.Drawing.Point(594, 207);
+            this.label72.Location = new System.Drawing.Point(446, 171);
+            this.label72.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label72.Name = "label72";
-            this.label72.Size = new System.Drawing.Size(75, 31);
+            this.label72.Size = new System.Drawing.Size(56, 25);
             this.label72.TabIndex = 67;
             this.label72.Text = "m";
             this.label72.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1107,9 +1147,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label71.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label71.ForeColor = System.Drawing.Color.LightGray;
-            this.label71.Location = new System.Drawing.Point(510, 207);
+            this.label71.Location = new System.Drawing.Point(383, 171);
+            this.label71.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label71.Name = "label71";
-            this.label71.Size = new System.Drawing.Size(75, 31);
+            this.label71.Size = new System.Drawing.Size(56, 25);
             this.label71.TabIndex = 66;
             this.label71.Text = "m";
             this.label71.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1122,9 +1163,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label70.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label70.ForeColor = System.Drawing.Color.LightGray;
-            this.label70.Location = new System.Drawing.Point(426, 207);
+            this.label70.Location = new System.Drawing.Point(320, 171);
+            this.label70.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label70.Name = "label70";
-            this.label70.Size = new System.Drawing.Size(75, 31);
+            this.label70.Size = new System.Drawing.Size(56, 25);
             this.label70.TabIndex = 65;
             this.label70.Text = "m";
             this.label70.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1137,9 +1179,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label69.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label69.ForeColor = System.Drawing.Color.LightGray;
-            this.label69.Location = new System.Drawing.Point(342, 207);
+            this.label69.Location = new System.Drawing.Point(257, 171);
+            this.label69.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label69.Name = "label69";
-            this.label69.Size = new System.Drawing.Size(75, 31);
+            this.label69.Size = new System.Drawing.Size(56, 25);
             this.label69.TabIndex = 64;
             this.label69.Text = "m";
             this.label69.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1152,9 +1195,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label68.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label68.ForeColor = System.Drawing.Color.LightGray;
-            this.label68.Location = new System.Drawing.Point(258, 207);
+            this.label68.Location = new System.Drawing.Point(194, 171);
+            this.label68.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label68.Name = "label68";
-            this.label68.Size = new System.Drawing.Size(75, 31);
+            this.label68.Size = new System.Drawing.Size(56, 25);
             this.label68.TabIndex = 63;
             this.label68.Text = "m";
             this.label68.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1167,9 +1211,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label67.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label67.ForeColor = System.Drawing.Color.LightGray;
-            this.label67.Location = new System.Drawing.Point(174, 207);
+            this.label67.Location = new System.Drawing.Point(131, 171);
+            this.label67.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(75, 31);
+            this.label67.Size = new System.Drawing.Size(56, 25);
             this.label67.TabIndex = 62;
             this.label67.Text = "m";
             this.label67.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1182,9 +1227,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label66.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label66.ForeColor = System.Drawing.Color.LightGray;
-            this.label66.Location = new System.Drawing.Point(90, 207);
+            this.label66.Location = new System.Drawing.Point(68, 171);
+            this.label66.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(75, 31);
+            this.label66.Size = new System.Drawing.Size(56, 25);
             this.label66.TabIndex = 61;
             this.label66.Text = "m";
             this.label66.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1197,9 +1243,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label65.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label65.ForeColor = System.Drawing.Color.LightGray;
-            this.label65.Location = new System.Drawing.Point(6, 207);
+            this.label65.Location = new System.Drawing.Point(5, 171);
+            this.label65.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(75, 31);
+            this.label65.Size = new System.Drawing.Size(56, 25);
             this.label65.TabIndex = 60;
             this.label65.Text = "m";
             this.label65.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1212,9 +1259,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label64.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label64.ForeColor = System.Drawing.Color.LightGray;
-            this.label64.Location = new System.Drawing.Point(762, 173);
+            this.label64.Location = new System.Drawing.Point(572, 143);
+            this.label64.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(84, 31);
+            this.label64.Size = new System.Drawing.Size(63, 25);
             this.label64.TabIndex = 59;
             this.label64.Text = "m";
             this.label64.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1227,9 +1275,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label63.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label63.ForeColor = System.Drawing.Color.LightGray;
-            this.label63.Location = new System.Drawing.Point(678, 173);
+            this.label63.Location = new System.Drawing.Point(509, 143);
+            this.label63.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(75, 31);
+            this.label63.Size = new System.Drawing.Size(56, 25);
             this.label63.TabIndex = 58;
             this.label63.Text = "m";
             this.label63.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1242,9 +1291,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label62.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label62.ForeColor = System.Drawing.Color.LightGray;
-            this.label62.Location = new System.Drawing.Point(594, 173);
+            this.label62.Location = new System.Drawing.Point(446, 143);
+            this.label62.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(75, 31);
+            this.label62.Size = new System.Drawing.Size(56, 25);
             this.label62.TabIndex = 57;
             this.label62.Text = "m";
             this.label62.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1257,9 +1307,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label61.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label61.ForeColor = System.Drawing.Color.LightGray;
-            this.label61.Location = new System.Drawing.Point(510, 173);
+            this.label61.Location = new System.Drawing.Point(383, 143);
+            this.label61.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(75, 31);
+            this.label61.Size = new System.Drawing.Size(56, 25);
             this.label61.TabIndex = 56;
             this.label61.Text = "m";
             this.label61.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1272,9 +1323,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label60.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label60.ForeColor = System.Drawing.Color.LightGray;
-            this.label60.Location = new System.Drawing.Point(426, 173);
+            this.label60.Location = new System.Drawing.Point(320, 143);
+            this.label60.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(75, 31);
+            this.label60.Size = new System.Drawing.Size(56, 25);
             this.label60.TabIndex = 55;
             this.label60.Text = "m";
             this.label60.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1287,9 +1339,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label59.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label59.ForeColor = System.Drawing.Color.LightGray;
-            this.label59.Location = new System.Drawing.Point(342, 173);
+            this.label59.Location = new System.Drawing.Point(257, 143);
+            this.label59.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(75, 31);
+            this.label59.Size = new System.Drawing.Size(56, 25);
             this.label59.TabIndex = 54;
             this.label59.Text = "m";
             this.label59.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1302,9 +1355,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label58.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label58.ForeColor = System.Drawing.Color.LightGray;
-            this.label58.Location = new System.Drawing.Point(258, 173);
+            this.label58.Location = new System.Drawing.Point(194, 143);
+            this.label58.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(75, 31);
+            this.label58.Size = new System.Drawing.Size(56, 25);
             this.label58.TabIndex = 53;
             this.label58.Text = "m";
             this.label58.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1317,9 +1371,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label57.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label57.ForeColor = System.Drawing.Color.LightGray;
-            this.label57.Location = new System.Drawing.Point(174, 173);
+            this.label57.Location = new System.Drawing.Point(131, 143);
+            this.label57.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(75, 31);
+            this.label57.Size = new System.Drawing.Size(56, 25);
             this.label57.TabIndex = 52;
             this.label57.Text = "m";
             this.label57.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1332,9 +1387,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label56.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label56.ForeColor = System.Drawing.Color.LightGray;
-            this.label56.Location = new System.Drawing.Point(90, 173);
+            this.label56.Location = new System.Drawing.Point(68, 143);
+            this.label56.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(75, 31);
+            this.label56.Size = new System.Drawing.Size(56, 25);
             this.label56.TabIndex = 51;
             this.label56.Text = "m";
             this.label56.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1347,9 +1403,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label55.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label55.ForeColor = System.Drawing.Color.LightGray;
-            this.label55.Location = new System.Drawing.Point(6, 173);
+            this.label55.Location = new System.Drawing.Point(5, 143);
+            this.label55.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(75, 31);
+            this.label55.Size = new System.Drawing.Size(56, 25);
             this.label55.TabIndex = 50;
             this.label55.Text = "m";
             this.label55.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1362,9 +1419,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label54.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label54.ForeColor = System.Drawing.Color.LightGray;
-            this.label54.Location = new System.Drawing.Point(762, 139);
+            this.label54.Location = new System.Drawing.Point(572, 115);
+            this.label54.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(84, 31);
+            this.label54.Size = new System.Drawing.Size(63, 25);
             this.label54.TabIndex = 49;
             this.label54.Text = "m";
             this.label54.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1377,9 +1435,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label53.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label53.ForeColor = System.Drawing.Color.LightGray;
-            this.label53.Location = new System.Drawing.Point(678, 139);
+            this.label53.Location = new System.Drawing.Point(509, 115);
+            this.label53.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(75, 31);
+            this.label53.Size = new System.Drawing.Size(56, 25);
             this.label53.TabIndex = 48;
             this.label53.Text = "m";
             this.label53.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1392,9 +1451,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label52.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label52.ForeColor = System.Drawing.Color.LightGray;
-            this.label52.Location = new System.Drawing.Point(594, 139);
+            this.label52.Location = new System.Drawing.Point(446, 115);
+            this.label52.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(75, 31);
+            this.label52.Size = new System.Drawing.Size(56, 25);
             this.label52.TabIndex = 47;
             this.label52.Text = "m";
             this.label52.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1407,9 +1467,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label51.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label51.ForeColor = System.Drawing.Color.LightGray;
-            this.label51.Location = new System.Drawing.Point(510, 139);
+            this.label51.Location = new System.Drawing.Point(383, 115);
+            this.label51.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(75, 31);
+            this.label51.Size = new System.Drawing.Size(56, 25);
             this.label51.TabIndex = 46;
             this.label51.Text = "m";
             this.label51.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1422,9 +1483,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label50.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label50.ForeColor = System.Drawing.Color.LightGray;
-            this.label50.Location = new System.Drawing.Point(426, 139);
+            this.label50.Location = new System.Drawing.Point(320, 115);
+            this.label50.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(75, 31);
+            this.label50.Size = new System.Drawing.Size(56, 25);
             this.label50.TabIndex = 45;
             this.label50.Text = "m";
             this.label50.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1437,9 +1499,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label49.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label49.ForeColor = System.Drawing.Color.LightGray;
-            this.label49.Location = new System.Drawing.Point(342, 139);
+            this.label49.Location = new System.Drawing.Point(257, 115);
+            this.label49.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(75, 31);
+            this.label49.Size = new System.Drawing.Size(56, 25);
             this.label49.TabIndex = 44;
             this.label49.Text = "m";
             this.label49.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1452,9 +1515,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label48.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label48.ForeColor = System.Drawing.Color.LightGray;
-            this.label48.Location = new System.Drawing.Point(258, 139);
+            this.label48.Location = new System.Drawing.Point(194, 115);
+            this.label48.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(75, 31);
+            this.label48.Size = new System.Drawing.Size(56, 25);
             this.label48.TabIndex = 43;
             this.label48.Text = "m";
             this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1467,9 +1531,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label47.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label47.ForeColor = System.Drawing.Color.LightGray;
-            this.label47.Location = new System.Drawing.Point(174, 139);
+            this.label47.Location = new System.Drawing.Point(131, 115);
+            this.label47.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(75, 31);
+            this.label47.Size = new System.Drawing.Size(56, 25);
             this.label47.TabIndex = 42;
             this.label47.Text = "m";
             this.label47.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1482,9 +1547,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label46.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label46.ForeColor = System.Drawing.Color.LightGray;
-            this.label46.Location = new System.Drawing.Point(90, 139);
+            this.label46.Location = new System.Drawing.Point(68, 115);
+            this.label46.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(75, 31);
+            this.label46.Size = new System.Drawing.Size(56, 25);
             this.label46.TabIndex = 41;
             this.label46.Text = "m";
             this.label46.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1497,9 +1563,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label45.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label45.ForeColor = System.Drawing.Color.LightGray;
-            this.label45.Location = new System.Drawing.Point(6, 139);
+            this.label45.Location = new System.Drawing.Point(5, 115);
+            this.label45.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(75, 31);
+            this.label45.Size = new System.Drawing.Size(56, 25);
             this.label45.TabIndex = 40;
             this.label45.Text = "m";
             this.label45.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1512,9 +1579,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label44.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label44.ForeColor = System.Drawing.Color.LightGray;
-            this.label44.Location = new System.Drawing.Point(762, 105);
+            this.label44.Location = new System.Drawing.Point(572, 87);
+            this.label44.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(84, 31);
+            this.label44.Size = new System.Drawing.Size(63, 25);
             this.label44.TabIndex = 39;
             this.label44.Text = "m";
             this.label44.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1527,9 +1595,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label43.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label43.ForeColor = System.Drawing.Color.LightGray;
-            this.label43.Location = new System.Drawing.Point(678, 105);
+            this.label43.Location = new System.Drawing.Point(509, 87);
+            this.label43.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(75, 31);
+            this.label43.Size = new System.Drawing.Size(56, 25);
             this.label43.TabIndex = 38;
             this.label43.Text = "m";
             this.label43.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1542,9 +1611,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label42.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label42.ForeColor = System.Drawing.Color.LightGray;
-            this.label42.Location = new System.Drawing.Point(594, 105);
+            this.label42.Location = new System.Drawing.Point(446, 87);
+            this.label42.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(75, 31);
+            this.label42.Size = new System.Drawing.Size(56, 25);
             this.label42.TabIndex = 37;
             this.label42.Text = "m";
             this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1557,9 +1627,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label41.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label41.ForeColor = System.Drawing.Color.LightGray;
-            this.label41.Location = new System.Drawing.Point(510, 105);
+            this.label41.Location = new System.Drawing.Point(383, 87);
+            this.label41.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(75, 31);
+            this.label41.Size = new System.Drawing.Size(56, 25);
             this.label41.TabIndex = 36;
             this.label41.Text = "m";
             this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1572,9 +1643,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label40.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label40.ForeColor = System.Drawing.Color.LightGray;
-            this.label40.Location = new System.Drawing.Point(426, 105);
+            this.label40.Location = new System.Drawing.Point(320, 87);
+            this.label40.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(75, 31);
+            this.label40.Size = new System.Drawing.Size(56, 25);
             this.label40.TabIndex = 35;
             this.label40.Text = "m";
             this.label40.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1587,9 +1659,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label39.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label39.ForeColor = System.Drawing.Color.LightGray;
-            this.label39.Location = new System.Drawing.Point(342, 105);
+            this.label39.Location = new System.Drawing.Point(257, 87);
+            this.label39.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(75, 31);
+            this.label39.Size = new System.Drawing.Size(56, 25);
             this.label39.TabIndex = 34;
             this.label39.Text = "m";
             this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1602,9 +1675,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label38.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label38.ForeColor = System.Drawing.Color.LightGray;
-            this.label38.Location = new System.Drawing.Point(258, 105);
+            this.label38.Location = new System.Drawing.Point(194, 87);
+            this.label38.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(75, 31);
+            this.label38.Size = new System.Drawing.Size(56, 25);
             this.label38.TabIndex = 33;
             this.label38.Text = "m";
             this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1617,9 +1691,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label37.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label37.ForeColor = System.Drawing.Color.LightGray;
-            this.label37.Location = new System.Drawing.Point(174, 105);
+            this.label37.Location = new System.Drawing.Point(131, 87);
+            this.label37.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(75, 31);
+            this.label37.Size = new System.Drawing.Size(56, 25);
             this.label37.TabIndex = 32;
             this.label37.Text = "m";
             this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1632,9 +1707,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label36.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label36.ForeColor = System.Drawing.Color.LightGray;
-            this.label36.Location = new System.Drawing.Point(90, 105);
+            this.label36.Location = new System.Drawing.Point(68, 87);
+            this.label36.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(75, 31);
+            this.label36.Size = new System.Drawing.Size(56, 25);
             this.label36.TabIndex = 31;
             this.label36.Text = "m";
             this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1647,9 +1723,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label35.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label35.ForeColor = System.Drawing.Color.LightGray;
-            this.label35.Location = new System.Drawing.Point(6, 105);
+            this.label35.Location = new System.Drawing.Point(5, 87);
+            this.label35.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(75, 31);
+            this.label35.Size = new System.Drawing.Size(56, 25);
             this.label35.TabIndex = 30;
             this.label35.Text = "m";
             this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1662,9 +1739,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label34.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label34.ForeColor = System.Drawing.Color.LightGray;
-            this.label34.Location = new System.Drawing.Point(762, 71);
+            this.label34.Location = new System.Drawing.Point(572, 59);
+            this.label34.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(84, 31);
+            this.label34.Size = new System.Drawing.Size(63, 25);
             this.label34.TabIndex = 29;
             this.label34.Text = "m";
             this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1677,9 +1755,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label33.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label33.ForeColor = System.Drawing.Color.LightGray;
-            this.label33.Location = new System.Drawing.Point(678, 71);
+            this.label33.Location = new System.Drawing.Point(509, 59);
+            this.label33.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(75, 31);
+            this.label33.Size = new System.Drawing.Size(56, 25);
             this.label33.TabIndex = 28;
             this.label33.Text = "m";
             this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1692,9 +1771,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label32.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label32.ForeColor = System.Drawing.Color.LightGray;
-            this.label32.Location = new System.Drawing.Point(594, 71);
+            this.label32.Location = new System.Drawing.Point(446, 59);
+            this.label32.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(75, 31);
+            this.label32.Size = new System.Drawing.Size(56, 25);
             this.label32.TabIndex = 27;
             this.label32.Text = "m";
             this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1707,9 +1787,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label31.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label31.ForeColor = System.Drawing.Color.LightGray;
-            this.label31.Location = new System.Drawing.Point(510, 71);
+            this.label31.Location = new System.Drawing.Point(383, 59);
+            this.label31.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(75, 31);
+            this.label31.Size = new System.Drawing.Size(56, 25);
             this.label31.TabIndex = 26;
             this.label31.Text = "m";
             this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1722,9 +1803,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label30.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label30.ForeColor = System.Drawing.Color.LightGray;
-            this.label30.Location = new System.Drawing.Point(426, 71);
+            this.label30.Location = new System.Drawing.Point(320, 59);
+            this.label30.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(75, 31);
+            this.label30.Size = new System.Drawing.Size(56, 25);
             this.label30.TabIndex = 25;
             this.label30.Text = "m";
             this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1737,9 +1819,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label29.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label29.ForeColor = System.Drawing.Color.LightGray;
-            this.label29.Location = new System.Drawing.Point(342, 71);
+            this.label29.Location = new System.Drawing.Point(257, 59);
+            this.label29.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(75, 31);
+            this.label29.Size = new System.Drawing.Size(56, 25);
             this.label29.TabIndex = 24;
             this.label29.Text = "m";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1752,9 +1835,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label28.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label28.ForeColor = System.Drawing.Color.LightGray;
-            this.label28.Location = new System.Drawing.Point(258, 71);
+            this.label28.Location = new System.Drawing.Point(194, 59);
+            this.label28.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(75, 31);
+            this.label28.Size = new System.Drawing.Size(56, 25);
             this.label28.TabIndex = 23;
             this.label28.Text = "m";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1767,9 +1851,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label27.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label27.ForeColor = System.Drawing.Color.LightGray;
-            this.label27.Location = new System.Drawing.Point(174, 71);
+            this.label27.Location = new System.Drawing.Point(131, 59);
+            this.label27.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(75, 31);
+            this.label27.Size = new System.Drawing.Size(56, 25);
             this.label27.TabIndex = 22;
             this.label27.Text = "m";
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1782,9 +1867,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label26.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label26.ForeColor = System.Drawing.Color.LightGray;
-            this.label26.Location = new System.Drawing.Point(90, 71);
+            this.label26.Location = new System.Drawing.Point(68, 59);
+            this.label26.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(75, 31);
+            this.label26.Size = new System.Drawing.Size(56, 25);
             this.label26.TabIndex = 21;
             this.label26.Text = "m";
             this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1797,9 +1883,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label25.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label25.ForeColor = System.Drawing.Color.LightGray;
-            this.label25.Location = new System.Drawing.Point(6, 71);
+            this.label25.Location = new System.Drawing.Point(5, 59);
+            this.label25.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(75, 31);
+            this.label25.Size = new System.Drawing.Size(56, 25);
             this.label25.TabIndex = 20;
             this.label25.Text = "m";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1812,9 +1899,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label24.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label24.ForeColor = System.Drawing.Color.LightGray;
-            this.label24.Location = new System.Drawing.Point(762, 37);
+            this.label24.Location = new System.Drawing.Point(572, 31);
+            this.label24.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(84, 31);
+            this.label24.Size = new System.Drawing.Size(63, 25);
             this.label24.TabIndex = 19;
             this.label24.Text = "m";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1827,9 +1915,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label23.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label23.ForeColor = System.Drawing.Color.LightGray;
-            this.label23.Location = new System.Drawing.Point(678, 37);
+            this.label23.Location = new System.Drawing.Point(509, 31);
+            this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(75, 31);
+            this.label23.Size = new System.Drawing.Size(56, 25);
             this.label23.TabIndex = 18;
             this.label23.Text = "m";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1842,9 +1931,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label22.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label22.ForeColor = System.Drawing.Color.LightGray;
-            this.label22.Location = new System.Drawing.Point(594, 37);
+            this.label22.Location = new System.Drawing.Point(446, 31);
+            this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(75, 31);
+            this.label22.Size = new System.Drawing.Size(56, 25);
             this.label22.TabIndex = 17;
             this.label22.Text = "m";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1857,9 +1947,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label21.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label21.ForeColor = System.Drawing.Color.LightGray;
-            this.label21.Location = new System.Drawing.Point(510, 37);
+            this.label21.Location = new System.Drawing.Point(383, 31);
+            this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(75, 31);
+            this.label21.Size = new System.Drawing.Size(56, 25);
             this.label21.TabIndex = 16;
             this.label21.Text = "m";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1872,9 +1963,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label20.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label20.ForeColor = System.Drawing.Color.LightGray;
-            this.label20.Location = new System.Drawing.Point(426, 37);
+            this.label20.Location = new System.Drawing.Point(320, 31);
+            this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(75, 31);
+            this.label20.Size = new System.Drawing.Size(56, 25);
             this.label20.TabIndex = 15;
             this.label20.Text = "m";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1887,9 +1979,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label19.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label19.ForeColor = System.Drawing.Color.LightGray;
-            this.label19.Location = new System.Drawing.Point(342, 37);
+            this.label19.Location = new System.Drawing.Point(257, 31);
+            this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(75, 31);
+            this.label19.Size = new System.Drawing.Size(56, 25);
             this.label19.TabIndex = 14;
             this.label19.Text = "m";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1902,9 +1995,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label18.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label18.ForeColor = System.Drawing.Color.LightGray;
-            this.label18.Location = new System.Drawing.Point(258, 37);
+            this.label18.Location = new System.Drawing.Point(194, 31);
+            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(75, 31);
+            this.label18.Size = new System.Drawing.Size(56, 25);
             this.label18.TabIndex = 13;
             this.label18.Text = "m";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1917,9 +2011,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label17.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label17.ForeColor = System.Drawing.Color.LightGray;
-            this.label17.Location = new System.Drawing.Point(174, 37);
+            this.label17.Location = new System.Drawing.Point(131, 31);
+            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(75, 31);
+            this.label17.Size = new System.Drawing.Size(56, 25);
             this.label17.TabIndex = 12;
             this.label17.Text = "m";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1932,9 +2027,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label16.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label16.ForeColor = System.Drawing.Color.LightGray;
-            this.label16.Location = new System.Drawing.Point(90, 37);
+            this.label16.Location = new System.Drawing.Point(68, 31);
+            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(75, 31);
+            this.label16.Size = new System.Drawing.Size(56, 25);
             this.label16.TabIndex = 11;
             this.label16.Text = "m";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1947,9 +2043,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label15.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label15.ForeColor = System.Drawing.Color.LightGray;
-            this.label15.Location = new System.Drawing.Point(6, 37);
+            this.label15.Location = new System.Drawing.Point(5, 31);
+            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(75, 31);
+            this.label15.Size = new System.Drawing.Size(56, 25);
             this.label15.TabIndex = 10;
             this.label15.Text = "m";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1962,9 +2059,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label14.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label14.ForeColor = System.Drawing.Color.LightGray;
-            this.label14.Location = new System.Drawing.Point(762, 3);
+            this.label14.Location = new System.Drawing.Point(572, 3);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(84, 31);
+            this.label14.Size = new System.Drawing.Size(63, 25);
             this.label14.TabIndex = 9;
             this.label14.Text = "m";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1977,9 +2075,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label13.ForeColor = System.Drawing.Color.LightGray;
-            this.label13.Location = new System.Drawing.Point(678, 3);
+            this.label13.Location = new System.Drawing.Point(509, 3);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(75, 31);
+            this.label13.Size = new System.Drawing.Size(56, 25);
             this.label13.TabIndex = 8;
             this.label13.Text = "m";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1992,9 +2091,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label12.ForeColor = System.Drawing.Color.LightGray;
-            this.label12.Location = new System.Drawing.Point(594, 3);
+            this.label12.Location = new System.Drawing.Point(446, 3);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(75, 31);
+            this.label12.Size = new System.Drawing.Size(56, 25);
             this.label12.TabIndex = 7;
             this.label12.Text = "m";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2007,9 +2107,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label11.ForeColor = System.Drawing.Color.LightGray;
-            this.label11.Location = new System.Drawing.Point(510, 3);
+            this.label11.Location = new System.Drawing.Point(383, 3);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(75, 31);
+            this.label11.Size = new System.Drawing.Size(56, 25);
             this.label11.TabIndex = 6;
             this.label11.Text = "m";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2022,9 +2123,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label10.ForeColor = System.Drawing.Color.LightGray;
-            this.label10.Location = new System.Drawing.Point(426, 3);
+            this.label10.Location = new System.Drawing.Point(320, 3);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(75, 31);
+            this.label10.Size = new System.Drawing.Size(56, 25);
             this.label10.TabIndex = 5;
             this.label10.Text = "m";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2037,9 +2139,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label9.ForeColor = System.Drawing.Color.LightGray;
-            this.label9.Location = new System.Drawing.Point(342, 3);
+            this.label9.Location = new System.Drawing.Point(257, 3);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(75, 31);
+            this.label9.Size = new System.Drawing.Size(56, 25);
             this.label9.TabIndex = 4;
             this.label9.Text = "m";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2052,9 +2155,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label8.ForeColor = System.Drawing.Color.LightGray;
-            this.label8.Location = new System.Drawing.Point(258, 3);
+            this.label8.Location = new System.Drawing.Point(194, 3);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(75, 31);
+            this.label8.Size = new System.Drawing.Size(56, 25);
             this.label8.TabIndex = 3;
             this.label8.Text = "m";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2067,9 +2171,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label7.ForeColor = System.Drawing.Color.LightGray;
-            this.label7.Location = new System.Drawing.Point(174, 3);
+            this.label7.Location = new System.Drawing.Point(131, 3);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(75, 31);
+            this.label7.Size = new System.Drawing.Size(56, 25);
             this.label7.TabIndex = 2;
             this.label7.Text = "m";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2082,9 +2187,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label6.ForeColor = System.Drawing.Color.LightGray;
-            this.label6.Location = new System.Drawing.Point(90, 3);
+            this.label6.Location = new System.Drawing.Point(68, 3);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 31);
+            this.label6.Size = new System.Drawing.Size(56, 25);
             this.label6.TabIndex = 1;
             this.label6.Text = "m";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2096,9 +2202,10 @@ namespace PBT205_Group_Project
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label5.Font = new System.Drawing.Font("Webdings", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label5.ForeColor = System.Drawing.Color.LightGray;
-            this.label5.Location = new System.Drawing.Point(6, 3);
+            this.label5.Location = new System.Drawing.Point(5, 3);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(75, 31);
+            this.label5.Size = new System.Drawing.Size(56, 25);
             this.label5.TabIndex = 0;
             this.label5.Text = "m";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2116,12 +2223,14 @@ namespace PBT205_Group_Project
             // 
             // contactTracingWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(874, 696);
+            this.ClientSize = new System.Drawing.Size(656, 566);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "contactTracingWindow";
             this.Text = "Contact Tracing Application";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.contactTracingWindow_FormClosed);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
